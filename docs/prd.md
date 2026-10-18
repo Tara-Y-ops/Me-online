@@ -58,8 +58,8 @@ Sprint 1 testers are friends and their classmates at universities in mainland Ch
 - A Character screen showing the five attributes.
 - A Preference Map showing which kinds of quests the player liked and disliked.
 - A history of past check-ins.
-- Chinese and English side by side, in both the interface and the quests.
-- About 40 bilingual quests, about four for each pole. Quest content and writing rules live in a separate document.
+- A Chinese interface and Chinese quests. The code is set up so English can be added later without rework.
+- About 40 quests, about four for each pole. Quest content and writing rules live in a separate document.
 - A mobile web app that testers open in their phone browser for the test week. No native app is planned for now.
 - Email sign-up and login, built last. Until they work, data is saved on the device under an anonymous ID.
 
@@ -72,7 +72,7 @@ The daily loop and the three user flows (first-time player, daily play, reflecti
 ### FR-1 Character creation
 
 - **FR-1.1** The player picks a display name before the quiz.
-- **FR-1.2** The quiz is the 15-item BFI-2-XS (Soto & John, 2017b) in Chinese and English (Zhang et al., 2022), shown one item per screen with a progress bar.
+- **FR-1.2** The quiz is the 15-item BFI-2-XS (Soto & John, 2017b) in Chinese (Zhang et al., 2022), shown one item per screen with a progress bar.
 - **FR-1.3** The player can go back but cannot skip an item. An unfinished quiz resumes where it stopped.
 - **FR-1.4** The answers are scored with the BFI-2 key and turned into five attributes from 0 to 100 (Cohen et al., 1999). Each attribute’s home pole is the side the player scores on.
 - **FR-1.5** The result screen shows the five scores and poles as starting game values, not a personality assessment.
@@ -120,10 +120,10 @@ The daily loop and the three user flows (first-time player, daily play, reflecti
 
 - **FR-7.1** History lists past check-ins newest first, with the date, quest, reaction, note, and tags.
 
-### FR-8 Bilingual interface
+### FR-8 Language
 
-- **FR-8.1** Every screen shows Chinese and English side by side, Chinese first.
-- **FR-8.2** Each quest has its own Chinese and English text. The English is written for meaning, not translated word for word.
+- **FR-8.1** Sprint 1 is in Chinese only.
+- **FR-8.2** All interface text comes from translation files, and each quest has fields for both Chinese and English text, so adding English and a one-tap language switch later does not require reworking existing screens.
 
 ### FR-9 Data storage
 
