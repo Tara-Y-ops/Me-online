@@ -52,7 +52,7 @@ Sprint 1 testers are friends and their classmates at universities in mainland Ch
 
 ### In scope for Sprint 1
 
-- A 15-question personality quiz that creates the player’s character.
+- A 15-question personality quiz that creates the player’s character, followed by a short reflection that shapes which quests come next.
 - Three quests a day, at least one of them a stretch quest. The player can swap one each day.
 - Check-in, where the player picks Liked, Okay, or Disliked and can add a short note. Each check-in moves an attribute slightly.
 - A Character screen showing the five attributes.
@@ -75,8 +75,11 @@ The daily loop and the three user flows (first-time player, daily play, reflecti
 - **FR-1.2** The quiz is the 15-item BFI-2-XS (Soto & John, 2017b) in Chinese (Zhang et al., 2022), shown one item per screen with a progress bar.
 - **FR-1.3** The player can go back but cannot skip an item. An unfinished quiz resumes where it stopped.
 - **FR-1.4** The answers are scored with the BFI-2 key and turned into five attributes from 0 to 100 (Cohen et al., 1999). Each attribute’s home pole is the side the player scores on.
-- **FR-1.5** The result screen shows the five scores and poles as starting game values, not a personality assessment.
+- **FR-1.5** The result screen shows which side the player leans toward on each attribute, as starting game values, not a personality assessment.
 - **FR-1.6** The player can choose to continue to the full 60-item BFI-2 (Soto & John, 2017a). Answered items are not repeated, and the attributes are rescored from the full test.
+- **FR-1.7** After the result screen, the player says whether each attribute feels like them (Yes, Partly, or No). The answers are saved only as player feedback and do not change the scores.
+- **FR-1.8** The player picks a quest style, Comfort (quests that fit their current side) or Explore (more quests on the other side), and one or two attributes they most want to explore.
+- **FR-1.9** The player can change the quest style and focus attributes later on the Character screen.
 
 **Attribute poles**
 
@@ -86,9 +89,11 @@ The daily loop and the three user flows (first-time player, daily play, reflecti
 - **Warmth**, from Independent (low) to Caring (high)
 - **Calm**, from Sensitive (low) to Steady (high)
 
+Neither pole is better than the other. Screens show which side the player leans toward and never show the 0 to 100 score.
+
 ### FR-2 Daily quests
 
-- **FR-2.1** Each day the player gets three quests. At least one is a stretch quest on a randomly chosen attribute, and together they cover at least two attributes.
+- **FR-2.1** Each day the player gets three quests covering at least two attributes. Comfort players get one stretch quest and Explore players get two. Stretch quests come from the player’s focus attributes.
 - **FR-2.2** No quest repeats during the one-week test. AI-generated quests in later sprints will not repeat either.
 - **FR-2.3** The player can swap one quest a day, and the replacement follows the same rules.
 - **FR-2.4** Quests refresh at 4:00 a.m. China time (UTC+8). Unfinished quests do not carry over, and reloading the page does not reshuffle the day’s set.
@@ -98,17 +103,17 @@ The daily loop and the three user flows (first-time player, daily play, reflecti
 - **FR-3.1** The player can check in on any of the day’s quests before refresh, one check-in per quest.
 - **FR-3.2** A check-in is one tap on Liked, Okay, or Disliked, with an optional short note on why.
 - **FR-3.3** The player can also add up to three tags of their own to say what exactly they liked or disliked. Tags don’t change attributes.
-- **FR-3.4** Saving a check-in applies the attribute change, and a result card shows it.
+- **FR-3.4** Saving a check-in applies the attribute change. The result card shows it as a gain toward the pole the score moved to, such as “Recharge alone +0.1” after disliking a party quest, and never as a decrease.
 
 ### FR-4 Attribute changes
 
-- **FR-4.1** Each check-in moves the quest’s attribute by 0.5 points, and no attribute moves more than 1 point a week. Change in real personality is slow, about 0.37 SD after 24 weeks of intervention (Roberts et al., 2017), so the game keeps changes small. Scores stay within 0 to 100 and show one decimal place.
-- **FR-4.2** Liked moves the score toward the quest’s pole and Disliked moves it toward the opposite pole. Okay leaves it unchanged.
+- **FR-4.1** Liked moves the quest’s attribute 0.5 points toward the quest’s pole. Disliked moves it 0.1 points toward the opposite pole, so a quest the player disliked still counts as a small gain on their other side. No attribute moves more than 1 point a week. Change in real personality is slow, about 0.37 SD after 24 weeks of intervention (Roberts et al., 2017), so the game keeps changes small. Scores stay within 0 to 100.
+- **FR-4.2** Okay leaves the score unchanged.
 - **FR-4.3** When a score crosses 50, the player’s home side switches, and FR-2 treats the other pole as stretch from then on.
 
 ### FR-5 Character screen
 
-- **FR-5.1** The Character screen shows the display name, total check-ins, and five attribute bars, each with both pole labels and a marker at the player’s score.
+- **FR-5.1** The Character screen shows the display name, total check-ins, quest style, focus attributes, and five attribute bars, each with both pole labels and a marker showing which side the player leans toward.
 
 ### FR-6 Preference Map
 
