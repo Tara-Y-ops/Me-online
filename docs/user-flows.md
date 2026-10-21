@@ -17,13 +17,15 @@ flowchart TD
     B --> C[Pick a display name]
     C --> D[15-question quiz]
     D --> E[Meet the character]
-    E --> F([Today board with the first three quests])
+    E --> G[Short reflection]
+    G --> F([Today board with the first three quests])
 ```
 
 - The player lands on a welcome screen that explains the idea in two sentences and shows a sample quest.
 - They pick a display name.
 - They take the 15-question quiz, one question per screen with a progress bar.
 - They meet their new character with five attributes and a short note that these are starting game values, not a personality assessment.
+- They answer a short reflection on whether each attribute feels like them, pick Comfort or Explore, and choose one or two attributes to explore.
 - They land on the Today board with their first three quests.
 
 ## Flow 2, daily play
