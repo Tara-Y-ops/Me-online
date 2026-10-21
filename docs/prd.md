@@ -89,7 +89,7 @@ The daily loop and the three user flows (first-time player, daily play, reflecti
 - **Warmth**, from Independent (low) to Caring (high)
 - **Calm**, from Sensitive (low) to Steady (high)
 
-Neither pole is better than the other. Screens show which side the player leans toward and never show the 0 to 100 score.
+Neither pole is better than the other. Screens show how far the player leans as a percentage toward that side, with one decimal place, such as “65.0% Recharge alone” for a score of 35, and never show the raw 0 to 100 score.
 
 ### FR-2 Daily quests
 
@@ -103,17 +103,17 @@ Neither pole is better than the other. Screens show which side the player leans 
 - **FR-3.1** The player can check in on any of the day’s quests before refresh, one check-in per quest.
 - **FR-3.2** A check-in is one tap on Liked, Okay, or Disliked, with an optional short note on why.
 - **FR-3.3** The player can also add up to three tags of their own to say what exactly they liked or disliked. Tags don’t change attributes.
-- **FR-3.4** Saving a check-in applies the attribute change. The result card shows it as a gain toward the pole the score moved to, such as “Recharge alone +0.1” after disliking a party quest, and never as a decrease.
+- **FR-3.4** Saving a check-in applies the attribute change. The result card shows it as a gain toward the pole the score moved to, such as “Recharge alone +0.1%” after disliking a party quest, and never as a decrease.
 
 ### FR-4 Attribute changes
 
 - **FR-4.1** Liked moves the quest’s attribute 0.5 points toward the quest’s pole. Disliked moves it 0.1 points toward the opposite pole, so a quest the player disliked still counts as a small gain on their other side. No attribute moves more than 1 point a week. Change in real personality is slow, about 0.37 SD after 24 weeks of intervention (Roberts et al., 2017), so the game keeps changes small. Scores stay within 0 to 100.
 - **FR-4.2** Okay leaves the score unchanged.
-- **FR-4.3** When a score crosses 50, the player’s home side switches, and FR-2 treats the other pole as stretch from then on.
+- **FR-4.3** When a score crosses 50, the player’s home side switches and the result card says so. FR-2 treats the other pole as stretch from then on.
 
 ### FR-5 Character screen
 
-- **FR-5.1** The Character screen shows the display name, total check-ins, quest style, focus attributes, and five attribute bars, each with both pole labels and a marker showing which side the player leans toward.
+- **FR-5.1** The Character screen shows the display name, total check-ins, quest style, focus attributes, and five attribute bars, each with both pole labels and a marker and the percentage toward the side the player leans.
 
 ### FR-6 Preference Map
 
