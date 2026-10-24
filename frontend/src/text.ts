@@ -120,4 +120,11 @@ export const TEXT = {
     focusHint: '选 1–2 个，之后的挑战任务会多从这里出',
     start: '开始今天的任务',
   },
+
+  // 13 Character tab
+  characterTab: {
+    checkInCount: (count: number) => `累计打卡 ${count} 次`,
+    questStyle: (styleTitle: string) => `任务方向：${styleTitle}`,
+    focus: (attributeNames: string) => `想多了解：${attributeNames}`,
+  },
 } as const;
