@@ -1,5 +1,5 @@
 // First-time player flow: Welcome -> Consent -> Name (docs/user-flows.md, Flow 1).
-// The quiz steps will be added after Name in a later PR.
+// Once the profile is saved, App shows the quiz next.
 
 import { useState } from 'react';
 import type { Profile } from '../../storage/profile';
