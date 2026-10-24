@@ -7,6 +7,14 @@ import { formatPercent, percentToward, type AttributeId } from '../game/attribut
 import type { Side } from '../game/attributeChange';
 import { TEXT } from '../text';
 
+// How far the player leans, e.g. "65.0% 内向", or "中立" for a neutral start.
+export function leaningLabel(attribute: AttributeId, score: number, side: Side): string {
+  if (side === 'neutral') {
+    return TEXT.neutral;
+  }
+  return `${formatPercent(percentToward(score, side))} ${TEXT.attributePoles[attribute][side]}`;
+}
+
 interface AttributeBarProps {
   attribute: AttributeId;
   score: number; // 0 to 100
@@ -15,10 +23,7 @@ interface AttributeBarProps {
 
 export function AttributeBar({ attribute, score, side }: AttributeBarProps) {
   const poles = TEXT.attributePoles[attribute];
-  const label =
-    side === 'neutral'
-      ? TEXT.neutral
-      : `${formatPercent(percentToward(score, side))} ${poles[side]}`;
+  const label = leaningLabel(attribute, score, side);
 
   return (
     <div className="attribute-bar" aria-label={`${TEXT.attributeNames[attribute]} ${label}`}>

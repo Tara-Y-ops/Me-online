@@ -60,11 +60,11 @@ export function QuizScreen({ onFinish }: QuizScreenProps) {
         <p className="quiz-stem">{TEXT.quiz.stem}</p>
         <h2 className="quiz-item">{item.text}</h2>
 
-        <div className="quiz-options" role="radiogroup">
+        <div className="options" role="radiogroup">
           {ANSWERS.map((answer) => (
             <label
               key={answer}
-              className={answer === selected ? 'quiz-option quiz-option-selected' : 'quiz-option'}
+              className={answer === selected ? 'option option-selected' : 'option'}
             >
               <input
                 type="radio"
