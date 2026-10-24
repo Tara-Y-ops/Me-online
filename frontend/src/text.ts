@@ -99,4 +99,25 @@ export const TEXT = {
     note: '两边没有好坏，只是不同的风格。这是游戏起点，不是诊断。',
     next: '下一步',
   },
+
+  // 05a Does this sound like you?
+  selfCheck: {
+    title: '这像你吗？',
+    intro: '看看这些结果，和你对自己的感觉一样吗？',
+    options: { yes: '很像我', partly: '有点像', no: '不太像' },
+    next: '下一步',
+  },
+
+  // 05b How do you want to play?
+  questStyle: {
+    title: '接下来想怎么玩？',
+    styleQuestion: '你更想做哪种任务？',
+    options: {
+      comfort: { title: '多做顺手的事', description: '发挥你已经擅长的一面，轻松积累' },
+      explore: { title: '试试新的一面', description: '去做平时不太会做的事，看看感觉如何' },
+    },
+    focusQuestion: '最想了解自己哪一方面？',
+    focusHint: '选 1–2 个，之后的挑战任务会多从这里出',
+    start: '开始今天的任务',
+  },
 } as const;

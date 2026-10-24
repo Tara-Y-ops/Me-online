@@ -1,27 +1,25 @@
-// Root component. Shows one of three stages, based on what is saved:
+// Root component. Shows one of four stages, based on what is saved:
 // 1. No profile yet: onboarding (Welcome, Consent, Name).
 // 2. Profile but no character: the quiz, resuming where it stopped.
-// 3. Character created: the initial character once, then the main pages
-//    with the bottom navigation bar.
+// 3. Character but no player setup: initial character, self-check, quest style.
+// 4. Setup saved: the main pages with the bottom navigation bar.
 // Each tab only shows its title for now; the real pages come in later PRs.
 // Navigation is plain React state (no router library) to keep it simple.
 import { useState } from 'react';
 import { BottomNav, type Tab } from './components/BottomNav';
 import { scoreQuiz, SHORT_FORM_ITEMS, type QuizAnswers } from './game/quiz';
+import { CharacterSetup } from './screens/onboarding/CharacterSetup';
 import { Onboarding } from './screens/onboarding/Onboarding';
 import { QuizScreen } from './screens/onboarding/QuizScreen';
-import { ResultScreen } from './screens/onboarding/ResultScreen';
 import { createCharacter, loadCharacter, saveCharacter, type Character } from './storage/character';
+import { loadPlayerSetup, savePlayerSetup, type PlayerSetup } from './storage/playerSetup';
 import { loadProfile, saveProfile, type Profile } from './storage/profile';
 import { TEXT } from './text';
 
 function App() {
   const [profile, setProfile] = useState<Profile | null>(() => loadProfile());
   const [character, setCharacter] = useState<Character | null>(() => loadCharacter());
-  // True right after the quiz, to show the initial character once.
-  // Temporary: the next PR saves the self-check and quest style, and will
-  // decide this from saved data instead.
-  const [showResult, setShowResult] = useState(false);
+  const [setup, setSetup] = useState<PlayerSetup | null>(() => loadPlayerSetup());
   // The app opens on the Today board (docs/user-flows.md).
   const [tab, setTab] = useState<Tab>('today');
 
@@ -35,7 +33,11 @@ function App() {
     const newCharacter = createCharacter(scoreQuiz(SHORT_FORM_ITEMS, answers));
     saveCharacter(newCharacter);
     setCharacter(newCharacter);
-    setShowResult(true);
+  }
+
+  function finishSetup(newSetup: PlayerSetup) {
+    savePlayerSetup(newSetup);
+    setSetup(newSetup);
   }
 
   if (!profile) {
@@ -54,10 +56,10 @@ function App() {
     );
   }
 
-  if (showResult) {
+  if (!setup) {
     return (
       <div className="app">
-        <ResultScreen character={character} onNext={() => setShowResult(false)} />
+        <CharacterSetup character={character} onFinish={finishSetup} />
       </div>
     );
   }
