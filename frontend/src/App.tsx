@@ -1,13 +1,21 @@
-// Root component. For now it only shows a placeholder so we can confirm
-// the toolchain works. Screens and routing will be added in later steps.
-// The Chinese text is hard-coded only until the i18n step moves it into
-// translation files (PRD FR-8.2).
+// Root component: the app shell with the bottom navigation bar.
+// Each tab only shows its title for now; the real pages come in later PRs.
+// Navigation is plain React state (no router library) to keep it simple.
+import { useState } from 'react';
+import { BottomNav, type Tab } from './components/BottomNav';
+import { TEXT } from './text';
+
 function App() {
+  // The app opens on the Today board (docs/user-flows.md).
+  const [tab, setTab] = useState<Tab>('today');
+
   return (
-    <main>
-      <h1>Me Online</h1>
-      <p>每天三个小任务，发现你喜欢什么。</p>
-    </main>
+    <div className="app">
+      <main className="screen">
+        <h1 className="screen-title">{TEXT.screenTitles[tab]}</h1>
+      </main>
+      <BottomNav current={tab} onChange={setTab} />
+    </div>
   );
 }
 
