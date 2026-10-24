@@ -74,7 +74,7 @@ The daily loop and the three user flows (first-time player, daily play, reflecti
 - **FR-1.1** The player picks a display name before the quiz.
 - **FR-1.2** The quiz is the 15-item BFI-2-XS (Soto & John, 2017b) in Chinese (Zhang et al., 2022), shown one item per screen with a progress bar.
 - **FR-1.3** The player can go back but cannot skip an item. An unfinished quiz resumes where it stopped.
-- **FR-1.4** The answers are scored with the BFI-2 key and turned into five attributes from 0 to 100 (Cohen et al., 1999). Each attribute’s home pole is the side the player scores on.
+- **FR-1.4** The answers are scored with the BFI-2 key and turned into five attributes from 0 to 100 (Cohen et al., 1999). Each attribute’s home pole is the side the player scores on. A score of exactly 50 is neutral: the player is not placed on either side until a check-in moves the score.
 - **FR-1.5** The result screen shows which side the player leans toward on each attribute, as starting game values, not a personality assessment.
 - **FR-1.6** The player can choose to continue to the full 60-item BFI-2 (Soto & John, 2017a). Answered items are not repeated, and the attributes are rescored from the full test.
 - **FR-1.7** After the result screen, the player says whether each attribute feels like them (Yes, Partly, or No). The answers are saved only as player feedback and do not change the scores.
@@ -89,7 +89,7 @@ The daily loop and the three user flows (first-time player, daily play, reflecti
 - **Warmth**, from Independent (low) to Caring (high)
 - **Calm**, from Sensitive (low) to Steady (high)
 
-Neither pole is better than the other. Screens show how far the player leans as a percentage toward that side, with one decimal place, such as “65.0% Recharge alone” for a score of 35, and never show the raw 0 to 100 score.
+Neither pole is better than the other. Screens show how far the player leans as a percentage toward that side, with one decimal place, such as “65.0% Recharge alone” for a score of 35, and never show the raw 0 to 100 score. A neutral attribute is shown as neutral instead of a percentage.
 
 ### FR-2 Daily quests
 
@@ -107,9 +107,9 @@ Neither pole is better than the other. Screens show how far the player leans as 
 
 ### FR-4 Attribute changes
 
-- **FR-4.1** Liked moves the quest’s attribute 0.5 points toward the quest’s pole. Disliked moves it 0.1 points toward the opposite pole, so a quest the player disliked still counts as a small gain on their other side. No attribute moves more than 1 point a week. Change in real personality is slow, about 0.37 SD after 24 weeks of intervention (Roberts et al., 2017), so the game keeps changes small. Scores stay within 0 to 100.
+- **FR-4.1** Liked moves the quest’s attribute 0.5 points toward the quest’s pole. Disliked moves it 0.1 points toward the opposite pole, so a quest the player disliked still counts as a small gain on their other side. Within a week (Monday to Sunday, China time), each attribute stays within 1 point of its score at the start of that week, in either direction. The limit is on net change, so a move back toward the week-start score is always allowed. Change in real personality is slow, about 0.37 SD after 24 weeks of intervention (Roberts et al., 2017), so the game keeps changes small. Scores stay within 0 to 100.
 - **FR-4.2** Okay leaves the score unchanged.
-- **FR-4.3** When a score crosses 50, the player’s home side switches and the result card says so. FR-2 treats the other pole as stretch from then on.
+- **FR-4.3** When a score crosses 50, the player’s home side switches and the result card says so. FR-2 treats the other pole as stretch from then on. A score that lands exactly on 50 counts as the side it moved toward. When a neutral attribute first moves, it takes that side, and this is not shown as a switch.
 
 ### FR-5 Character screen
 
