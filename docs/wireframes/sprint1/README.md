@@ -2,8 +2,7 @@
 
 Low-fidelity, grayscale mobile wireframes for Sprint 1 of the [PRD](../../prd.md). The UI copy in the screens is in Chinese.
 
-- Figma (source of truth): https://www.figma.com/design/w6wQqlRwhgGpdWWRgxMYlF
-- Overview of all screens: [00-all-screens.png](00-all-screens.png)
+- Figma: https://www.figma.com/design/w6wQqlRwhgGpdWWRgxMYlF
 
 Each screen is exported as a PNG (750×1624, 2×). [wireframes.svg](wireframes.svg) is the full Figma page exported as one SVG. The overview shows notes under each screen that map it to PRD requirements.
 
