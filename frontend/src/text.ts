@@ -69,4 +69,15 @@ export const TEXT = {
     quizIntro: '接下来有 15 道题，用来生成角色的初始数值。',
     start: '开始测验',
   },
+
+  // 04 Quiz item. Answer labels come from the official scale in game/quiz.ts.
+  quiz: {
+    title: '角色测验',
+    progress: (current: number, total: number) => `第 ${current} / ${total} 题`,
+    // Each item completes this sentence, as in the Chinese BFI-2 form.
+    stem: '我是一个……的人',
+    previous: '上一题',
+    next: '下一题',
+    finish: '完成',
+  },
 } as const;

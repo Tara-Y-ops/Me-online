@@ -254,3 +254,81 @@ button {
   margin: 0;
   accent-color: var(--color-primary);
 }
+
+/* ---------- Two buttons side by side ---------- */
+
+.button-row {
+  display: flex;
+  gap: 12px;
+}
+
+.button-secondary {
+  width: 100%;
+  padding: 16px;
+  border: 1.5px solid var(--color-text);
+  border-radius: 12px;
+  background: var(--color-surface);
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button-secondary:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* ---------- 04 Quiz ---------- */
+
+.progress-bar {
+  height: 8px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: #e6e6e6;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--color-primary);
+  transition: width 0.2s;
+}
+
+.quiz-stem {
+  margin: 32px 0 6px;
+  color: var(--color-muted);
+}
+
+.quiz-item {
+  margin: 0 0 28px;
+  font-size: 24px;
+  line-height: 1.4;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.quiz-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border: 1.5px solid var(--color-text);
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.quiz-option-selected {
+  background: #ececec;
+  font-weight: 600;
+}
+
+.quiz-option input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--color-primary);
+}
