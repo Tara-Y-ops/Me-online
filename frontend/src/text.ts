@@ -2,7 +2,7 @@
 // text here means adding English later only touches this file (PRD FR-8).
 // Wording follows the Sprint 1 wireframes.
 
-import type { AttributeId } from './game/attributes';
+import type { AttributeId, Pole } from './game/attributes';
 
 export const TEXT = {
   appName: 'Me Online',
@@ -33,6 +33,18 @@ export const TEXT = {
     warmth: '宜人性',
     calm: '情绪稳定性',
   } satisfies Record<AttributeId, string>,
+
+  // The two poles of each attribute, low then high.
+  attributePoles: {
+    curiosity: { low: '保守', high: '开放' },
+    discipline: { low: '随性', high: '尽责' },
+    socialEnergy: { low: '内向', high: '外向' },
+    warmth: { low: '独立', high: '宜人' },
+    calm: { low: '敏感', high: '稳定' },
+  } satisfies Record<AttributeId, Record<Pole, string>>,
+
+  // Shown instead of a percentage when a score is exactly 50 at the start.
+  neutral: '中立',
 
   // Quest card tags: a stretch quest or a home (comfort zone) quest.
   questKind: {
@@ -79,5 +91,12 @@ export const TEXT = {
     previous: '上一题',
     next: '下一题',
     finish: '完成',
+  },
+
+  // 05 Initial character
+  result: {
+    title: '你的初始角色',
+    note: '两边没有好坏，只是不同的风格。这是游戏起点，不是诊断。',
+    next: '下一步',
   },
 } as const;

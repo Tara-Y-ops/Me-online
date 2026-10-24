@@ -332,3 +332,59 @@ button {
   margin: 0;
   accent-color: var(--color-primary);
 }
+
+/* ---------- Attribute bars (05 Initial character, Character tab) ---------- */
+
+.attribute-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 48px;
+}
+
+/* Low pole label, the track, high pole label. */
+.attribute-bar {
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  align-items: center;
+  gap: 8px;
+}
+
+.attribute-pole {
+  font-size: 14px;
+  text-align: center;
+  color: var(--color-muted);
+}
+
+.attribute-pole-active {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.attribute-track {
+  position: relative;
+  height: 8px;
+  border-radius: 999px;
+  background: #ececec;
+}
+
+/* Centered on its left position, sitting above the track. */
+.attribute-label {
+  position: absolute;
+  bottom: 18px;
+  transform: translateX(-50%);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.attribute-marker {
+  position: absolute;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--color-primary);
+  border-radius: 50%;
+  background: var(--color-surface);
+  transform: translate(-50%, -50%);
+}
