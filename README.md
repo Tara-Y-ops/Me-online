@@ -12,3 +12,15 @@ Me-online/
 │   └── supabase/    Database and server functions
 └── data/            Content data files
 ```
+
+## Running the frontend
+
+Requires Node.js 18 or later.
+
+```
+cd frontend
+npm install
+npm run dev
+```
+
+Then open the local URL that Vite prints (usually http://localhost:5173).
