@@ -24,3 +24,5 @@ npm run dev
 ```
 
 Then open the local URL that Vite prints (usually http://localhost:5173).
+
+Run the unit tests with `npm test`.
