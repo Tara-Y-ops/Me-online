@@ -1,0 +1,78 @@
+/* Global styles. Colors follow the grayscale Sprint 1 wireframes. */
+
+:root {
+  --color-text: #1f1f1f;
+  --color-muted: #8a8a8a;
+  --color-border: #d4d4d4;
+  --color-surface: #ffffff;
+  --color-background: #f3f3f3;
+  --color-primary: #333333;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', sans-serif;
+  color: var(--color-text);
+  background: var(--color-background);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* App column: full width on phones, a centered phone-width column on larger screens. */
+.app {
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  background: var(--color-surface);
+}
+
+/* Scrollable page area above the navigation bar. */
+.screen {
+  flex: 1;
+  padding: 16px 20px;
+}
+
+.screen-title {
+  margin: 8px 0 16px;
+  font-size: 28px;
+}
+
+/* Stays at the bottom of the screen; the padding clears the iPhone home bar. */
+.bottom-nav {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.bottom-nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 0;
+  border: none;
+  background: none;
+  font-size: 12px;
+  color: var(--color-muted);
+  cursor: pointer;
+}
+
+.bottom-nav-item[aria-current='page'] {
+  color: var(--color-text);
+  font-weight: 600;
+}
