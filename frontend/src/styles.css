@@ -76,3 +76,181 @@ button {
   color: var(--color-text);
   font-weight: 600;
 }
+
+/* ---------- Pages with a header, body, and bottom button ---------- */
+
+.page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Back arrow on the left, title centered, empty cell on the right. */
+.page-header {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  height: 56px;
+  padding: 0 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+.icon-button {
+  display: flex;
+  padding: 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.page-body {
+  flex: 1;
+  padding: 24px 20px;
+}
+
+/* The padding clears the iPhone home bar. */
+.page-footer {
+  padding: 16px 20px calc(16px + env(safe-area-inset-bottom));
+}
+
+.button-primary {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button-primary:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.section-heading {
+  margin: 0 0 16px;
+  font-size: 20px;
+}
+
+.body-text {
+  margin: 0 0 20px;
+  line-height: 1.6;
+  color: var(--color-muted);
+}
+
+.hint {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.text-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--color-text);
+  border-radius: 12px;
+  font: inherit;
+  font-size: 17px;
+}
+
+/* ---------- Quest card ---------- */
+
+.quest-card {
+  padding: 16px;
+  border: 1.5px solid var(--color-text);
+  border-radius: 16px;
+}
+
+.quest-card-sample {
+  border-style: dashed;
+  border-color: var(--color-muted);
+}
+
+.quest-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quest-card-time {
+  margin-left: auto;
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.quest-card-title {
+  margin: 14px 0 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.tag {
+  padding: 2px 10px;
+  border: 1px solid var(--color-muted);
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.tag-stretch {
+  background: #ececec;
+}
+
+/* ---------- 01 Welcome ---------- */
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.welcome-title {
+  margin: 0 0 16px;
+  font-size: 36px;
+}
+
+.welcome-tagline {
+  margin: 0;
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+
+.welcome-sample-label {
+  margin: 40px 0 8px;
+  font-size: 14px;
+  text-align: left;
+  color: var(--color-muted);
+}
+
+.welcome .quest-card {
+  text-align: left;
+}
+
+/* ---------- 02 Consent ---------- */
+
+.consent-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: #f0f0f0;
+  cursor: pointer;
+}
+
+.consent-box input {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  accent-color: var(--color-primary);
+}
