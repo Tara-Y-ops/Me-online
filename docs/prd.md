@@ -107,7 +107,7 @@ Neither pole is better than the other. Screens show how far the player leans as 
 
 ### FR-4 Attribute changes
 
-- **FR-4.1** Liked moves the quest’s attribute 0.5 points toward the quest’s pole. Disliked moves it 0.1 points toward the opposite pole, so a quest the player disliked still counts as a small gain on their other side. Within a week (Monday to Sunday, China time), each attribute stays within 1 point of its score at the start of that week, in either direction. The limit is on net change, so a move back toward the week-start score is always allowed. Change in real personality is slow, about 0.37 SD after 24 weeks of intervention (Roberts et al., 2017), so the game keeps changes small. Scores stay within 0 to 100.
+- **FR-4.1** Liked moves the quest’s attribute 0.5 points toward the quest’s pole. Disliked moves it 0.1 points toward the opposite pole, so a quest the player disliked still counts as a small gain on their other side. Within a week (Monday to Sunday, China time, starting at the Monday 4:00 a.m. quest refresh), each attribute stays within 1 point of its score at the start of that week, in either direction. The limit is on net change, so a move back toward the week-start score is always allowed. Change in real personality is slow, about 0.37 SD after 24 weeks of intervention (Roberts et al., 2017), so the game keeps changes small. Scores stay within 0 to 100.
 - **FR-4.2** Okay leaves the score unchanged.
 - **FR-4.3** When a score crosses 50, the player’s home side switches and the result card says so. FR-2 treats the other pole as stretch from then on. A score that lands exactly on 50 counts as the side it moved toward. When a neutral attribute first moves, it takes that side, and this is not shown as a switch.
 
