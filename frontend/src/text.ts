@@ -158,6 +158,22 @@ export const TEXT = {
     save: '保存打卡',
   },
 
+  // 10-12, 21 Check-in result
+  checkInResult: {
+    title: '打卡完成！',
+    gain: (pole: string, percent: string) => `${pole} +${percent}`,
+    recorded: '已记录',
+    basedOnFeeling: '根据你这次的感受',
+    bothFine: '两边都是好的风格，这只是记录你的感受',
+    nowLeaning: (pole: string) => `你现在更偏向${pole}了`,
+    startLeaning: (pole: string) => `你开始偏向${pole}了`,
+    capped: '这一项本周已经变化够多了',
+    cappedNote: '下周会继续累积',
+    okay: '你选了「还行」，这次不移动',
+    okayNote: '打卡已保存，会计入偏好地图',
+    done: '完成',
+  },
+
   // 13 Character tab
   characterTab: {
     checkInCount: (count: number) => `累计打卡 ${count} 次`,

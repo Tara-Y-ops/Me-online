@@ -744,3 +744,89 @@ button {
   font: inherit;
   font-size: 15px;
 }
+
+/* ---------- 10-12, 21 Check-in result ---------- */
+
+/* Gray full-screen backdrop with the card centered on it. */
+.result-backdrop {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  background: var(--color-background);
+}
+
+.result-card {
+  width: 100%;
+  padding: 32px 20px 24px;
+  border: 2px solid var(--color-text);
+  border-radius: 20px;
+  background: var(--color-surface);
+  text-align: center;
+}
+
+.result-check {
+  display: inline-flex;
+  padding: 10px;
+  border: 1.5px solid var(--color-text);
+  border-radius: 50%;
+}
+
+.result-title {
+  margin: 16px 0 12px;
+  font-size: 24px;
+}
+
+.result-card .hint {
+  margin: 0;
+}
+
+.result-headline {
+  margin: 8px 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.result-track {
+  position: relative;
+  height: 8px;
+  margin: 28px 8px 8px;
+  border-radius: 999px;
+  background: #ececec;
+}
+
+/* The new score, with an arrow pointing the way it moved. */
+.result-marker {
+  position: absolute;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--color-primary);
+  border-radius: 50%;
+  background: var(--color-surface);
+  transform: translate(-50%, -50%);
+}
+
+.result-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.result-arrow-left {
+  right: 100%;
+}
+
+.result-arrow-right {
+  left: 100%;
+}
+
+.result-poles {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.result-card .result-footnote {
+  margin: 20px 0 24px;
+}
