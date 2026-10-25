@@ -137,6 +137,14 @@ export const TEXT = {
     viewHistory: '看看今天的记录',
   },
 
+  // 06a Quest detail
+  questDetail: {
+    title: '任务详情',
+    howTo: '具体怎么做',
+    doneWhen: '怎样算完成',
+    checkIn: '我做到了，去打卡',
+  },
+
   // 13 Character tab
   characterTab: {
     checkInCount: (count: number) => `累计打卡 ${count} 次`,

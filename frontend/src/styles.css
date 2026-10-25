@@ -188,6 +188,7 @@ button {
 }
 
 .quest-card-title {
+  display: block;
   margin: 14px 0 0;
   font-size: 18px;
   font-weight: 600;
@@ -593,4 +594,69 @@ button {
   color: var(--color-text);
   font-weight: 600;
   cursor: pointer;
+}
+
+/* The top of a quest card is a button that opens the detail page. */
+.quest-card-open {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* ---------- 06a Quest detail ---------- */
+
+.quest-detail {
+  padding: 20px;
+}
+
+.quest-detail .quest-card-time {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.quest-detail-title {
+  margin: 16px 0 0;
+  font-size: 24px;
+}
+
+.divider {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.detail-label {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.detail-text {
+  margin: 0 0 20px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.detail-text:last-child {
+  margin-bottom: 0;
+}
+
+.done-when {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.detail-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
