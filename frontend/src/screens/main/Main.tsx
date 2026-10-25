@@ -1,18 +1,21 @@
 // The app after onboarding: the four tabs with the bottom navigation bar,
-// and the full-screen pages opened from the Today tab (quest detail, check-in).
+// and the full-screen pages opened from the Today tab (quest detail, check-in,
+// and the check-in result card).
 // Today's quests and the check-ins live here so all these pages share them.
 
 import { useState } from 'react';
 import { BottomNav, type Tab } from '../../components/BottomNav';
+import type { Side } from '../../game/attributeChange';
 import { findQuest } from '../../game/quests';
 import { canSwap } from '../../game/today';
 import type { Character } from '../../storage/character';
-import { loadCheckIns, submitCheckIn, type CheckInForm } from '../../storage/checkIns';
+import { loadCheckIns, submitCheckIn, type CheckIn, type CheckInForm } from '../../storage/checkIns';
 import type { PlayerSetup } from '../../storage/playerSetup';
 import type { Profile } from '../../storage/profile';
 import { openToday, swapTodayQuest } from '../../storage/todayQuests';
 import { TEXT } from '../../text';
 import { CharacterTab } from './CharacterTab';
+import { CheckInResultCard } from './CheckInResultCard';
 import { CheckInScreen } from './CheckInScreen';
 import { QuestDetail } from './QuestDetail';
 import { TodayTab } from './TodayTab';
@@ -35,21 +38,43 @@ export function Main({ profile, character, setup, onCharacterChange }: MainProps
   // Position of the quest being checked in, or null. Opened from a card or
   // the detail page; going back returns to where it was opened.
   const [checkInIndex, setCheckInIndex] = useState<number | null>(null);
+  // The check-in just saved, shown on the result card until "完成" is tapped.
+  const [result, setResult] = useState<{ checkIn: CheckIn; sideBefore: Side } | null>(null);
 
   function swap(index: number) {
     setToday(swapTodayQuest(today, index, character, setup));
   }
 
-  // Saves the check-in, then returns to the Today tab.
-  // The result card (10-12) will be shown here in the next PR.
+  // Saves the check-in and shows the result card.
   function saveCheckIn(index: number, form: CheckInForm) {
-    const saved = submitCheckIn(character, today, today.quests[index].questId, form);
+    const quest = findQuest(today.quests[index].questId);
+    const sideBefore = character.sides[quest.attribute];
+    const saved = submitCheckIn(character, today, quest.id, form);
     setToday(saved.today);
     setCheckIns([...checkIns, saved.checkIn]);
     onCharacterChange(saved.character);
+    setResult({ checkIn: saved.checkIn, sideBefore });
+  }
+
+  // "完成" on the result card goes back to the Today tab.
+  function closeResult() {
+    setResult(null);
     setCheckInIndex(null);
     setDetailIndex(null);
     setTab('today');
+  }
+
+  if (result) {
+    const { attribute } = result.checkIn;
+    return (
+      <CheckInResultCard
+        checkIn={result.checkIn}
+        sideBefore={result.sideBefore}
+        score={character.scores[attribute]}
+        side={character.sides[attribute]}
+        onDone={closeResult}
+      />
+    );
   }
 
   if (checkInIndex !== null) {
