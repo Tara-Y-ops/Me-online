@@ -7,10 +7,17 @@ import { loadJson, saveJson } from './localStore';
 
 const CHARACTER_KEY = 'character';
 
+// Scores at the start of a game week, for the weekly cap (PRD FR-4.1).
+export interface WeekStart {
+  week: string; // Monday of the game week, e.g. "2026-10-19" (see chinaTime.ts)
+  scores: Record<AttributeId, number>;
+}
+
 export interface Character {
   scores: Record<AttributeId, number>; // 0 to 100
   sides: Record<AttributeId, Side>;
   createdAt: string; // When the quiz was finished, ISO time
+  weekStart?: WeekStart; // Set by the first check-in of each week
 }
 
 // Builds a new character from quiz scores. A score of exactly 50 starts neutral.
