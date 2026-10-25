@@ -59,7 +59,7 @@ Sprint 1 testers are friends and their classmates at universities in mainland Ch
 - A Preference Map showing which kinds of quests the player liked and disliked.
 - A history of past check-ins.
 - A Chinese interface and Chinese quests. The code is set up so English can be added later without rework.
-- About 40 quests, about four for each pole. Quest content and writing rules live in a separate document.
+- 60 quests, six for each pole, in `data/quests.json`. Quest writing rules live in a separate document.
 - A mobile web app that testers open in their phone browser for the test week. No native app is planned for now.
 - Email sign-up and login, built last. Until they work, data is saved on the device under an anonymous ID.
 
