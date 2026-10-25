@@ -2,21 +2,16 @@
 // and up to three tags of their own (PRD FR-3.2, FR-3.3).
 // A reaction is required to save; the note and tags are optional.
 
-import { Frown, Meh, Plus, Smile, X } from 'lucide-react';
+import { Plus, X } from 'lucide-react';
 import { useState, type KeyboardEvent } from 'react';
 import { PageHeader } from '../../components/PageHeader';
+import { REACTION_ICONS, REACTIONS } from '../../components/reactionIcons';
 import type { Reaction } from '../../game/attributeChange';
 import { cleanTags, MAX_NOTE_LENGTH, MAX_TAG_LENGTH, MAX_TAGS } from '../../game/checkIn';
 import type { QuestKind } from '../../game/questPicker';
 import type { Quest } from '../../game/quests';
 import type { CheckInForm } from '../../storage/checkIns';
 import { TEXT } from '../../text';
-
-const REACTIONS = [
-  { reaction: 'liked', icon: Smile },
-  { reaction: 'okay', icon: Meh },
-  { reaction: 'disliked', icon: Frown },
-] as const;
 
 interface CheckInScreenProps {
   quest: Quest;
@@ -59,19 +54,22 @@ export function CheckInScreen({ quest, kind, onBack, onSave }: CheckInScreenProp
 
         <h2 className="form-heading">{TEXT.checkIn.feeling}</h2>
         <div className="reaction-row" role="radiogroup">
-          {REACTIONS.map(({ reaction: value, icon: Icon }) => (
-            <button
-              key={value}
-              type="button"
-              role="radio"
-              aria-checked={reaction === value}
-              className={reaction === value ? 'reaction reaction-selected' : 'reaction'}
-              onClick={() => setReaction(value)}
-            >
-              <Icon size={32} strokeWidth={1.5} aria-hidden="true" />
-              {TEXT.checkIn.reactions[value]}
-            </button>
-          ))}
+          {REACTIONS.map((value) => {
+            const Icon = REACTION_ICONS[value];
+            return (
+              <button
+                key={value}
+                type="button"
+                role="radio"
+                aria-checked={reaction === value}
+                className={reaction === value ? 'reaction reaction-selected' : 'reaction'}
+                onClick={() => setReaction(value)}
+              >
+                <Icon size={32} strokeWidth={1.5} aria-hidden="true" />
+                {TEXT.checkIn.reactions[value]}
+              </button>
+            );
+          })}
         </div>
 
         <h2 className="form-heading">{TEXT.checkIn.why}</h2>

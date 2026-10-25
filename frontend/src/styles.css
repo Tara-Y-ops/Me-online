@@ -830,3 +830,31 @@ button {
 .result-card .result-footnote {
   margin: 20px 0 24px;
 }
+
+/* ---------- 16, 17 History tab ---------- */
+
+.history-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.history-reaction {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.history-note {
+  margin: 8px 0 0;
+  color: var(--color-muted);
+}
+
+.quest-card .chip-row {
+  margin-top: 12px;
+}
+
+.history-meta .hint {
+  margin: 0;
+}

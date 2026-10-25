@@ -174,6 +174,15 @@ export const TEXT = {
     done: '完成',
   },
 
+  // 16, 17 History tab
+  historyTab: {
+    date: (month: number, day: number) => `${month}月${day}日`,
+    note: (note: string) => `“${note}”`,
+    emptyTitle: '还没有打卡记录',
+    emptyNote: '完成一个任务后，记录会出现在这里',
+    goToday: '去做今日任务',
+  },
+
   // 13 Character tab
   characterTab: {
     checkInCount: (count: number) => `累计打卡 ${count} 次`,
