@@ -145,6 +145,19 @@ export const TEXT = {
     checkIn: '我做到了，去打卡',
   },
 
+  // 09 Check-in
+  checkIn: {
+    title: '打卡',
+    feeling: '感觉怎么样？',
+    reactions: { liked: '喜欢', okay: '还行', disliked: '不喜欢' },
+    why: '为什么？（选填）',
+    notePlaceholder: '写一句就好……',
+    tags: '标签（最多 3 个，选填）',
+    addTag: '添加',
+    removeTag: (tag: string) => `删除标签 ${tag}`,
+    save: '保存打卡',
+  },
+
   // 13 Character tab
   characterTab: {
     checkInCount: (count: number) => `累计打卡 ${count} 次`,
