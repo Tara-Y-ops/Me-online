@@ -24,3 +24,14 @@ export interface Quest {
 // JSON imports are typed loosely (attribute is just a string), so the cast
 // is backed by the checks in quests.test.ts.
 export const QUESTS = questData as Quest[];
+
+const QUESTS_BY_ID = new Map(QUESTS.map((quest) => [quest.id, quest]));
+
+// Looks up a quest by its ID, e.g. one saved in today's quest list.
+export function findQuest(id: string): Quest {
+  const quest = QUESTS_BY_ID.get(id);
+  if (!quest) {
+    throw new Error(`Quest ${id} is not in the quest bank`);
+  }
+  return quest;
+}
