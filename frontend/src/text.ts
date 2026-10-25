@@ -121,6 +121,22 @@ export const TEXT = {
     start: '开始今天的任务',
   },
 
+  // 06-08 Today tab
+  todayTab: {
+    progress: (done: number, total: number) => `${done} / ${total} 已完成`,
+    refreshNote: '每天 4:00 刷新',
+    swapsLeft: '今天还能换 1 次',
+    swapUsed: '今天已经换过了',
+    minutes: (minutes: number) => `约 ${minutes} 分钟`,
+    checkIn: '我做到了',
+    done: '已完成',
+    swap: '换一个',
+    swapDisabled: '今天已换过',
+    allDoneTitle: '今天的任务都完成了',
+    allDoneNote: '明天 4:00 会有新的三个任务',
+    viewHistory: '看看今天的记录',
+  },
+
   // 13 Character tab
   characterTab: {
     checkInCount: (count: number) => `累计打卡 ${count} 次`,
