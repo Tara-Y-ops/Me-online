@@ -2,28 +2,22 @@
 // 1. No profile yet: onboarding (Welcome, Consent, Name).
 // 2. Profile but no character: the quiz, resuming where it stopped.
 // 3. Character but no player setup: initial character, self-check, quest style.
-// 4. Setup saved: the main pages with the bottom navigation bar.
-// Today and Character are built; Map and History only show their title for now.
+// 4. Setup saved: the main pages (see screens/main/Main.tsx).
 // Navigation is plain React state (no router library) to keep it simple.
 import { useState } from 'react';
-import { BottomNav, type Tab } from './components/BottomNav';
 import { scoreQuiz, SHORT_FORM_ITEMS, type QuizAnswers } from './game/quiz';
-import { CharacterTab } from './screens/main/CharacterTab';
-import { TodayTab } from './screens/main/TodayTab';
+import { Main } from './screens/main/Main';
 import { CharacterSetup } from './screens/onboarding/CharacterSetup';
 import { Onboarding } from './screens/onboarding/Onboarding';
 import { QuizScreen } from './screens/onboarding/QuizScreen';
 import { createCharacter, loadCharacter, saveCharacter, type Character } from './storage/character';
 import { loadPlayerSetup, savePlayerSetup, type PlayerSetup } from './storage/playerSetup';
 import { loadProfile, saveProfile, type Profile } from './storage/profile';
-import { TEXT } from './text';
 
 function App() {
   const [profile, setProfile] = useState<Profile | null>(() => loadProfile());
   const [character, setCharacter] = useState<Character | null>(() => loadCharacter());
   const [setup, setSetup] = useState<PlayerSetup | null>(() => loadPlayerSetup());
-  // The app opens on the Today board (docs/user-flows.md).
-  const [tab, setTab] = useState<Tab>('today');
 
   // Saved right after Name, so closing the app during the quiz keeps the name.
   function finishOnboarding(newProfile: Profile) {
@@ -68,19 +62,7 @@ function App() {
 
   return (
     <div className="app">
-      <main className="screen">
-        {tab === 'today' && (
-          <TodayTab character={character} setup={setup} onViewHistory={() => setTab('history')} />
-        )}
-        {tab === 'character' && (
-          // Check-ins don't exist yet, so the count is 0 until the check-in PR.
-          <CharacterTab profile={profile} character={character} setup={setup} checkInCount={0} />
-        )}
-        {(tab === 'map' || tab === 'history') && (
-          <h1 className="screen-title">{TEXT.screenTitles[tab]}</h1>
-        )}
-      </main>
-      <BottomNav current={tab} onChange={setTab} />
+      <Main profile={profile} character={character} setup={setup} />
     </div>
   );
 }
