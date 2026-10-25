@@ -1,0 +1,362 @@
+[
+  {
+    "id": "cur-01", "attribute": "curiosity", "pole": "high", "category": "food", "minutes": 20,
+    "title": { "zh": "点一道没吃过的菜", "en": "Order something new" },
+    "description": { "zh": "在食堂或常去的店，点一道你从来没点过的菜。", "en": "At the canteen or a place you know, order a dish you’ve never tried." },
+    "doneWhen": { "zh": "吃完这道菜", "en": "You’ve finished the dish" }
+  },
+  {
+    "id": "cur-02", "attribute": "curiosity", "pole": "high", "category": "body", "minutes": 15,
+    "title": { "zh": "走一条没走过的路", "en": "Take a new route" },
+    "description": { "zh": "白天换一条没走过的路去上课或回宿舍，路上找一个新发现。", "en": "In daylight, take a route you’ve never used to class or your dorm and spot one new thing." },
+    "doneWhen": { "zh": "到达目的地，说得出一个新发现", "en": "You arrive and can name one new thing you saw" }
+  },
+  {
+    "id": "cur-03", "attribute": "curiosity", "pole": "high", "category": "solo", "minutes": 10,
+    "title": { "zh": "听三首陌生风格的歌", "en": "Three songs from a new genre" },
+    "description": { "zh": "在网易云或 QQ 音乐上挑一种你平时不听的风格，比如戏曲、爵士或民谣，完整听三首。", "en": "On NetEase Cloud Music or QQ Music, pick a genre you never play, like opera, jazz or folk, and listen to three full songs." },
+    "doneWhen": { "zh": "听完第三首", "en": "The third song ends" }
+  },
+  {
+    "id": "cur-04", "attribute": "curiosity", "pole": "high", "category": "learning", "minutes": 20,
+    "title": { "zh": "读 10 页专业外的书", "en": "Ten pages outside your major" },
+    "description": { "zh": "在图书馆走到一个和你专业无关的书架，随手抽一本读 10 页。", "en": "In the library, go to a shelf unrelated to your major, pull out any book and read ten pages." },
+    "doneWhen": { "zh": "读完第 10 页", "en": "You finish page ten" }
+  },
+  {
+    "id": "cur-09", "attribute": "curiosity", "pole": "high", "category": "learning", "minutes": 10,
+    "title": { "zh": "查清一个“为什么”", "en": "Answer one “why”" },
+    "description": { "zh": "今天课上没听懂的一个点，或刷到的一个“为什么”，花 10 分钟把它查清楚。", "en": "Take one point you didn’t get in class today, or a “why” you saw online, and spend ten minutes looking it up." },
+    "doneWhen": { "zh": "能用一句话说出答案", "en": "You can explain the answer in one sentence" }
+  },
+  {
+    "id": "cur-10", "attribute": "curiosity", "pole": "high", "category": "creative", "minutes": 10,
+    "title": { "zh": "拍一张“好看”的照片", "en": "Photograph something beautiful" },
+    "description": { "zh": "在校园里找一个让你觉得好看的细节，拍下来。", "en": "Find one detail on campus that looks beautiful to you and take a photo of it." },
+    "doneWhen": { "zh": "拍好这张照片", "en": "The photo is taken" }
+  },
+  {
+    "id": "cur-05", "attribute": "curiosity", "pole": "low", "category": "food", "minutes": 30,
+    "title": { "zh": "回到最喜欢的那家店", "en": "Back to your favorite spot" },
+    "description": { "zh": "去你最喜欢的店点常点的东西，想想它为什么让你舒服。", "en": "Go to your favorite place, order your usual, and notice what makes it comfortable." },
+    "doneWhen": { "zh": "吃完，能说出一个舒服的理由", "en": "You’ve eaten and can name one reason it feels good" }
+  },
+  {
+    "id": "cur-06", "attribute": "curiosity", "pole": "low", "category": "solo", "minutes": 25,
+    "title": { "zh": "重温一集老剧", "en": "Rewatch an old favorite" },
+    "description": { "zh": "重看一集你已经看过很多遍的剧或动画。", "en": "Rewatch an episode of a show you’ve already seen many times." },
+    "doneWhen": { "zh": "看完这一集", "en": "The episode ends" }
+  },
+  {
+    "id": "cur-07", "attribute": "curiosity", "pole": "low", "category": "food", "minutes": 30,
+    "title": { "zh": "吃一道家乡味道", "en": "A taste of home" },
+    "description": { "zh": "买或点一道家乡口味的菜，吃的时候想想它让你想起什么。", "en": "Buy or order a dish that tastes like home and notice what it reminds you of." },
+    "doneWhen": { "zh": "吃完，想起一件相关的事", "en": "You’ve eaten and recalled one memory it brings back" }
+  },
+  {
+    "id": "cur-08", "attribute": "curiosity", "pole": "low", "category": "food", "minutes": 10,
+    "title": { "zh": "泡一杯熟悉的茶", "en": "Your usual cup" },
+    "description": { "zh": "用你最习惯的方式泡一杯茶或冲一杯咖啡，坐下来慢慢喝完。", "en": "Make tea or coffee the way you always do, sit down and drink it slowly." },
+    "doneWhen": { "zh": "喝完这一杯", "en": "You’ve finished the cup" }
+  },
+  {
+    "id": "cur-11", "attribute": "curiosity", "pole": "low", "category": "solo", "minutes": 10,
+    "title": { "zh": "翻 5 张喜欢的旧照片", "en": "Five favorite old photos" },
+    "description": { "zh": "在手机相册里翻出 5 张你最喜欢的旧照片，慢慢看一遍。", "en": "Find five favorite old photos on your phone and take your time looking at them." },
+    "doneWhen": { "zh": "看完第 5 张", "en": "You’ve looked at all five" }
+  },
+  {
+    "id": "cur-12", "attribute": "curiosity", "pole": "low", "category": "solo", "minutes": 5,
+    "title": { "zh": "听一首单曲循环过的歌", "en": "Your on-repeat song" },
+    "description": { "zh": "听一首你单曲循环过很多次的老歌，想想它陪你度过了哪段时间。", "en": "Play an old song you once had on repeat and think about the time it got you through." },
+    "doneWhen": { "zh": "听完这首歌", "en": "The song ends" }
+  },
+  {
+    "id": "dis-01", "attribute": "discipline", "pole": "high", "category": "solo", "minutes": 5,
+    "title": { "zh": "写下明天的三件事", "en": "Tomorrow’s top three" },
+    "description": { "zh": "睡前在备忘录写下明天最重要的三件事，比如交作业、去驿站取快递。", "en": "Before bed, note the three most important things for tomorrow, like handing in homework or picking up a parcel." },
+    "doneWhen": { "zh": "写满三条", "en": "All three are written" }
+  },
+  {
+    "id": "dis-02", "attribute": "discipline", "pole": "high", "category": "learning", "minutes": 15,
+    "title": { "zh": "给拖着的事定个开工时间", "en": "Set a start time" },
+    "description": { "zh": "挑一件拖着的事，比如作业、报名表或邮件，写一句“晚饭后回到宿舍，我就先做 10 分钟”，然后照做。", "en": "Pick something you’ve been putting off, like homework, a form or an email. Write “When I get back to the dorm after dinner, I’ll do ten minutes,” then do it." },
+    "doneWhen": { "zh": "写好计划并做满 10 分钟", "en": "The plan is written and you’ve done ten minutes" }
+  },
+  {
+    "id": "dis-03", "attribute": "discipline", "pole": "high", "category": "solo", "minutes": 15,
+    "title": { "zh": "整理桌面 15 分钟", "en": "Fifteen-minute desk reset" },
+    "description": { "zh": "计时 15 分钟，把宿舍书桌整理干净。", "en": "Set a 15-minute timer and clear your dorm desk." },
+    "doneWhen": { "zh": "计时结束", "en": "The timer goes off" }
+  },
+  {
+    "id": "dis-04", "attribute": "discipline", "pole": "high", "category": "body", "minutes": 5,
+    "title": { "zh": "按时上床，手机放远", "en": "Lights out on time" },
+    "description": { "zh": "今晚定一个上床时间，到点把手机放到够不着的地方。", "en": "Pick a bedtime tonight and, when it comes, put your phone out of reach." },
+    "doneWhen": { "zh": "到点放下手机上床", "en": "At bedtime, the phone is away and you’re in bed" }
+  },
+  {
+    "id": "dis-09", "attribute": "discipline", "pole": "high", "category": "solo", "minutes": 10,
+    "title": { "zh": "清掉三件两分钟小事", "en": "Clear three two-minute tasks" },
+    "description": { "zh": "找三件两分钟内能做完的小事，比如回一条微信、扔掉桌上的外卖盒，一口气做完。", "en": "Find three things that take under two minutes each, like replying to a WeChat message or throwing out a takeout box, and do them now." },
+    "doneWhen": { "zh": "三件都做完", "en": "All three are done" }
+  },
+  {
+    "id": "dis-10", "attribute": "discipline", "pole": "high", "category": "learning", "minutes": 25,
+    "title": { "zh": "专注 25 分钟", "en": "One 25-minute focus block" },
+    "description": { "zh": "去图书馆或自习室，手机调成勿扰，计时 25 分钟只做一件事。", "en": "In the library or a study room, set your phone to Do Not Disturb and work on one thing for 25 minutes." },
+    "doneWhen": { "zh": "计时结束", "en": "The timer goes off" }
+  },
+  {
+    "id": "dis-05", "attribute": "discipline", "pole": "low", "category": "body", "minutes": 5,
+    "title": { "zh": "睡到自然醒", "en": "Wake up on your own" },
+    "description": { "zh": "这周末挑一天不定闹钟，睡到自然醒，起床后再决定今天做什么。", "en": "Pick one weekend day with no alarm. Sleep until you wake up, then decide what to do with the day." },
+    "doneWhen": { "zh": "自然醒来起床", "en": "You’re up without an alarm" }
+  },
+  {
+    "id": "dis-06", "attribute": "discipline", "pole": "low", "category": "body", "minutes": 20,
+    "title": { "zh": "抛硬币散步", "en": "Coin-flip walk" },
+    "description": { "zh": "在校园里走 20 分钟，每到路口抛硬币决定往哪边走。", "en": "Walk around campus for 20 minutes and flip a coin at every turn to decide where to go." },
+    "doneWhen": { "zh": "走满 20 分钟", "en": "You’ve walked 20 minutes" }
+  },
+  {
+    "id": "dis-07", "attribute": "discipline", "pole": "low", "category": "creative", "minutes": 10,
+    "title": { "zh": "随手画 10 分钟", "en": "Ten minutes of doodling" },
+    "description": { "zh": "拿张纸随便画或写 10 分钟，不用画完，也不用好看。", "en": "Doodle or scribble for ten minutes. It doesn’t need to be finished or good." },
+    "doneWhen": { "zh": "10 分钟到", "en": "Ten minutes are up" }
+  },
+  {
+    "id": "dis-08", "attribute": "discipline", "pole": "low", "category": "body", "minutes": 10,
+    "title": { "zh": "跟着感觉拉伸", "en": "Stretch by feel" },
+    "description": { "zh": "不跟视频，按身体觉得舒服的方式拉伸 10 分钟。", "en": "Without a video, stretch for ten minutes in whatever way feels good." },
+    "doneWhen": { "zh": "10 分钟到", "en": "Ten minutes are up" }
+  },
+  {
+    "id": "dis-11", "attribute": "discipline", "pole": "low", "category": "learning", "minutes": 30,
+    "title": { "zh": "临时换个地方学习", "en": "Study somewhere new" },
+    "description": { "zh": "今天不去固定的座位，走到哪觉得舒服就在哪学习半小时，比如空教室、咖啡店或草坪。", "en": "Skip your usual seat today and study for 30 minutes wherever feels right, like an empty classroom, a café or the lawn." },
+    "doneWhen": { "zh": "在新地方学满 30 分钟", "en": "You’ve studied 30 minutes in the new spot" }
+  },
+  {
+    "id": "dis-12", "attribute": "discipline", "pole": "low", "category": "learning", "minutes": 10,
+    "title": { "zh": "做到能交就停", "en": "Stop at good enough" },
+    "description": { "zh": "写作业或做 PPT 时，挑一小部分，做到能交就停，不再反复改。", "en": "While doing homework or slides, pick one small part and stop once it’s good enough to hand in." },
+    "doneWhen": { "zh": "这件事做完并且停手", "en": "The task is done and you’ve stopped" }
+  },
+  {
+    "id": "soc-01", "attribute": "socialEnergy", "pole": "high", "category": "social", "minutes": 5,
+    "title": { "zh": "和店员多聊一句", "en": "One extra sentence" },
+    "description": { "zh": "买东西时和食堂阿姨、超市收银员或快递站的人多聊一句。", "en": "When you buy something, say one extra friendly sentence to the canteen worker, cashier or parcel station staff." },
+    "doneWhen": { "zh": "说出这一句", "en": "You’ve said the sentence" }
+  },
+  {
+    "id": "soc-02", "attribute": "socialEnergy", "pole": "high", "category": "social", "minutes": 40,
+    "title": { "zh": "约朋友吃饭", "en": "Invite a friend to eat" },
+    "description": { "zh": "今天主动约一个同学或室友，一起去食堂或校外吃一顿饭。", "en": "Ask a classmate or roommate to eat with you today, in the canteen or off campus." },
+    "doneWhen": { "zh": "一起吃完这顿饭", "en": "You’ve eaten together" }
+  },
+  {
+    "id": "soc-03", "attribute": "socialEnergy", "pole": "high", "category": "learning", "minutes": 5,
+    "title": { "zh": "主动发言一次", "en": "Speak up once" },
+    "description": { "zh": "在课上、班会、社团或班级群里主动说一次自己的想法。", "en": "Share one of your ideas in class, at a class meeting, at a club or in the class group chat." },
+    "doneWhen": { "zh": "说出这个想法", "en": "You’ve shared the idea" }
+  },
+  {
+    "id": "soc-04", "attribute": "socialEnergy", "pole": "high", "category": "body", "minutes": 30,
+    "title": { "zh": "约人一起运动", "en": "Move with someone" },
+    "description": { "zh": "约一个人一起夜跑、打羽毛球或打球。", "en": "Ask someone to join you for an evening run, badminton or a ball game." },
+    "doneWhen": { "zh": "一起运动完", "en": "You’ve finished moving together" }
+  },
+  {
+    "id": "soc-09", "attribute": "socialEnergy", "pole": "high", "category": "social", "minutes": 5,
+    "title": { "zh": "联系一个很久没聊的朋友", "en": "Reach out to an old friend" },
+    "description": { "zh": "在微信上给一个很久没联系的朋友，比如高中同学，发条消息问问最近怎么样。", "en": "On WeChat, message a friend you haven’t talked to in a while, like a high school classmate, and ask how they’re doing." },
+    "doneWhen": { "zh": "消息发出去", "en": "The message is sent" }
+  },
+  {
+    "id": "soc-10", "attribute": "socialEnergy", "pole": "high", "category": "social", "minutes": 5,
+    "title": { "zh": "在群里开个话题", "en": "Start a topic" },
+    "description": { "zh": "在宿舍群、班级群或社团群里开一个轻松的小话题，比如“今天食堂哪个菜最好吃”。", "en": "Start a light topic in your dorm, class or club group chat, like “What was the best canteen dish today?”" },
+    "doneWhen": { "zh": "话题发出去", "en": "The message is posted" }
+  },
+  {
+    "id": "soc-05", "attribute": "socialEnergy", "pole": "low", "category": "solo", "minutes": 30,
+    "title": { "zh": "一个人待 30 分钟", "en": "Thirty minutes alone" },
+    "description": { "zh": "一个人去图书馆角落或空教室坐 30 分钟，不刷手机。", "en": "Sit alone in a library corner or an empty classroom for 30 minutes without scrolling." },
+    "doneWhen": { "zh": "30 分钟到", "en": "Thirty minutes are up" }
+  },
+  {
+    "id": "soc-06", "attribute": "socialEnergy", "pole": "low", "category": "campus", "minutes": 30,
+    "title": { "zh": "一个人去听讲座", "en": "Go to a talk alone" },
+    "description": { "zh": "一个人去听一场讲座或看一场社团活动，不约任何人。", "en": "Go to a talk or a club event on your own, without asking anyone to come." },
+    "doneWhen": { "zh": "待满 30 分钟", "en": "You’ve stayed 30 minutes" }
+  },
+  {
+    "id": "soc-07", "attribute": "socialEnergy", "pole": "low", "category": "solo", "minutes": 30,
+    "title": { "zh": "静音半小时", "en": "Thirty quiet minutes" },
+    "description": { "zh": "把微信和 QQ 设成免打扰 30 分钟，只做一件自己的事。", "en": "Mute WeChat and QQ for 30 minutes and do one thing just for yourself." },
+    "doneWhen": { "zh": "30 分钟到，再打开通知", "en": "Thirty minutes are up and notifications are back on" }
+  },
+  {
+    "id": "soc-08", "attribute": "socialEnergy", "pole": "low", "category": "food", "minutes": 30,
+    "title": { "zh": "一个人慢慢吃一顿饭", "en": "A slow meal alone" },
+    "description": { "zh": "一个人吃一顿饭，不看下饭视频，认真尝每一口。", "en": "Eat one meal alone without a video on and pay attention to each bite." },
+    "doneWhen": { "zh": "吃完这顿", "en": "You’ve finished the meal" }
+  },
+  {
+    "id": "soc-11", "attribute": "socialEnergy", "pole": "low", "category": "solo", "minutes": 20,
+    "title": { "zh": "一个人听一期播客", "en": "A podcast on your own" },
+    "description": { "zh": "在宿舍或自习室戴上耳机，一个人听完一期播客或有声书的一章。", "en": "Put on headphones in your dorm or a study room and listen to one podcast episode or audiobook chapter alone." },
+    "doneWhen": { "zh": "听完这一期", "en": "The episode ends" }
+  },
+  {
+    "id": "soc-12", "attribute": "socialEnergy", "pole": "low", "category": "campus", "minutes": 20,
+    "title": { "zh": "一个人慢慢逛", "en": "Browse alone" },
+    "description": { "zh": "一个人去校园超市、书店或学校附近的小街，按自己的节奏逛 20 分钟。", "en": "Go alone to the campus store, a bookshop or a street near campus and browse at your own pace for 20 minutes." },
+    "doneWhen": { "zh": "逛完离开", "en": "You’ve finished and left" }
+  },
+  {
+    "id": "war-01", "attribute": "warmth", "pole": "high", "category": "social", "minutes": 5,
+    "title": { "zh": "发一条认真的感谢", "en": "A real thank-you" },
+    "description": { "zh": "给一个帮过你的人发微信，比如帮你带过饭的室友或答疑的助教，具体说说你感谢哪件事。", "en": "WeChat someone who helped you, like a roommate who brought you food or a TA who answered your question, and say exactly what you’re thankful for." },
+    "doneWhen": { "zh": "消息发出去", "en": "The message is sent" }
+  },
+  {
+    "id": "war-02", "attribute": "warmth", "pole": "high", "category": "social", "minutes": 10,
+    "title": { "zh": "做一件小善事", "en": "One small kindness" },
+    "description": { "zh": "为别人做一件小事，比如帮室友带饭或帮同学占座。", "en": "Do one small thing for someone, like bringing a roommate food or saving a classmate a seat." },
+    "doneWhen": { "zh": "这件事做完", "en": "It’s done" }
+  },
+  {
+    "id": "war-03", "attribute": "warmth", "pole": "high", "category": "social", "minutes": 10,
+    "title": { "zh": "听朋友说 10 分钟", "en": "Just listen" },
+    "description": { "zh": "听一个朋友讲 10 分钟，只听和追问，先不给建议。", "en": "Listen to a friend for ten minutes. Ask questions, but hold off on advice." },
+    "doneWhen": { "zh": "聊满 10 分钟", "en": "You’ve listened for ten minutes" }
+  },
+  {
+    "id": "war-04", "attribute": "warmth", "pole": "high", "category": "social", "minutes": 15,
+    "title": { "zh": "给家人打个电话", "en": "Call home" },
+    "description": { "zh": "给爸妈或家里人打个电话或视频，不为任何事，就是聊聊天。", "en": "Call or video chat with your parents or family for no reason except to chat." },
+    "doneWhen": { "zh": "挂了电话", "en": "The call is over" }
+  },
+  {
+    "id": "war-09", "attribute": "warmth", "pole": "high", "category": "social", "minutes": 5,
+    "title": { "zh": "具体地夸一个人", "en": "A specific compliment" },
+    "description": { "zh": "真诚地夸一个人一个具体的地方，比如“你今天讲得很清楚”。", "en": "Give someone a sincere, specific compliment, like “You explained that really clearly today.”" },
+    "doneWhen": { "zh": "说出这句夸奖", "en": "You’ve said the compliment" }
+  },
+  {
+    "id": "war-10", "attribute": "warmth", "pole": "high", "category": "learning", "minutes": 5,
+    "title": { "zh": "分享一份有用的资料", "en": "Share something useful" },
+    "description": { "zh": "把一份有用的课件笔记、复习资料或链接发给可能需要的同学。", "en": "Send useful lecture notes, review materials or a link to a classmate who might need them." },
+    "doneWhen": { "zh": "发出去", "en": "It’s sent" }
+  },
+  {
+    "id": "war-05", "attribute": "warmth", "pole": "low", "category": "social", "minutes": 5,
+    "title": { "zh": "温和地说一次“不”", "en": "Say a kind no" },
+    "description": { "zh": "有礼貌地拒绝一个你其实不想答应的小请求，比如凑单、占座或临时被拉去的饭局。", "en": "Politely turn down a small request you don’t want to take on, like joining a group order, saving a seat or a last-minute dinner." },
+    "doneWhen": { "zh": "说完这句“不”", "en": "You’ve said no" }
+  },
+  {
+    "id": "war-06", "attribute": "warmth", "pole": "low", "category": "learning", "minutes": 5,
+    "title": { "zh": "说出一个不同意见", "en": "Say you see it differently" },
+    "description": { "zh": "在小组作业或讨论里，说出一个和别人不一样的看法。", "en": "In a group project or discussion, share a view that differs from what others said." },
+    "doneWhen": { "zh": "说出这个看法", "en": "You’ve shared the view" }
+  },
+  {
+    "id": "war-07", "attribute": "warmth", "pole": "low", "category": "campus", "minutes": 30,
+    "title": { "zh": "自己去做没人陪的事", "en": "Go without company" },
+    "description": { "zh": "有件事你一直等人陪才去，比如看电影、去某家店或某个地方，今天自己去。", "en": "Something you’ve been waiting for company to do, like a movie, a shop or a place, go and do it on your own today." },
+    "doneWhen": { "zh": "去过了", "en": "You’ve been" }
+  },
+  {
+    "id": "war-08", "attribute": "warmth", "pole": "low", "category": "solo", "minutes": 5,
+    "title": { "zh": "自己做一个决定", "en": "Decide on your own" },
+    "description": { "zh": "今天吃什么、周末去哪儿、选哪门选修课，挑一件不问室友也不问群里，自己定。", "en": "Pick one choice today, like what to eat, where to go this weekend or which elective to take, and decide without asking roommates or group chats." },
+    "doneWhen": { "zh": "做出决定", "en": "You’ve decided" }
+  },
+  {
+    "id": "war-11", "attribute": "warmth", "pole": "low", "category": "solo", "minutes": 5,
+    "title": { "zh": "先照顾好自己", "en": "Your need first" },
+    "description": { "zh": "今天先照顾好自己一件事，比如按时吃午饭或午睡 20 分钟，再去帮别人带饭或回消息。", "en": "Today, take care of one of your own needs first, like eating lunch on time or a 20-minute nap, before helping others or answering messages." },
+    "doneWhen": { "zh": "这件事做到了", "en": "You’ve done it" }
+  },
+  {
+    "id": "war-12", "attribute": "warmth", "pole": "low", "category": "solo", "minutes": 5,
+    "title": { "zh": "不跟风一次", "en": "Skip one trend" },
+    "description": { "zh": "看到大家都在买或都在打卡的东西，比如新款奶茶或网红店，想想自己是不是真的想要，不想要就不跟。", "en": "When everyone is buying or checking in at something, like a new milk tea or a trendy shop, ask yourself if you really want it. If not, skip it." },
+    "doneWhen": { "zh": "做出了自己的选择", "en": "You’ve made your own call" }
+  },
+  {
+    "id": "cal-01", "attribute": "calm", "pole": "high", "category": "body", "minutes": 15,
+    "title": { "zh": "早上晒 15 分钟太阳", "en": "Morning sun" },
+    "description": { "zh": "上午去操场或阳台晒 10 到 15 分钟太阳，抬头看看天。", "en": "Spend 10 to 15 minutes in the morning sun on the track or a balcony and look up at the sky." },
+    "doneWhen": { "zh": "晒满 10 分钟", "en": "You’ve been outside for ten minutes" }
+  },
+  {
+    "id": "cal-02", "attribute": "calm", "pole": "high", "category": "body", "minutes": 5,
+    "title": { "zh": "腹式呼吸 5 分钟", "en": "Five minutes of belly breathing" },
+    "description": { "zh": "坐好，慢慢用腹部呼吸 5 分钟。", "en": "Sit comfortably and breathe slowly into your belly for five minutes." },
+    "doneWhen": { "zh": "5 分钟到", "en": "Five minutes are up" }
+  },
+  {
+    "id": "cal-03", "attribute": "calm", "pole": "high", "category": "body", "minutes": 20,
+    "title": { "zh": "去有树的地方走走", "en": "A walk among trees" },
+    "description": { "zh": "去校园里树多的地方，比如林荫道或湖边，走 20 分钟。", "en": "Walk for 20 minutes somewhere green on campus, like a tree-lined path or by the lake." },
+    "doneWhen": { "zh": "走满 20 分钟", "en": "You’ve walked 20 minutes" }
+  },
+  {
+    "id": "cal-04", "attribute": "calm", "pole": "high", "category": "body", "minutes": 20,
+    "title": { "zh": "快走或慢跑 20 分钟", "en": "Brisk walk or jog" },
+    "description": { "zh": "去操场快走或慢跑 20 分钟，速度以还能说话为准。", "en": "Brisk-walk or jog for 20 minutes at a pace where you can still talk." },
+    "doneWhen": { "zh": "走或跑满 20 分钟", "en": "You’ve moved for 20 minutes" }
+  },
+  {
+    "id": "cal-09", "attribute": "calm", "pole": "high", "category": "body", "minutes": 15,
+    "title": { "zh": "好好洗个热水澡", "en": "A slow hot shower" },
+    "description": { "zh": "洗澡时不放歌也不看手机，专心感受热水，把今天的事先放一放。", "en": "Shower without music or your phone. Just feel the warm water and set the day aside for now." },
+    "doneWhen": { "zh": "洗完澡", "en": "You’re out of the shower" }
+  },
+  {
+    "id": "cal-10", "attribute": "calm", "pole": "high", "category": "body", "minutes": 5,
+    "title": { "zh": "爬三层楼梯", "en": "Three flights of stairs" },
+    "description": { "zh": "下午犯困时，在教学楼或宿舍楼不坐电梯，爬三层楼梯。", "en": "When you feel sleepy in the afternoon, skip the elevator in your teaching building or dorm and climb three flights of stairs." },
+    "doneWhen": { "zh": "爬完第三层", "en": "You reach the third floor" }
+  },
+  {
+    "id": "cal-05", "attribute": "calm", "pole": "low", "category": "solo", "minutes": 15,
+    "title": { "zh": "写 15 分钟心里的事", "en": "Fifteen minutes of honest writing" },
+    "description": { "zh": "写 15 分钟今天让你情绪有波动的事，写完可以不给任何人看。", "en": "Write for 15 minutes about something that stirred you today. No one needs to read it." },
+    "doneWhen": { "zh": "写满 15 分钟", "en": "You’ve written for 15 minutes" }
+  },
+  {
+    "id": "cal-06", "attribute": "calm", "pole": "low", "category": "social", "minutes": 5,
+    "title": { "zh": "说说今天的感受", "en": "Say how you feel" },
+    "description": { "zh": "把今天的一个真实感受告诉一个信任的人，当面说或发微信都可以。", "en": "Tell someone you trust one real feeling you had today, in person or on WeChat." },
+    "doneWhen": { "zh": "说出来了", "en": "You’ve told them" }
+  },
+  {
+    "id": "cal-07", "attribute": "calm", "pole": "low", "category": "solo", "minutes": 10,
+    "title": { "zh": "允许自己被打动", "en": "Let yourself be moved" },
+    "description": { "zh": "找一段让你感动的视频、文章或歌词，看完后允许自己有情绪。", "en": "Find a video, article or lyric that moves you and let yourself feel it." },
+    "doneWhen": { "zh": "看完了", "en": "You’ve finished it" }
+  },
+  {
+    "id": "cal-08", "attribute": "calm", "pole": "low", "category": "body", "minutes": 10,
+    "title": { "zh": "睡前身体扫描", "en": "A body scan before sleep" },
+    "description": { "zh": "躺下后从脚到头感受一遍身体，留意哪里紧，再睡。", "en": "Lying in bed, move your attention from your toes to your head, notice where you feel tight, then sleep." },
+    "doneWhen": { "zh": "从脚扫到头", "en": "You’ve moved from toes to head" }
+  },
+  {
+    "id": "cal-11", "attribute": "calm", "pole": "low", "category": "solo", "minutes": 5,
+    "title": { "zh": "在意背后的在乎", "en": "What your worry cares about" },
+    "description": { "zh": "写下今天让你在意的一件小事，比如群里没人回你、课上被点名，再写一句：它说明你在乎什么？", "en": "Write down one small thing that bothered you today, like no reply in a group chat or being called on in class, then one line on what it shows you care about." },
+    "doneWhen": { "zh": "两句都写好", "en": "Both lines are written" }
+  },
+  {
+    "id": "cal-12", "attribute": "calm", "pole": "low", "category": "solo", "minutes": 5,
+    "title": { "zh": "像安慰朋友一样安慰自己", "en": "Talk to yourself like a friend" },
+    "description": { "zh": "今天如果有件事没做好，比如考试、作业或和人闹别扭，对自己说一句你会对好朋友说的安慰的话。", "en": "If something didn’t go well today, like a test, homework or a falling-out, say to yourself what you’d say to comfort a good friend." },
+    "doneWhen": { "zh": "说出这句话", "en": "You’ve said it" }
+  }
+]
