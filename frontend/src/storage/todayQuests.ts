@@ -5,7 +5,7 @@
 
 import { gameDay } from '../game/chinaTime';
 import type { DailyQuest, PickContext } from '../game/questPicker';
-import { startDay, swapToday, type TodayState } from '../game/today';
+import { markDone, startDay, swapToday, type TodayState } from '../game/today';
 import type { Character } from './character';
 import { loadJson, saveJson } from './localStore';
 import type { PlayerSetup } from './playerSetup';
@@ -35,6 +35,13 @@ export function swapTodayQuest(
   const next = swapToday(state, index, pickContext(character, setup));
   saveJson(TODAY_KEY, next);
   recordShown([next.quests[index]]);
+  return next;
+}
+
+// Marks one of today's quests as checked in and saves the result.
+export function completeTodayQuest(state: TodayState, questId: string): TodayState {
+  const next = markDone(state, questId);
+  saveJson(TODAY_KEY, next);
   return next;
 }
 
