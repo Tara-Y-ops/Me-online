@@ -62,7 +62,7 @@ function App() {
 
   return (
     <div className="app">
-      <Main profile={profile} character={character} setup={setup} />
+      <Main profile={profile} character={character} setup={setup} onCharacterChange={setCharacter} />
     </div>
   );
 }
