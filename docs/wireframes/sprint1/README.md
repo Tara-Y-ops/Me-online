@@ -16,6 +16,7 @@ Each screen is exported as a PNG (750×1624, 2×). [wireframes.svg](wireframes.s
 | 05a Does this sound like you? | [PNG](05a-self-check.png) |
 | 05b How do you want to play? | [PNG](05b-direction.png) |
 | 06 Today | [PNG](06-today.png) |
+| 06a Quest detail | [PNG](06a-quest-detail.png) |
 | 07 Today (quest swapped) | [PNG](07-today-swapped.png) |
 | 08 Today (all done) | [PNG](08-today-done.png) |
 | 09 Check-in | [PNG](09-check-in.png) |
