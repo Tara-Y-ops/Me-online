@@ -1,6 +1,6 @@
 // Saves player data on the device with the browser's localStorage.
-// Sprint 1 has no account or server, so this is where all data lives
-// (PRD FR-9.2, NFR-3).
+// Everything is saved here first, so the app works offline and nothing is
+// lost if an upload to Supabase fails (PRD FR-9.2, NFR-3).
 //
 // Every function takes the storage as an optional last argument. The app
 // uses the browser's localStorage; tests pass an in-memory stand-in.
