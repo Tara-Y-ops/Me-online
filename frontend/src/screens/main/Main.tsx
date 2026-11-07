@@ -1,7 +1,7 @@
 // The app after onboarding: the four tabs with the bottom navigation bar,
 // and the full-screen pages opened from the Today tab (quest detail, check-in,
 // and the check-in result card), the History tab (history detail), and the
-// Character tab (full 60-item test, sign up).
+// Character tab (full 60-item test, sign in and sign up).
 // Today's quests and the check-ins live here so all these pages share them.
 
 import { useEffect, useState } from 'react';
@@ -129,8 +129,10 @@ export function Main({ profile, character, setup, onCharacterChange }: MainProps
   if (authOpen) {
     return (
       <AuthScreen
+        initialTab="signUp"
         onBack={() => setAuthOpen(false)}
-        onSignedUp={(email) => {
+        onSkip={() => setAuthOpen(false)}
+        onSignedIn={(email) => {
           setAccountEmail(email);
           setAuthOpen(false);
         }}

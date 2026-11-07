@@ -14,7 +14,9 @@ The app opens on the Today board. A bottom navigation bar links the four pages, 
 %%{init: {'theme': 'neutral'}}%%
 flowchart TD
     A([Open the app for the first time]) --> B[Welcome screen with a sample quest]
-    B --> C[Pick a display name]
+    B -->|Sign up| S[Email and password]
+    B -->|Continue as a guest| C[Pick a display name]
+    S --> C
     C --> D[15-question quiz]
     D --> E[Meet the character]
     E --> G[Short reflection]
@@ -22,7 +24,8 @@ flowchart TD
 ```
 
 - The player lands on a welcome screen that explains the idea in two sentences and shows a sample quest.
-- They pick a display name.
+- They sign up with an email and password, or continue as a guest. A guest can sign up later from the Character screen. A player who already has an account signs in instead and goes straight to the Today board with their progress.
+- They agree to join the test and pick a display name.
 - They take the 15-question quiz, one question per screen with a progress bar.
 - They meet their new character with five attributes and a short note that these are starting game values, not a personality assessment.
 - They answer a short reflection on whether each attribute feels like them, pick Comfort or Explore, and choose one or two attributes to explore.

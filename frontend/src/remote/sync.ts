@@ -36,6 +36,12 @@ export function syncToServer(): void {
   });
 }
 
+// Records that the device's first `count` check-ins are already on the
+// server for this user, e.g. right after downloading them at sign-in.
+export function markUploaded(userId: string, count: number): void {
+  saveJson(SYNC_STATE_KEY, { userId, checkInsUploaded: count } satisfies SyncState);
+}
+
 async function uploadAll(): Promise<void> {
   // Nothing to upload before the player has a name and has consented.
   const profile = loadProfile();
@@ -81,5 +87,5 @@ async function uploadAll(): Promise<void> {
       return;
     }
   }
-  saveJson(SYNC_STATE_KEY, { userId, checkInsUploaded: checkIns.length } satisfies SyncState);
+  markUploaded(userId, checkIns.length);
 }

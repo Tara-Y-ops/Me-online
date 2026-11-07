@@ -58,7 +58,9 @@ export const TEXT = {
     sampleLabel: '示例任务',
     sampleQuestTitle: '去一家没去过的店点一样新东西',
     sampleQuestTime: '约 30 分钟',
-    start: '开始',
+    signUp: '注册',
+    signIn: '登录',
+    guest: '作为游客进入',
   },
 
   // 02 Consent
@@ -218,13 +220,14 @@ export const TEXT = {
     tabs: { signIn: '登录', signUp: '注册' },
     email: '邮箱',
     emailPlaceholder: 'name@example.com',
+    password: '密码',
     newPassword: '设置密码',
     passwordPlaceholder: '至少 8 位',
     confirmPassword: '再输一次密码',
     confirmPlaceholder: '和上面保持一致',
+    signIn: '登录',
     signUp: '注册并保存进度',
     sending: '请稍候……',
-    signInSoon: '登录功能即将开放',
     skip: '暂时不登录，继续使用',
     errors: {
       invalidEmail: '请输入正确的邮箱',

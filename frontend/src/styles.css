@@ -1073,3 +1073,12 @@ span.account-link {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+/* 01 Welcome: sign up, sign in, or continue as a guest. */
+.welcome-sign-in {
+  margin-top: 12px;
+}
+
+.welcome-guest {
+  margin-top: 8px;
+}

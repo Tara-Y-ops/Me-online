@@ -36,6 +36,15 @@ export function saveJson(key: string, value: unknown, storage: Storage = localSt
   }
 }
 
+// Removes every value this app saved, leaving other keys alone (such as the
+// Supabase session). Used before writing an account's data after sign-in.
+export function clearAppData(storage: Storage = localStorage): void {
+  const keys = Array.from({ length: storage.length }, (_, i) => storage.key(i)).filter(
+    (key): key is string => key !== null && key.startsWith(KEY_PREFIX),
+  );
+  keys.forEach((key) => storage.removeItem(key));
+}
+
 // Returns this device's anonymous ID, creating it on first use.
 // The same ID is returned on every later call, so a player's data stays
 // linked to one ID until accounts arrive.

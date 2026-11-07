@@ -44,6 +44,11 @@ export function loadCheckIns(): CheckIn[] {
   return loadJson<CheckIn[]>(CHECK_INS_KEY) ?? [];
 }
 
+// Replaces the whole list, e.g. with an account's check-ins after sign-in.
+export function saveCheckIns(checkIns: CheckIn[]): boolean {
+  return saveJson(CHECK_INS_KEY, checkIns);
+}
+
 // Saves a check-in for one of today's quests and returns the updated data.
 export function submitCheckIn(
   character: Character,
