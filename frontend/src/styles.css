@@ -990,3 +990,86 @@ button.history-card {
   display: block;
   margin-top: 4px;
 }
+
+/* ---------- 18, 19 Sign in and sign up; account link on 13, 22 ---------- */
+
+.auth-intro {
+  margin: 0 0 20px;
+}
+
+.auth-tabs {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.auth-tab {
+  padding: 8px 4px 10px;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: none;
+  color: var(--color-muted);
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-tab-selected {
+  border-bottom-color: var(--color-text);
+  color: var(--color-text);
+}
+
+.field-label {
+  display: block;
+  margin: 20px 0 8px;
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.form-error {
+  margin: 12px 0 0;
+  font-size: 14px;
+  color: #c62828;
+}
+
+.auth-submit {
+  margin-top: 28px;
+}
+
+/* A plain text link styled as a button, e.g. "暂时不登录，继续使用". */
+.text-button {
+  display: block;
+  margin: 20px auto 0;
+  padding: 8px;
+  border: none;
+  background: none;
+  color: var(--color-muted);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.account-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--color-muted);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+span.account-link {
+  min-width: 0;
+  margin-left: 16px;
+  cursor: default;
+}
+
+/* A long email ends in "…" instead of pushing the title aside. */
+.account-email {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
