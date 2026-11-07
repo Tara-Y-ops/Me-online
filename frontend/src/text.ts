@@ -181,6 +181,7 @@ export const TEXT = {
     emptyTitle: '还没有打卡记录',
     emptyNote: '完成一个任务后，记录会出现在这里',
     goToday: '去做今日任务',
+    yourCheckIn: '你的打卡',
   },
 
   // 13 Character tab

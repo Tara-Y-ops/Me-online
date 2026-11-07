@@ -1,5 +1,6 @@
 // 06a Quest detail: the full quest from the quest bank, opened by tapping a
 // card on the Today tab. Shows how to do it and how to know it is done.
+// The card is also used by the History detail page.
 // The category tag from the wireframe is left out for now.
 
 import { CircleCheck, Clock, RefreshCw } from 'lucide-react';
@@ -27,27 +28,7 @@ export function QuestDetail(props: QuestDetailProps) {
       <PageHeader title={TEXT.questDetail.title} onBack={onBack} />
 
       <div className="page-body">
-        <div className="quest-card quest-detail">
-          <div className="quest-card-meta">
-            <span className={kind === 'stretch' ? 'tag tag-stretch' : 'tag'}>{TEXT.questKind[kind]}</span>
-            <span className="tag">{TEXT.attributeNames[quest.attribute]}</span>
-            <span className="quest-card-time">
-              <Clock size={16} aria-hidden="true" />
-              {TEXT.todayTab.minutes(quest.minutes)}
-            </span>
-          </div>
-          <h2 className="quest-detail-title">{quest.title.zh}</h2>
-          <hr className="divider" />
-
-          <p className="detail-label">{TEXT.questDetail.howTo}</p>
-          <p className="detail-text">{quest.description.zh}</p>
-
-          <p className="detail-label">{TEXT.questDetail.doneWhen}</p>
-          <p className="detail-text done-when">
-            <CircleCheck size={20} aria-hidden="true" />
-            {quest.doneWhen.zh}
-          </p>
-        </div>
+        <QuestDetailCard quest={quest} kind={kind} />
       </div>
 
       <div className="page-footer detail-footer">
@@ -67,6 +48,34 @@ export function QuestDetail(props: QuestDetailProps) {
           </>
         )}
       </div>
+    </div>
+  );
+}
+
+// The quest itself: kind, attribute, time, title, how to do it, and when it
+// counts as done.
+export function QuestDetailCard({ quest, kind }: { quest: Quest; kind: QuestKind }) {
+  return (
+    <div className="quest-card quest-detail">
+      <div className="quest-card-meta">
+        <span className={kind === 'stretch' ? 'tag tag-stretch' : 'tag'}>{TEXT.questKind[kind]}</span>
+        <span className="tag">{TEXT.attributeNames[quest.attribute]}</span>
+        <span className="quest-card-time">
+          <Clock size={16} aria-hidden="true" />
+          {TEXT.todayTab.minutes(quest.minutes)}
+        </span>
+      </div>
+      <h2 className="quest-detail-title">{quest.title.zh}</h2>
+      <hr className="divider" />
+
+      <p className="detail-label">{TEXT.questDetail.howTo}</p>
+      <p className="detail-text">{quest.description.zh}</p>
+
+      <p className="detail-label">{TEXT.questDetail.doneWhen}</p>
+      <p className="detail-text done-when">
+        <CircleCheck size={20} aria-hidden="true" />
+        {quest.doneWhen.zh}
+      </p>
     </div>
   );
 }

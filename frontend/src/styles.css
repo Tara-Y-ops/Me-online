@@ -833,6 +833,17 @@ button {
 
 /* ---------- 16, 17 History tab ---------- */
 
+.history-card {
+  display: block;
+  width: 100%;
+  background: none;
+  text-align: left;
+}
+
+button.history-card {
+  cursor: pointer;
+}
+
 .history-meta {
   display: flex;
   align-items: center;
@@ -847,6 +858,7 @@ button {
 }
 
 .history-note {
+  display: block;
   margin: 8px 0 0;
   color: var(--color-muted);
 }

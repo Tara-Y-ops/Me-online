@@ -124,6 +124,7 @@ Neither pole is better than the other. Screens show how far the player leans as 
 ### FR-7 History
 
 - **FR-7.1** History lists past check-ins newest first, with the date, quest, reaction, note, and tags.
+- **FR-7.2** Tapping a past check-in opens the full quest with that check-in below it. The page is read only, with no check-in or swap button.
 
 ### FR-8 Language
 

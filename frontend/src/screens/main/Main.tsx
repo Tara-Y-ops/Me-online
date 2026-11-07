@@ -1,6 +1,6 @@
 // The app after onboarding: the four tabs with the bottom navigation bar,
 // and the full-screen pages opened from the Today tab (quest detail, check-in,
-// and the check-in result card).
+// and the check-in result card) and the History tab (history detail).
 // Today's quests and the check-ins live here so all these pages share them.
 
 import { useState } from 'react';
@@ -17,6 +17,7 @@ import { TEXT } from '../../text';
 import { CharacterTab } from './CharacterTab';
 import { CheckInResultCard } from './CheckInResultCard';
 import { CheckInScreen } from './CheckInScreen';
+import { HistoryDetail } from './HistoryDetail';
 import { HistoryTab } from './HistoryTab';
 import { QuestDetail } from './QuestDetail';
 import { TodayTab } from './TodayTab';
@@ -39,6 +40,8 @@ export function Main({ profile, character, setup, onCharacterChange }: MainProps
   // Position of the quest being checked in, or null. Opened from a card or
   // the detail page; going back returns to where it was opened.
   const [checkInIndex, setCheckInIndex] = useState<number | null>(null);
+  // Position in checkIns of the past check-in whose detail page is open, or null.
+  const [historyIndex, setHistoryIndex] = useState<number | null>(null);
   // The check-in just saved, shown on the result card until "完成" is tapped.
   const [result, setResult] = useState<{ checkIn: CheckIn; sideBefore: Side } | null>(null);
 
@@ -106,6 +109,10 @@ export function Main({ profile, character, setup, onCharacterChange }: MainProps
     );
   }
 
+  if (historyIndex !== null) {
+    return <HistoryDetail checkIn={checkIns[historyIndex]} onBack={() => setHistoryIndex(null)} />;
+  }
+
   return (
     <>
       <main className="screen">
@@ -126,7 +133,9 @@ export function Main({ profile, character, setup, onCharacterChange }: MainProps
             checkInCount={checkIns.length}
           />
         )}
-        {tab === 'history' && <HistoryTab checkIns={checkIns} onGoToday={() => setTab('today')} />}
+        {tab === 'history' && (
+          <HistoryTab checkIns={checkIns} onOpen={setHistoryIndex} onGoToday={() => setTab('today')} />
+        )}
         {tab === 'map' && <h1 className="screen-title">{TEXT.screenTitles.map}</h1>}
       </main>
       <BottomNav current={tab} onChange={setTab} />
