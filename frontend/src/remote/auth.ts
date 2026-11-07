@@ -3,6 +3,7 @@
 // uploaded stay the same. Signing in replaces the device's data with the
 // account's. Signing out clears the device.
 
+import { gameDay } from '../game/chinaTime';
 import { saveCharacter } from '../storage/character';
 import { saveCheckIns } from '../storage/checkIns';
 import { saveFullTestProgress } from '../storage/fullTest';
@@ -10,7 +11,7 @@ import { clearAppData, getAnonymousId } from '../storage/localStore';
 import { savePlayerSetup } from '../storage/playerSetup';
 import { saveProfile } from '../storage/profile';
 import { saveQuizProgress } from '../storage/quizProgress';
-import { saveShownQuestIds } from '../storage/todayQuests';
+import { saveShownQuestIds, saveToday } from '../storage/todayQuests';
 import { restoredData, type CheckInRow, type RestoredData, type SavedPlayerRow } from './rows';
 import { markUploaded, syncToServer } from './sync';
 import { createTemporaryClient, ensureSignedIn, supabase } from './supabase';
@@ -73,7 +74,7 @@ export async function signIn(email: string, password: string): Promise<SignInRes
     }
 
     if (player.data) {
-      writeDeviceData(restoredData(player.data, checkIns.data ?? []), userId);
+      writeDeviceData(restoredData(player.data, checkIns.data ?? [], gameDay()), userId);
     }
     // Switches the app to the account. The old anonymous user is left behind.
     const { error: sessionError } = await supabase.auth.setSession(data.session);
@@ -107,6 +108,9 @@ function writeDeviceData(data: RestoredData, userId: string): void {
     savePlayerSetup(data.setup);
   }
   saveCheckIns(data.checkIns);
+  if (data.today) {
+    saveToday(data.today);
+  }
   saveShownQuestIds(data.shownQuestIds);
   // The check-ins just came from the server, so they are not uploaded again.
   markUploaded(userId, data.checkIns.length);

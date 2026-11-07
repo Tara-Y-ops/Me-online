@@ -38,6 +38,7 @@ describe('playerRow', () => {
     answers: { 16: 4, 2: 3 },
     character: null,
     setup: null,
+    today: null,
   };
 
   it('leaves later parts empty before the player reaches them', () => {
@@ -51,6 +52,7 @@ describe('playerRow', () => {
       scores: null,
       sides: null,
       week_start: null,
+      today: null,
       self_check: null,
       quest_style: null,
       focus_attributes: null,
@@ -117,6 +119,7 @@ describe('pendingCheckIns', () => {
 });
 
 describe('restoredData', () => {
+  const DAY = '2026-11-07';
   const quizAnswers: QuizAnswers = {};
   SHORT_FORM_ITEMS.forEach((item) => (quizAnswers[item.id] = 4));
   const scores = { curiosity: 60, discipline: 40, socialEnergy: 35.5, warmth: 70, calm: 50 };
@@ -133,6 +136,16 @@ describe('restoredData', () => {
     scores,
     sides,
     week_start: weekStart,
+    today: {
+      day: '2026-11-07',
+      quests: [
+        { questId: 'war-01', kind: 'home' },
+        { questId: 'soc-03', kind: 'stretch' },
+        { questId: 'dis-02', kind: 'home' },
+      ],
+      swapUsed: true,
+      doneQuestIds: ['war-01'],
+    },
     self_check: selfCheck,
     quest_style: 'comfort',
     focus_attributes: ['warmth'],
@@ -142,7 +155,7 @@ describe('restoredData', () => {
   const row = (questId: string, createdAt: string) => ({ ...checkInRow('user-1', checkIn(questId)), created_at: createdAt });
 
   it('restores a player who finished setup, with the weekly start scores', () => {
-    const data = restoredData(player, []);
+    const data = restoredData(player, [], DAY);
     expect(data.profile).toEqual({ name: '铃铛', consentedAt: '2026-11-01T00:00:00.000Z' });
     expect(data.character).toEqual({
       scores,
@@ -161,34 +174,49 @@ describe('restoredData', () => {
   });
 
   it('puts check-ins oldest first and marks their quests as shown', () => {
-    const data = restoredData(player, [
-      row('cur-01', '2026-11-05T10:00:00+00:00'),
-      row('soc-01', '2026-11-03T10:00:00+00:00'),
-      { ...row('soc-01', '2026-11-04T10:00:00+00:00'), amount: '0.5' as unknown as number },
-    ]);
+    const data = restoredData(
+      player,
+      [
+        row('cur-01', '2026-11-05T10:00:00+00:00'),
+        row('soc-01', '2026-11-03T10:00:00+00:00'),
+        { ...row('soc-01', '2026-11-04T10:00:00+00:00'), amount: '0.5' as unknown as number },
+      ],
+      DAY,
+    );
     expect(data.checkIns.map((c) => c.questId)).toEqual(['soc-01', 'soc-01', 'cur-01']);
     expect(data.checkIns[0].createdAt).toBe('2026-11-03T10:00:00.000Z');
     expect(data.checkIns[1].amount).toBe(0.5);
-    expect(data.shownQuestIds).toEqual(['soc-01', 'cur-01']);
+    // Then today's quests, which count as shown too.
+    expect(data.shownQuestIds).toEqual(['soc-01', 'cur-01', 'war-01', 'soc-03', 'dis-02']);
+  });
+
+  it('keeps today\'s quests on the same game day, with the swap and check-ins', () => {
+    expect(restoredData(player, [], DAY).today).toEqual(player.today);
+  });
+
+  it('drops today\'s quests on a new game day, so a new set is picked', () => {
+    const data = restoredData(player, [], '2026-11-08');
+    expect(data.today).toBeNull();
+    expect(data.shownQuestIds).toContain('soc-03');
   });
 
   it('resumes the quiz at the first unanswered item', () => {
     const partial = { ...quizAnswers };
     delete partial[SHORT_FORM_ITEMS[5].id];
-    const data = restoredData({ ...player, quiz_answers: partial, scores: null, sides: null }, []);
+    const data = restoredData({ ...player, quiz_answers: partial, scores: null, sides: null }, [], DAY);
     expect(data.character).toBeNull();
     expect(data.quizProgress.index).toBe(5);
   });
 
   it('resumes an unfinished full test, and keeps a finished one', () => {
     const started = { ...quizAnswers, [REMAINING_ITEMS[0].id]: 3, [REMAINING_ITEMS[1].id]: 2 } as QuizAnswers;
-    expect(restoredData({ ...player, quiz_answers: started }, []).fullTestProgress?.index).toBe(2);
+    expect(restoredData({ ...player, quiz_answers: started }, [], DAY).fullTestProgress?.index).toBe(2);
 
-    const finished = restoredData({ ...player, full_test_at: '2026-11-03T00:00:00.000Z' }, []);
+    const finished = restoredData({ ...player, full_test_at: '2026-11-03T00:00:00.000Z' }, [], DAY);
     expect(finished.character?.fullTestAt).toBe('2026-11-03T00:00:00.000Z');
   });
 
   it('leaves setup empty if it was not finished', () => {
-    expect(restoredData({ ...player, quest_style: null }, []).setup).toBeNull();
+    expect(restoredData({ ...player, quest_style: null }, [], DAY).setup).toBeNull();
   });
 });

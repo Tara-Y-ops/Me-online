@@ -9,6 +9,7 @@ import type { Reaction, Side } from '../game/attributeChange';
 import { REMAINING_ITEMS } from '../game/fullTest';
 import type { QuestKind } from '../game/questPicker';
 import { SHORT_FORM_ITEMS, type QuizAnswers } from '../game/quiz';
+import type { TodayState } from '../game/today';
 import type { Character, WeekStart } from '../storage/character';
 import type { CheckIn } from '../storage/checkIns';
 import type { PlayerSetup, QuestStyle, SelfCheck } from '../storage/playerSetup';
@@ -24,6 +25,7 @@ export interface PlayerData {
   answers: QuizAnswers;
   character: Character | null;
   setup: PlayerSetup | null;
+  today: TodayState | null;
 }
 
 // Column names match the files in supabase/migrations.
@@ -37,6 +39,7 @@ export interface PlayerRow {
   scores: Record<AttributeId, number> | null;
   sides: Record<AttributeId, Side> | null;
   week_start: WeekStart | null;
+  today: TodayState | null;
   self_check: Record<AttributeId, SelfCheck> | null;
   quest_style: QuestStyle | null;
   focus_attributes: AttributeId[] | null;
@@ -71,6 +74,7 @@ export function playerRow(data: PlayerData, now: Date): PlayerRow {
     scores: character?.scores ?? null,
     sides: character?.sides ?? null,
     week_start: character?.weekStart ?? null,
+    today: data.today,
     self_check: setup?.selfCheck ?? null,
     quest_style: setup?.questStyle ?? null,
     focus_attributes: setup?.focusAttributes ?? null,
@@ -111,9 +115,10 @@ export function pendingCheckIns(checkIns: CheckIn[], state: SyncState | null, us
 }
 
 // Everything written back to the device after signing in to an account
-// that already has data (FR-9.1). Today's quests are not stored in Supabase,
-// so the app picks a new set; the quests already checked in are marked as
-// shown so they do not come back (FR-2.2).
+// that already has data (FR-9.1). Today's quests carry over if it is still
+// the same game day; otherwise the app picks a new set as usual. Quests
+// already checked in or shown today are marked as shown so they do not come
+// back (FR-2.2).
 export interface RestoredData {
   profile: Profile;
   quizProgress: QuizProgress;
@@ -121,13 +126,19 @@ export interface RestoredData {
   character: Character | null; // null if the quiz was not finished
   setup: PlayerSetup | null; // null if setup was not finished
   checkIns: CheckIn[]; // Oldest first
+  today: TodayState | null; // null on a new game day
   shownQuestIds: string[];
 }
 
 // The downloaded players row also has the time it was created.
 export type SavedPlayerRow = PlayerRow & { created_at: string };
 
-export function restoredData(player: SavedPlayerRow, checkInRows: CheckInRow[]): RestoredData {
+// currentDay is the game day on this phone (see chinaTime.ts).
+export function restoredData(
+  player: SavedPlayerRow,
+  checkInRows: CheckInRow[],
+  currentDay: string,
+): RestoredData {
   const answers = player.quiz_answers;
   const checkIns = [...checkInRows]
     .sort((a, b) => Date.parse(a.created_at) - Date.parse(b.created_at))
@@ -173,7 +184,13 @@ export function restoredData(player: SavedPlayerRow, checkInRows: CheckInRow[]):
           }
         : null,
     checkIns,
-    shownQuestIds: [...new Set(checkIns.map((checkIn) => checkIn.questId))],
+    today: player.today?.day === currentDay ? player.today : null,
+    shownQuestIds: [
+      ...new Set([
+        ...checkIns.map((checkIn) => checkIn.questId),
+        ...(player.today?.quests.map((quest) => quest.questId) ?? []),
+      ]),
+    ],
   };
 }
 

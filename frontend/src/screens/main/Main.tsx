@@ -57,6 +57,12 @@ export function Main({ profile, character, setup, onCharacterChange }: MainProps
   useEffect(() => {
     getAccountEmail().then(setAccountEmail);
   }, []);
+
+  // Uploads today's quests whenever they change: a new day's set, a swap, or
+  // a check-in (including "还行", which leaves the scores unchanged).
+  useEffect(() => {
+    syncToServer();
+  }, [today]);
   // The check-in just saved, shown on the result card until "完成" is tapped.
   const [result, setResult] = useState<{ checkIn: CheckIn; sideBefore: Side } | null>(null);
 
@@ -73,8 +79,6 @@ export function Main({ profile, character, setup, onCharacterChange }: MainProps
     setCheckIns([...checkIns, saved.checkIn]);
     onCharacterChange(saved.character);
     setResult({ checkIn: saved.checkIn, sideBefore });
-    // Also covers "还行", which leaves the scores unchanged.
-    syncToServer();
   }
 
   // "完成" on the result card goes back to the Today tab.

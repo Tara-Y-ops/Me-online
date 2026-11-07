@@ -27,6 +27,7 @@ One row per player. It is updated whenever the player's data changes.
 | `scores` | jsonb | Attribute → current score from 0 to 100 |
 | `sides` | jsonb | Attribute → `low`, `high`, or `neutral` |
 | `week_start` | jsonb | The game week's Monday and the scores at its start, for the weekly limit (FR-4.1) |
+| `today` | jsonb | The game day, its three quests, whether the swap is used, and which quests are checked in (FR-2) |
 | `self_check` | jsonb | Attribute → `yes`, `partly`, or `no` (FR-1.7) |
 | `quest_style` | text | `comfort` or `explore` (FR-1.8) |
 | `focus_attributes` | text[] | One or two attributes the player wants to explore |
@@ -57,7 +58,7 @@ The primary key is `user_id`, `created_at`, and `quest_id`, so uploading the sam
 
 ## Accounts
 
-Signing up adds an email and password to the phone's anonymous user, so its rows stay the same. Signing in on another phone downloads the `players` row and `check_ins` and writes them to that phone (FR-9.1). Today's quests are not stored, so the phone picks a new set.
+Signing up adds an email and password to the phone's anonymous user, so its rows stay the same. Signing in on another phone downloads the `players` row and `check_ins` and writes them to that phone (FR-9.1). If it is still the same game day, the phone keeps that day's quests; otherwise it picks a new set.
 
 ## Who can see what
 
