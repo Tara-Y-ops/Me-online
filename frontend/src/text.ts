@@ -174,6 +174,24 @@ export const TEXT = {
     done: '完成',
   },
 
+  // 14, 15 Preference Map tab
+  mapTab: {
+    locked: (left: number) => `再打卡 ${left} 次即可解锁`,
+    progress: (count: number, total: number) => `${count} / ${total}`,
+    lockedNote: '打卡越多，越能看出你喜欢和不喜欢什么。',
+    goToday: '去做今日任务',
+    energizers: '让你充电的',
+    drainers: '让你耗电的',
+    noEnergizers: '还没有喜欢的任务',
+    noDrainers: '还没有不喜欢的任务',
+    groupName: (attributeName: string, poleName: string) => `${attributeName} · ${poleName}`,
+    tags: (tags: string[]) => `标签：${tags.join(' · ')}`,
+    likedCount: (count: number) => `喜欢 ${count} 次`,
+    dislikedCount: (count: number) => `不喜欢 ${count} 次`,
+    table: '每类任务的感受',
+    unit: '单位：次',
+  },
+
   // 16, 17 History tab
   historyTab: {
     date: (month: number, day: number) => `${month}月${day}日`,
