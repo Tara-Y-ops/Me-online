@@ -968,3 +968,25 @@ button.history-card {
   color: var(--color-border);
   font-weight: 400;
 }
+
+/* ---------- Full 60-item test entry (05, 13) ---------- */
+
+.full-test-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  margin-top: 16px;
+  padding: 16px;
+  border: 1.5px dashed var(--color-muted);
+  border-radius: 14px;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.full-test-card .hint {
+  display: block;
+  margin-top: 4px;
+}

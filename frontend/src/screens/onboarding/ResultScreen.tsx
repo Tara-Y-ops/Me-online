@@ -1,17 +1,20 @@
 // 05 Initial character: the five starting attributes after the quiz.
 // Shown as starting game values, not a personality assessment (FR-1.5).
+// Offers the full 60-item test until it is done (FR-1.6).
 
 import { AttributeBar } from '../../components/AttributeBar';
+import { FullTestCard } from '../../components/FullTestCard';
 import { ATTRIBUTE_IDS } from '../../game/attributes';
 import type { Character } from '../../storage/character';
 import { TEXT } from '../../text';
 
 interface ResultScreenProps {
   character: Character;
+  onFullTest: () => void;
   onNext: () => void;
 }
 
-export function ResultScreen({ character, onNext }: ResultScreenProps) {
+export function ResultScreen({ character, onFullTest, onNext }: ResultScreenProps) {
   return (
     <div className="page">
       <div className="page-body">
@@ -28,6 +31,14 @@ export function ResultScreen({ character, onNext }: ResultScreenProps) {
             />
           ))}
         </div>
+
+        {!character.fullTestAt && (
+          <FullTestCard
+            title={TEXT.fullTest.resultCardTitle}
+            note={TEXT.fullTest.resultCardNote}
+            onOpen={onFullTest}
+          />
+        )}
       </div>
 
       <div className="page-footer">

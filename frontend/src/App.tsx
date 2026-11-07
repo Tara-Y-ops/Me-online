@@ -13,6 +13,8 @@ import { QuizScreen } from './screens/onboarding/QuizScreen';
 import { createCharacter, loadCharacter, saveCharacter, type Character } from './storage/character';
 import { loadPlayerSetup, savePlayerSetup, type PlayerSetup } from './storage/playerSetup';
 import { loadProfile, saveProfile, type Profile } from './storage/profile';
+import { loadQuizProgress, saveQuizProgress } from './storage/quizProgress';
+import { TEXT } from './text';
 
 function App() {
   const [profile, setProfile] = useState<Profile | null>(() => loadProfile());
@@ -47,7 +49,13 @@ function App() {
   if (!character) {
     return (
       <div className="app">
-        <QuizScreen onFinish={finishQuiz} />
+        <QuizScreen
+          title={TEXT.quiz.title}
+          items={SHORT_FORM_ITEMS}
+          loadProgress={loadQuizProgress}
+          saveProgress={saveQuizProgress}
+          onFinish={finishQuiz}
+        />
       </div>
     );
   }
@@ -55,7 +63,7 @@ function App() {
   if (!setup) {
     return (
       <div className="app">
-        <CharacterSetup character={character} onFinish={finishSetup} />
+        <CharacterSetup character={character} onCharacterChange={setCharacter} onFinish={finishSetup} />
       </div>
     );
   }

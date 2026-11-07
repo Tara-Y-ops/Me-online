@@ -93,6 +93,14 @@ export const TEXT = {
     finish: '完成',
   },
 
+  // Full 60-item test (FR-1.6), opened from 05 and 13
+  fullTest: {
+    title: '完整版测验',
+    resultCardTitle: '想更准确？做完整版 60 题',
+    resultCardNote: '已答的 15 题不会重复，约 8 分钟',
+    characterCard: '做完整版 60 题，让数值更准确',
+  },
+
   // 05 Initial character
   result: {
     title: '你的初始角色',
