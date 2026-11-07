@@ -210,10 +210,39 @@ export const TEXT = {
     yourCheckIn: '你的打卡',
   },
 
+  // 18, 19 Sign in and sign up (FR-9.1)
+  auth: {
+    title: '登录保存进度',
+    signInIntro: '用邮箱登录，换手机也不会丢进度',
+    signUpIntro: '注册一个账号，换手机也不会丢进度',
+    tabs: { signIn: '登录', signUp: '注册' },
+    email: '邮箱',
+    emailPlaceholder: 'name@example.com',
+    newPassword: '设置密码',
+    passwordPlaceholder: '至少 8 位',
+    confirmPassword: '再输一次密码',
+    confirmPlaceholder: '和上面保持一致',
+    signUp: '注册并保存进度',
+    sending: '请稍候……',
+    signInSoon: '登录功能即将开放',
+    skip: '暂时不登录，继续使用',
+    errors: {
+      invalidEmail: '请输入正确的邮箱',
+      shortPassword: '密码至少 8 位',
+      mismatch: '两次输入的密码不一样',
+      emailTaken: '这个邮箱已经注册过了',
+      wrongCredentials: '邮箱或密码不对',
+      network: '网络连接失败，请稍后再试',
+      unknown: '出了点问题，请稍后再试',
+    },
+  },
+
   // 13 Character tab
   characterTab: {
     checkInCount: (count: number) => `累计打卡 ${count} 次`,
     questStyle: (styleTitle: string) => `任务方向：${styleTitle}`,
     focus: (attributeNames: string) => `想多了解：${attributeNames}`,
+    signIn: '登录保存进度',
+    signOut: '退出登录',
   },
 } as const;

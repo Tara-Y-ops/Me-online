@@ -1,10 +1,10 @@
 // The app after onboarding: the four tabs with the bottom navigation bar,
 // and the full-screen pages opened from the Today tab (quest detail, check-in,
 // and the check-in result card), the History tab (history detail), and the
-// Character tab (full 60-item test).
+// Character tab (full 60-item test, sign up).
 // Today's quests and the check-ins live here so all these pages share them.
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BottomNav, type Tab } from '../../components/BottomNav';
 import type { Side } from '../../game/attributeChange';
 import { findQuest } from '../../game/quests';
@@ -13,9 +13,11 @@ import type { Character } from '../../storage/character';
 import { loadCheckIns, submitCheckIn, type CheckIn, type CheckInForm } from '../../storage/checkIns';
 import type { PlayerSetup } from '../../storage/playerSetup';
 import type { Profile } from '../../storage/profile';
+import { getAccountEmail, signOut } from '../../remote/auth';
 import { syncToServer } from '../../remote/sync';
 import { openToday, swapTodayQuest } from '../../storage/todayQuests';
 import { FullTestScreen } from '../onboarding/FullTestScreen';
+import { AuthScreen } from './AuthScreen';
 import { CharacterTab } from './CharacterTab';
 import { CheckInResultCard } from './CheckInResultCard';
 import { CheckInScreen } from './CheckInScreen';
@@ -47,6 +49,14 @@ export function Main({ profile, character, setup, onCharacterChange }: MainProps
   const [historyIndex, setHistoryIndex] = useState<number | null>(null);
   // Whether the full 60-item test is open, from the Character tab.
   const [fullTestOpen, setFullTestOpen] = useState(false);
+  // Whether the sign-in and sign-up page is open, from the Character tab.
+  const [authOpen, setAuthOpen] = useState(false);
+  // The signed-in email, or null for an anonymous player.
+  const [accountEmail, setAccountEmail] = useState<string | null>(null);
+
+  useEffect(() => {
+    getAccountEmail().then(setAccountEmail);
+  }, []);
   // The check-in just saved, shown on the result card until "完成" is tapped.
   const [result, setResult] = useState<{ checkIn: CheckIn; sideBefore: Side } | null>(null);
 
@@ -116,6 +126,18 @@ export function Main({ profile, character, setup, onCharacterChange }: MainProps
     );
   }
 
+  if (authOpen) {
+    return (
+      <AuthScreen
+        onBack={() => setAuthOpen(false)}
+        onSignedUp={(email) => {
+          setAccountEmail(email);
+          setAuthOpen(false);
+        }}
+      />
+    );
+  }
+
   if (fullTestOpen) {
     return (
       <FullTestScreen
@@ -151,7 +173,10 @@ export function Main({ profile, character, setup, onCharacterChange }: MainProps
             character={character}
             setup={setup}
             checkInCount={checkIns.length}
+            accountEmail={accountEmail}
             onFullTest={() => setFullTestOpen(true)}
+            onSignIn={() => setAuthOpen(true)}
+            onSignOut={signOut}
           />
         )}
         {tab === 'history' && (

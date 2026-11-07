@@ -1,10 +1,11 @@
 // 13 Character tab: name, check-in count, the five attribute bars, and the
 // player's quest style (PRD FR-5.1).
 // Offers the full 60-item test until it is done (FR-1.6).
-// Not here yet: editing the quest style (FR-1.9) and the sign-in link
-// (hidden until accounts exist).
+// The top right shows "登录保存进度", or the email once signed up (13, 22),
+// with a sign-out link at the bottom (FR-9.1).
+// Not here yet: editing the quest style (FR-1.9).
 
-import { User } from 'lucide-react';
+import { CircleCheck, User } from 'lucide-react';
 import { AttributeBar } from '../../components/AttributeBar';
 import { FullTestCard } from '../../components/FullTestCard';
 import { ATTRIBUTE_IDS } from '../../game/attributes';
@@ -18,11 +19,14 @@ interface CharacterTabProps {
   character: Character;
   setup: PlayerSetup;
   checkInCount: number;
+  accountEmail: string | null; // null for an anonymous player
   onFullTest: () => void;
+  onSignIn: () => void;
+  onSignOut: () => void;
 }
 
 export function CharacterTab(props: CharacterTabProps) {
-  const { profile, character, setup, checkInCount, onFullTest } = props;
+  const { profile, character, setup, checkInCount, accountEmail, onFullTest, onSignIn, onSignOut } = props;
   const styleTitle = TEXT.questStyle.options[setup.questStyle].title;
   const focusNames = setup.focusAttributes
     .map((attribute) => TEXT.attributeNames[attribute])
@@ -30,7 +34,20 @@ export function CharacterTab(props: CharacterTabProps) {
 
   return (
     <>
-      <h1 className="screen-title">{TEXT.screenTitles.character}</h1>
+      <div className="screen-title-row">
+        <h1 className="screen-title">{TEXT.screenTitles.character}</h1>
+        {accountEmail ? (
+          <span className="account-link">
+            <CircleCheck size={18} aria-hidden="true" />
+            <span className="account-email">{accountEmail}</span>
+          </span>
+        ) : (
+          <button type="button" className="account-link" onClick={onSignIn}>
+            <User size={18} aria-hidden="true" />
+            {TEXT.characterTab.signIn}
+          </button>
+        )}
+      </div>
 
       <div className="profile-row">
         <div className="avatar">
@@ -59,6 +76,13 @@ export function CharacterTab(props: CharacterTabProps) {
       </div>
 
       {!character.fullTestAt && <FullTestCard title={TEXT.fullTest.characterCard} onOpen={onFullTest} />}
+
+      {/* Signing out clears the device and returns to the welcome screen. */}
+      {accountEmail && (
+        <button type="button" className="text-button" onClick={onSignOut}>
+          {TEXT.characterTab.signOut}
+        </button>
+      )}
     </>
   );
 }

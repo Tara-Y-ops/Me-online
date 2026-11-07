@@ -133,7 +133,7 @@ Neither pole is better than the other. Screens show how far the player leans as 
 
 ### FR-9 Data storage
 
-- **FR-9.1** Sprint 1 aims to include email sign-up and login, built last. Until they work, the app runs without an account.
+- **FR-9.1** Sprint 1 aims to include email sign-up and login, built last. Until they work, the app runs without an account. Signing up, from the Character screen, adds an email and a password of at least 8 characters to the device's anonymous user, so the data uploaded so far stays with the account. Email confirmation is off, and there is no password reset in Sprint 1. Signing out clears the device and returns to the welcome screen; the data stays in the account.
 - **FR-9.2** Without an account, the device gets an anonymous ID on first open. Quiz answers, check-ins, and tags are saved on the device first and then uploaded to Supabase under that ID.
 
 ## Non-Functional Requirements
