@@ -25,6 +25,17 @@ export function openToday(character: Character, setup: PlayerSetup, now = new Da
   return state;
 }
 
+// Today's saved quests, or null before the first set is picked. Unlike
+// openToday, this never picks a new set.
+export function loadSavedToday(): TodayState | null {
+  return loadJson<TodayState>(TODAY_KEY);
+}
+
+// Replaces today's quests, e.g. with the account's after sign-in.
+export function saveToday(state: TodayState): boolean {
+  return saveJson(TODAY_KEY, state);
+}
+
 // Replaces the list of quests shown so far, e.g. after sign-in.
 export function saveShownQuestIds(questIds: string[]): boolean {
   return saveJson(SHOWN_KEY, questIds);
