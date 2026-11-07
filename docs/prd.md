@@ -117,9 +117,9 @@ Neither pole is better than the other. Screens show how far the player leans as 
 
 ### FR-6 Preference Map
 
-- **FR-6.1** The Preference Map unlocks after 5 check-ins. Until then, the page shows how many more check-ins are needed.
-- **FR-6.2** It groups check-ins by attribute and pole and counts Liked, Okay, and Disliked in each group.
-- **FR-6.3** It lists up to three energizers (groups with the most likes) and three drainers (groups with the most dislikes), along with the tags the player added to those check-ins.
+- **FR-6.1** The Preference Map unlocks after 5 check-ins of any reaction. Until then, the page shows how many more check-ins are needed.
+- **FR-6.2** It groups check-ins by the quest's attribute and pole and counts Liked, Okay, and Disliked in each group. A check-in counts toward the quest's own pole, even when the player disliked it. The table lists only groups with a check-in, in the Character screen's attribute order, with the high pole first.
+- **FR-6.3** It lists up to three energizers (groups with the most likes) and three drainers (groups with the most dislikes). A group needs at least one like to be an energizer and at least one dislike to be a drainer, so a group can appear on both sides. Ties go to the group checked in most recently. Each energizer shows up to three of the most used tags from its Liked check-ins, and each drainer from its Disliked check-ins. Okay check-ins count only in the table.
 
 ### FR-7 History
 
