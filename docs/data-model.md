@@ -4,7 +4,7 @@ This page lists what Me Online stores, where, and who can see it. It covers Spri
 
 ## Where data lives
 
-The app saves everything on the phone first, in the browser's localStorage. It then uploads a copy to Supabase for the research. If an upload fails, the data stays on the phone and the app tries again later (PRD NFR-3).
+The app saves everything on the phone first, in the browser's localStorage. It then uploads a copy to Supabase for the research. Uploads run when the app opens, after the player saves something (name, quiz, setup, full test, or a check-in), and when the phone comes back online. If an upload fails, the data stays on the phone and the next upload tries again (PRD NFR-3). The player sees nothing either way.
 
 Each phone signs in to Supabase anonymously the first time the app opens. The player does not see this step. Each phone gets its own user in Supabase, and row-level security lets a player read and write only their own rows. The researcher sees all rows in the Supabase dashboard.
 
@@ -79,5 +79,6 @@ These localStorage keys all start with `me-online:`.
 | `today` | Today's quests, swap, and finished quests |
 | `shownQuestIds` | Quests shown this week, so none repeat |
 | `checkIns` | Every check-in, oldest first |
+| `syncState` | The Supabase user the uploads belong to, and how many check-ins have been uploaded |
 
 Supabase also keeps the anonymous session in localStorage under its own key.

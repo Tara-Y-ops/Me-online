@@ -4,8 +4,9 @@
 // 3. Character but no player setup: initial character, self-check, quest style.
 // 4. Setup saved: the main pages (see screens/main/Main.tsx).
 // Navigation is plain React state (no router library) to keep it simple.
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { scoreQuiz, SHORT_FORM_ITEMS, type QuizAnswers } from './game/quiz';
+import { syncToServer } from './remote/sync';
 import { Main } from './screens/main/Main';
 import { CharacterSetup } from './screens/onboarding/CharacterSetup';
 import { Onboarding } from './screens/onboarding/Onboarding';
@@ -20,6 +21,12 @@ function App() {
   const [profile, setProfile] = useState<Profile | null>(() => loadProfile());
   const [character, setCharacter] = useState<Character | null>(() => loadCharacter());
   const [setup, setSetup] = useState<PlayerSetup | null>(() => loadPlayerSetup());
+
+  // Uploads the player's data whenever it changes: after Name, the quiz, the
+  // setup, the full test, and check-ins that move a score.
+  useEffect(() => {
+    syncToServer();
+  }, [profile, character, setup]);
 
   // Saved right after Name, so closing the app during the quiz keeps the name.
   function finishOnboarding(newProfile: Profile) {
