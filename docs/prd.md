@@ -76,7 +76,7 @@ The daily loop and the three user flows (first-time player, daily play, reflecti
 - **FR-1.3** The player can go back but cannot skip an item. An unfinished quiz resumes where it stopped.
 - **FR-1.4** The answers are scored with the BFI-2 key and turned into five attributes from 0 to 100 (Cohen et al., 1999). Each attribute’s home pole is the side the player scores on. A score of exactly 50 is neutral: the player is not placed on either side until a check-in moves the score.
 - **FR-1.5** The result screen shows which side the player leans toward on each attribute, as starting game values, not a personality assessment.
-- **FR-1.6** The player can choose to continue to the full 60-item BFI-2 (Soto & John, 2017a). Answered items are not repeated, and the attributes are rescored from the full test.
+- **FR-1.6** The player can choose to continue to the full 60-item BFI-2 (Soto & John, 2017a), once, from the result screen or the Character screen. Only the 45 unanswered items are asked, and progress is saved after every answer. The attributes are rescored from all 60 items, and any change check-ins made since the quiz is added back, so check-ins still count. Sides are set again from the new scores, and the weekly limit in FR-4.1 restarts from them.
 - **FR-1.7** After the result screen, the player says whether each attribute feels like them (Yes, Partly, or No). The answers are saved only as player feedback and do not change the scores.
 - **FR-1.8** The player picks a quest style, Comfort (quests that fit their current side) or Explore (more quests on the other side), and one or two attributes they most want to explore.
 - **FR-1.9** The player can change the quest style and focus attributes later on the Character screen.

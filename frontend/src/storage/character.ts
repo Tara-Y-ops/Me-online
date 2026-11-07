@@ -18,6 +18,7 @@ export interface Character {
   sides: Record<AttributeId, Side>;
   createdAt: string; // When the quiz was finished, ISO time
   weekStart?: WeekStart; // Set by the first check-in of each week
+  fullTestAt?: string; // When the full 60-item test was finished, ISO time (FR-1.6)
 }
 
 // Builds a new character from quiz scores. A score of exactly 50 starts neutral.
