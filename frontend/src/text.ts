@@ -129,6 +129,10 @@ export const TEXT = {
     focusQuestion: '最想了解自己哪一方面？',
     focusHint: '选 1–2 个，之后的挑战任务会多从这里出',
     start: '开始今天的任务',
+    // When changed later from the Character tab (FR-1.9)
+    editTitle: '修改任务方向',
+    editNote: '修改后从下一次刷新的任务开始生效，今天的任务不变',
+    save: '保存',
   },
 
   // 06-08 Today tab
@@ -245,6 +249,7 @@ export const TEXT = {
     checkInCount: (count: number) => `累计打卡 ${count} 次`,
     questStyle: (styleTitle: string) => `任务方向：${styleTitle}`,
     focus: (attributeNames: string) => `想多了解：${attributeNames}`,
+    edit: '修改',
     signIn: '登录保存进度',
     signOut: '退出登录',
   },

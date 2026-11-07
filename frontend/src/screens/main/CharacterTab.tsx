@@ -3,9 +3,9 @@
 // Offers the full 60-item test until it is done (FR-1.6).
 // The top right shows "登录保存进度", or the email once signed up (13, 22),
 // with a sign-out link at the bottom (FR-9.1).
-// Not here yet: editing the quest style (FR-1.9).
+// The quest style card opens a page to change the style and focus (FR-1.9).
 
-import { CircleCheck, User } from 'lucide-react';
+import { ChevronRight, CircleCheck, User } from 'lucide-react';
 import { AttributeBar } from '../../components/AttributeBar';
 import { FullTestCard } from '../../components/FullTestCard';
 import { ATTRIBUTE_IDS } from '../../game/attributes';
@@ -21,12 +21,14 @@ interface CharacterTabProps {
   checkInCount: number;
   accountEmail: string | null; // null for an anonymous player
   onFullTest: () => void;
+  onEditStyle: () => void;
   onSignIn: () => void;
   onSignOut: () => void;
 }
 
 export function CharacterTab(props: CharacterTabProps) {
-  const { profile, character, setup, checkInCount, accountEmail, onFullTest, onSignIn, onSignOut } = props;
+  const { profile, character, setup, checkInCount, accountEmail, onFullTest, onEditStyle, onSignIn, onSignOut } =
+    props;
   const styleTitle = TEXT.questStyle.options[setup.questStyle].title;
   const focusNames = setup.focusAttributes
     .map((attribute) => TEXT.attributeNames[attribute])
@@ -70,10 +72,16 @@ export function CharacterTab(props: CharacterTabProps) {
         ))}
       </div>
 
-      <div className="info-card character-style-card">
-        <p className="option-title">{TEXT.characterTab.questStyle(styleTitle)}</p>
-        <p className="hint">{TEXT.characterTab.focus(focusNames)}</p>
-      </div>
+      <button type="button" className="info-card character-style-card" onClick={onEditStyle}>
+        <span>
+          <span className="option-title">{TEXT.characterTab.questStyle(styleTitle)}</span>
+          <span className="hint">{TEXT.characterTab.focus(focusNames)}</span>
+        </span>
+        <span className="style-edit">
+          {TEXT.characterTab.edit}
+          <ChevronRight size={20} aria-hidden="true" />
+        </span>
+      </button>
 
       {!character.fullTestAt && <FullTestCard title={TEXT.fullTest.characterCard} onOpen={onFullTest} />}
 

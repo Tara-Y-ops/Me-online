@@ -1,7 +1,7 @@
 // The app after onboarding: the four tabs with the bottom navigation bar,
 // and the full-screen pages opened from the Today tab (quest detail, check-in,
 // and the check-in result card), the History tab (history detail), and the
-// Character tab (full 60-item test, sign in and sign up).
+// Character tab (full 60-item test, quest style, sign in and sign up).
 // Today's quests and the check-ins live here so all these pages share them.
 
 import { useEffect, useState } from 'react';
@@ -17,6 +17,7 @@ import { getAccountEmail, signOut } from '../../remote/auth';
 import { syncToServer } from '../../remote/sync';
 import { openToday, swapTodayQuest } from '../../storage/todayQuests';
 import { FullTestScreen } from '../onboarding/FullTestScreen';
+import { QuestStyleScreen } from '../onboarding/QuestStyleScreen';
 import { AuthScreen } from './AuthScreen';
 import { CharacterTab } from './CharacterTab';
 import { CheckInResultCard } from './CheckInResultCard';
@@ -32,9 +33,10 @@ interface MainProps {
   character: Character;
   setup: PlayerSetup;
   onCharacterChange: (character: Character) => void; // After a check-in moves a score
+  onSetupChange: (setup: PlayerSetup) => void; // After changing the quest style
 }
 
-export function Main({ profile, character, setup, onCharacterChange }: MainProps) {
+export function Main({ profile, character, setup, onCharacterChange, onSetupChange }: MainProps) {
   // The app opens on the Today board (docs/user-flows.md).
   const [tab, setTab] = useState<Tab>('today');
   // Loads today's saved quests, or picks a new set on a new game day.
@@ -49,6 +51,8 @@ export function Main({ profile, character, setup, onCharacterChange }: MainProps
   const [historyIndex, setHistoryIndex] = useState<number | null>(null);
   // Whether the full 60-item test is open, from the Character tab.
   const [fullTestOpen, setFullTestOpen] = useState(false);
+  // Whether the quest style page is open, from the Character tab.
+  const [styleOpen, setStyleOpen] = useState(false);
   // Whether the sign-in and sign-up page is open, from the Character tab.
   const [authOpen, setAuthOpen] = useState(false);
   // The signed-in email, or null for an anonymous player.
@@ -130,6 +134,19 @@ export function Main({ profile, character, setup, onCharacterChange }: MainProps
     );
   }
 
+  if (styleOpen) {
+    return (
+      <QuestStyleScreen
+        current={setup}
+        onBack={() => setStyleOpen(false)}
+        onFinish={(questStyle, focusAttributes) => {
+          onSetupChange({ ...setup, questStyle, focusAttributes });
+          setStyleOpen(false);
+        }}
+      />
+    );
+  }
+
   if (authOpen) {
     return (
       <AuthScreen
@@ -181,6 +198,7 @@ export function Main({ profile, character, setup, onCharacterChange }: MainProps
             checkInCount={checkIns.length}
             accountEmail={accountEmail}
             onFullTest={() => setFullTestOpen(true)}
+            onEditStyle={() => setStyleOpen(true)}
             onSignIn={() => setAuthOpen(true)}
             onSignOut={signOut}
           />
