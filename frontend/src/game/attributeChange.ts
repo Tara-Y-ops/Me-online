@@ -98,6 +98,6 @@ function sideAfterMove(side: Side, oldScore: number, newScore: number): Side {
 
 // Rounds away floating-point noise, so steps of 0.1 add up exactly
 // (e.g. 49.9 + 0.1 is exactly 50, not 50.00000000000001).
-function roundScore(score: number): number {
+export function roundScore(score: number): number {
   return Math.round(score * 1e6) / 1e6;
 }
