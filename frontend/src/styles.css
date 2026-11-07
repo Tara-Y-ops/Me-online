@@ -483,7 +483,32 @@ button {
 }
 
 .character-style-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
   margin-top: 40px;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.character-style-card .hint {
+  display: block;
+}
+
+/* "修改 >" on the right of the quest style card. */
+.style-edit {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  color: var(--color-muted);
+  font-size: 15px;
+}
+
+.quest-style-note {
+  margin: 0 0 20px;
 }
 
 .info-card {

@@ -40,7 +40,7 @@ function App() {
     setCharacter(newCharacter);
   }
 
-  function finishSetup(newSetup: PlayerSetup) {
+  function saveSetup(newSetup: PlayerSetup) {
     savePlayerSetup(newSetup);
     setSetup(newSetup);
   }
@@ -70,14 +70,20 @@ function App() {
   if (!setup) {
     return (
       <div className="app">
-        <CharacterSetup character={character} onCharacterChange={setCharacter} onFinish={finishSetup} />
+        <CharacterSetup character={character} onCharacterChange={setCharacter} onFinish={saveSetup} />
       </div>
     );
   }
 
   return (
     <div className="app">
-      <Main profile={profile} character={character} setup={setup} onCharacterChange={setCharacter} />
+      <Main
+        profile={profile}
+        character={character}
+        setup={setup}
+        onCharacterChange={setCharacter}
+        onSetupChange={saveSetup}
+      />
     </div>
   );
 }

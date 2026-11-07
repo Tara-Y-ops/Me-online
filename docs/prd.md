@@ -79,7 +79,7 @@ The daily loop and the three user flows (first-time player, daily play, reflecti
 - **FR-1.6** The player can choose to continue to the full 60-item BFI-2 (Soto & John, 2017a), once, from the result screen or the Character screen. Only the 45 unanswered items are asked, and progress is saved after every answer. The attributes are rescored from all 60 items, and any change check-ins made since the quiz is added back, so check-ins still count. Sides are set again from the new scores, and the weekly limit in FR-4.1 restarts from them.
 - **FR-1.7** After the result screen, the player says whether each attribute feels like them (Yes, Partly, or No). The answers are saved only as player feedback and do not change the scores.
 - **FR-1.8** The player picks a quest style, Comfort (quests that fit their current side) or Explore (more quests on the other side), and one or two attributes they most want to explore.
-- **FR-1.9** The player can change the quest style and focus attributes later on the Character screen.
+- **FR-1.9** The player can change the quest style and focus attributes later on the Character screen. The change applies from the next quest refresh; today's quests stay the same.
 
 **Attribute poles**
 

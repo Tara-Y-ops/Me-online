@@ -1,5 +1,7 @@
 // 05b How do you want to play? The player picks a quest style and one or two
 // attributes to explore (FR-1.8). Both are required to continue.
+// Also opened from the Character tab to change them later (FR-1.9), starting
+// from the current choices.
 
 import { useState } from 'react';
 import { PageHeader } from '../../components/PageHeader';
@@ -11,13 +13,15 @@ const STYLES: QuestStyle[] = ['comfort', 'explore'];
 const MAX_FOCUS = 2;
 
 interface QuestStyleScreenProps {
+  // The saved choices when changing them from the Character tab.
+  current?: { questStyle: QuestStyle; focusAttributes: AttributeId[] };
   onBack: () => void;
   onFinish: (questStyle: QuestStyle, focusAttributes: AttributeId[]) => void;
 }
 
-export function QuestStyleScreen({ onBack, onFinish }: QuestStyleScreenProps) {
-  const [questStyle, setQuestStyle] = useState<QuestStyle | null>(null);
-  const [focus, setFocus] = useState<AttributeId[]>([]);
+export function QuestStyleScreen({ current, onBack, onFinish }: QuestStyleScreenProps) {
+  const [questStyle, setQuestStyle] = useState<QuestStyle | null>(current?.questStyle ?? null);
+  const [focus, setFocus] = useState<AttributeId[]>(current?.focusAttributes ?? []);
 
   // Tapping a selected attribute removes it; a third pick is ignored.
   function toggleFocus(attribute: AttributeId) {
@@ -31,9 +35,11 @@ export function QuestStyleScreen({ onBack, onFinish }: QuestStyleScreenProps) {
 
   return (
     <div className="page">
-      <PageHeader title={TEXT.questStyle.title} onBack={onBack} />
+      <PageHeader title={current ? TEXT.questStyle.editTitle : TEXT.questStyle.title} onBack={onBack} />
 
       <div className="page-body">
+        {/* Today's quests stay the same, so the day's set never reshuffles (FR-2.4). */}
+        {current && <p className="hint quest-style-note">{TEXT.questStyle.editNote}</p>}
         <h2 className="section-heading">{TEXT.questStyle.styleQuestion}</h2>
         <div className="options" role="radiogroup">
           {STYLES.map((style) => (
@@ -76,7 +82,7 @@ export function QuestStyleScreen({ onBack, onFinish }: QuestStyleScreenProps) {
           disabled={!questStyle || focus.length === 0}
           onClick={() => questStyle && onFinish(questStyle, focus)}
         >
-          {TEXT.questStyle.start}
+          {current ? TEXT.questStyle.save : TEXT.questStyle.start}
         </button>
       </div>
     </div>
