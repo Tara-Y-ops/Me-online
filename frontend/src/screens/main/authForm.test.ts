@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { authProblem, signUpProblem } from './authForm';
+import { authProblem, signInProblem, signUpProblem } from './authForm';
 
 const good = { email: 'ling@example.com', password: 'abcd1234', confirm: 'abcd1234' };
 
@@ -25,6 +25,14 @@ describe('signUpProblem', () => {
 
   it('reports the email first when several fields are wrong', () => {
     expect(signUpProblem({ email: '', password: '1', confirm: '2' })).toBe('invalidEmail');
+  });
+});
+
+describe('signInProblem', () => {
+  it('needs a valid email and a password of at least 8 characters', () => {
+    expect(signInProblem('ling@example.com', 'abcd1234')).toBeNull();
+    expect(signInProblem('ling', 'abcd1234')).toBe('invalidEmail');
+    expect(signInProblem('ling@example.com', '')).toBe('shortPassword');
   });
 });
 

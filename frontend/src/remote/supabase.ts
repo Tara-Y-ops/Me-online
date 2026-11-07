@@ -14,6 +14,15 @@ const publishableKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 export const supabase: SupabaseClient | null =
   url && publishableKey ? createClient(url, publishableKey) : null;
 
+// A separate client that keeps its session in memory only. Sign-in uses it to
+// download the account's data before switching the app over, so a failed
+// download leaves the device as it was.
+export function createTemporaryClient(): SupabaseClient | null {
+  return url && publishableKey
+    ? createClient(url, publishableKey, { auth: { persistSession: false, autoRefreshToken: false } })
+    : null;
+}
+
 // Returns this device's Supabase user ID, signing in anonymously the first
 // time. The session is kept in localStorage, so later calls reuse it.
 // Returns null when Supabase is not set up or cannot be reached; callers

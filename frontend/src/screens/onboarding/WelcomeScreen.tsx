@@ -1,13 +1,15 @@
 // 01 Welcome: explains the idea in two sentences and shows a sample quest.
-// The "sign in" link from the wireframe is hidden until accounts exist.
+// The player signs up, signs in, or continues as a guest (FR-9.1).
 
 import { TEXT } from '../../text';
 
 interface WelcomeScreenProps {
-  onStart: () => void;
+  onSignUp: () => void;
+  onSignIn: () => void;
+  onGuest: () => void;
 }
 
-export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
+export function WelcomeScreen({ onSignUp, onSignIn, onGuest }: WelcomeScreenProps) {
   return (
     <div className="page">
       <div className="page-body welcome">
@@ -30,8 +32,14 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
       </div>
 
       <div className="page-footer">
-        <button type="button" className="button-primary" onClick={onStart}>
-          {TEXT.welcome.start}
+        <button type="button" className="button-primary" onClick={onSignUp}>
+          {TEXT.welcome.signUp}
+        </button>
+        <button type="button" className="button-secondary welcome-sign-in" onClick={onSignIn}>
+          {TEXT.welcome.signIn}
+        </button>
+        <button type="button" className="text-button welcome-guest" onClick={onGuest}>
+          {TEXT.welcome.guest}
         </button>
       </div>
     </div>

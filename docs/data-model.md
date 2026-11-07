@@ -8,7 +8,7 @@ The app saves everything on the phone first, in the browser's localStorage. It t
 
 Each phone signs in to Supabase anonymously the first time the app opens. The player does not see this step. Each phone gets its own user in Supabase, and row-level security lets a player read and write only their own rows. The researcher sees all rows in the Supabase dashboard.
 
-The tables are created by [supabase/migrations/20261107000000_init.sql](../supabase/migrations/20261107000000_init.sql).
+The tables are created by the files in [supabase/migrations](../supabase/migrations), run in order in the SQL Editor.
 
 ## Tables
 
@@ -26,6 +26,7 @@ One row per player. It is updated whenever the player's data changes.
 | `full_test_at` | timestamptz | When the full 60-item test was finished (FR-1.6), or null |
 | `scores` | jsonb | Attribute → current score from 0 to 100 |
 | `sides` | jsonb | Attribute → `low`, `high`, or `neutral` |
+| `week_start` | jsonb | The game week's Monday and the scores at its start, for the weekly limit (FR-4.1) |
 | `self_check` | jsonb | Attribute → `yes`, `partly`, or `no` (FR-1.7) |
 | `quest_style` | text | `comfort` or `explore` (FR-1.8) |
 | `focus_attributes` | text[] | One or two attributes the player wants to explore |
@@ -53,6 +54,10 @@ One row per check-in. Rows are never changed after they are saved.
 | `uploaded_at` | timestamptz | When the row reached Supabase |
 
 The primary key is `user_id`, `created_at`, and `quest_id`, so uploading the same check-in twice saves it once.
+
+## Accounts
+
+Signing up adds an email and password to the phone's anonymous user, so its rows stay the same. Signing in on another phone downloads the `players` row and `check_ins` and writes them to that phone (FR-9.1). Today's quests are not stored, so the phone picks a new set.
 
 ## Who can see what
 

@@ -1,4 +1,5 @@
-// Checks on the sign-up form, and which message to show for each problem.
+// Checks on the sign-in and sign-up forms, and which message to show for
+// each problem.
 // Kept separate from the screen so the rules can be unit-tested.
 
 export const MIN_PASSWORD_LENGTH = 8;
@@ -32,6 +33,19 @@ export function signUpProblem(form: SignUpForm): AuthProblem | null {
   }
   if (form.password !== form.confirm) {
     return 'mismatch';
+  }
+  return null;
+}
+
+// The first problem with the sign-in form, or null if it can be sent.
+// Accounts are created with at least 8 characters, so a shorter password
+// cannot be right.
+export function signInProblem(email: string, password: string): AuthProblem | null {
+  if (!EMAIL_PATTERN.test(email.trim())) {
+    return 'invalidEmail';
+  }
+  if (password.length < MIN_PASSWORD_LENGTH) {
+    return 'shortPassword';
   }
   return null;
 }

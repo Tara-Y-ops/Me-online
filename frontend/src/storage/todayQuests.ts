@@ -25,6 +25,11 @@ export function openToday(character: Character, setup: PlayerSetup, now = new Da
   return state;
 }
 
+// Replaces the list of quests shown so far, e.g. after sign-in.
+export function saveShownQuestIds(questIds: string[]): boolean {
+  return saveJson(SHOWN_KEY, questIds);
+}
+
 // Swaps one of today's quests and saves the result.
 export function swapTodayQuest(
   state: TodayState,
