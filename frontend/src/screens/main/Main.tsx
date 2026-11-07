@@ -13,12 +13,12 @@ import { loadCheckIns, submitCheckIn, type CheckIn, type CheckInForm } from '../
 import type { PlayerSetup } from '../../storage/playerSetup';
 import type { Profile } from '../../storage/profile';
 import { openToday, swapTodayQuest } from '../../storage/todayQuests';
-import { TEXT } from '../../text';
 import { CharacterTab } from './CharacterTab';
 import { CheckInResultCard } from './CheckInResultCard';
 import { CheckInScreen } from './CheckInScreen';
 import { HistoryDetail } from './HistoryDetail';
 import { HistoryTab } from './HistoryTab';
+import { PreferenceMapTab } from './PreferenceMapTab';
 import { QuestDetail } from './QuestDetail';
 import { TodayTab } from './TodayTab';
 
@@ -136,7 +136,7 @@ export function Main({ profile, character, setup, onCharacterChange }: MainProps
         {tab === 'history' && (
           <HistoryTab checkIns={checkIns} onOpen={setHistoryIndex} onGoToday={() => setTab('today')} />
         )}
-        {tab === 'map' && <h1 className="screen-title">{TEXT.screenTitles.map}</h1>}
+        {tab === 'map' && <PreferenceMapTab checkIns={checkIns} onGoToday={() => setTab('today')} />}
       </main>
       <BottomNav current={tab} onChange={setTab} />
     </>
