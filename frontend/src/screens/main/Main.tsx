@@ -1,6 +1,7 @@
 // The app after onboarding: the four tabs with the bottom navigation bar,
 // and the full-screen pages opened from the Today tab (quest detail, check-in,
-// and the check-in result card) and the History tab (history detail).
+// and the check-in result card), the History tab (history detail), and the
+// Character tab (full 60-item test).
 // Today's quests and the check-ins live here so all these pages share them.
 
 import { useState } from 'react';
@@ -13,6 +14,7 @@ import { loadCheckIns, submitCheckIn, type CheckIn, type CheckInForm } from '../
 import type { PlayerSetup } from '../../storage/playerSetup';
 import type { Profile } from '../../storage/profile';
 import { openToday, swapTodayQuest } from '../../storage/todayQuests';
+import { FullTestScreen } from '../onboarding/FullTestScreen';
 import { CharacterTab } from './CharacterTab';
 import { CheckInResultCard } from './CheckInResultCard';
 import { CheckInScreen } from './CheckInScreen';
@@ -42,6 +44,8 @@ export function Main({ profile, character, setup, onCharacterChange }: MainProps
   const [checkInIndex, setCheckInIndex] = useState<number | null>(null);
   // Position in checkIns of the past check-in whose detail page is open, or null.
   const [historyIndex, setHistoryIndex] = useState<number | null>(null);
+  // Whether the full 60-item test is open, from the Character tab.
+  const [fullTestOpen, setFullTestOpen] = useState(false);
   // The check-in just saved, shown on the result card until "完成" is tapped.
   const [result, setResult] = useState<{ checkIn: CheckIn; sideBefore: Side } | null>(null);
 
@@ -109,6 +113,19 @@ export function Main({ profile, character, setup, onCharacterChange }: MainProps
     );
   }
 
+  if (fullTestOpen) {
+    return (
+      <FullTestScreen
+        character={character}
+        onExit={() => setFullTestOpen(false)}
+        onFinish={(rescored) => {
+          onCharacterChange(rescored);
+          setFullTestOpen(false);
+        }}
+      />
+    );
+  }
+
   if (historyIndex !== null) {
     return <HistoryDetail checkIn={checkIns[historyIndex]} onBack={() => setHistoryIndex(null)} />;
   }
@@ -131,6 +148,7 @@ export function Main({ profile, character, setup, onCharacterChange }: MainProps
             character={character}
             setup={setup}
             checkInCount={checkIns.length}
+            onFullTest={() => setFullTestOpen(true)}
           />
         )}
         {tab === 'history' && (

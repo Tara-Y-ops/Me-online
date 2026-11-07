@@ -1,10 +1,12 @@
 // 13 Character tab: name, check-in count, the five attribute bars, and the
 // player's quest style (PRD FR-5.1).
-// Not here yet: editing the quest style (FR-1.9, next PR), the full 60-item
-// test entry, and the sign-in link (hidden until accounts exist).
+// Offers the full 60-item test until it is done (FR-1.6).
+// Not here yet: editing the quest style (FR-1.9) and the sign-in link
+// (hidden until accounts exist).
 
 import { User } from 'lucide-react';
 import { AttributeBar } from '../../components/AttributeBar';
+import { FullTestCard } from '../../components/FullTestCard';
 import { ATTRIBUTE_IDS } from '../../game/attributes';
 import type { Character } from '../../storage/character';
 import type { PlayerSetup } from '../../storage/playerSetup';
@@ -16,9 +18,11 @@ interface CharacterTabProps {
   character: Character;
   setup: PlayerSetup;
   checkInCount: number;
+  onFullTest: () => void;
 }
 
-export function CharacterTab({ profile, character, setup, checkInCount }: CharacterTabProps) {
+export function CharacterTab(props: CharacterTabProps) {
+  const { profile, character, setup, checkInCount, onFullTest } = props;
   const styleTitle = TEXT.questStyle.options[setup.questStyle].title;
   const focusNames = setup.focusAttributes
     .map((attribute) => TEXT.attributeNames[attribute])
@@ -53,6 +57,8 @@ export function CharacterTab({ profile, character, setup, checkInCount }: Charac
         <p className="option-title">{TEXT.characterTab.questStyle(styleTitle)}</p>
         <p className="hint">{TEXT.characterTab.focus(focusNames)}</p>
       </div>
+
+      {!character.fullTestAt && <FullTestCard title={TEXT.fullTest.characterCard} onOpen={onFullTest} />}
     </>
   );
 }
