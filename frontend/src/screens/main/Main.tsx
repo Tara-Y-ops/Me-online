@@ -13,6 +13,7 @@ import type { Character } from '../../storage/character';
 import { loadCheckIns, submitCheckIn, type CheckIn, type CheckInForm } from '../../storage/checkIns';
 import type { PlayerSetup } from '../../storage/playerSetup';
 import type { Profile } from '../../storage/profile';
+import { syncToServer } from '../../remote/sync';
 import { openToday, swapTodayQuest } from '../../storage/todayQuests';
 import { FullTestScreen } from '../onboarding/FullTestScreen';
 import { CharacterTab } from './CharacterTab';
@@ -62,6 +63,8 @@ export function Main({ profile, character, setup, onCharacterChange }: MainProps
     setCheckIns([...checkIns, saved.checkIn]);
     onCharacterChange(saved.character);
     setResult({ checkIn: saved.checkIn, sideBefore });
+    // Also covers "还行", which leaves the scores unchanged.
+    syncToServer();
   }
 
   // "完成" on the result card goes back to the Today tab.

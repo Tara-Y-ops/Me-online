@@ -25,7 +25,16 @@ export async function ensureSignedIn(): Promise<string | null> {
   try {
     const { data } = await supabase.auth.getSession();
     if (data.session) {
-      return data.session.user.id;
+      // Checks with the server that the user still exists. If the researcher
+      // deleted it, the saved session is dropped and a new user signs in.
+      const { data: current, error } = await supabase.auth.getUser();
+      if (current.user) {
+        return current.user.id;
+      }
+      if (error?.status !== 401 && error?.status !== 403) {
+        return null; // Offline or another error: keep the session for later
+      }
+      await supabase.auth.signOut({ scope: 'local' });
     }
     const { data: signedIn, error } = await supabase.auth.signInAnonymously();
     if (error || !signedIn.user) {
