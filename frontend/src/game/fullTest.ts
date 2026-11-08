@@ -7,7 +7,7 @@ import { ATTRIBUTE_IDS, clampScore, type AttributeId } from './attributes';
 import { initialSide, roundScore, type Side } from './attributeChange';
 import { SHORT_FORM_ITEM_IDS } from './bfi2Items';
 import { FULL_FORM_ITEMS, scoreQuiz, SHORT_FORM_ITEMS, type QuizAnswers } from './quiz';
-import type { Character } from '../storage/character';
+import type { Character } from './types';
 
 // The 45 items not in the short form, in BFI-2 order.
 export const REMAINING_ITEMS = FULL_FORM_ITEMS.filter(

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { checkInCharacter, cleanNote, cleanTags } from './checkIn';
 import { findQuest } from './quests';
-import type { Character } from '../storage/character';
+import type { Character } from './types';
 
 // Leans low on Social Energy (35), so a high-pole social quest is a stretch.
 const character: Character = {

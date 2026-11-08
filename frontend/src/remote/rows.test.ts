@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import type { CheckIn } from '../storage/checkIns';
 import { REMAINING_ITEMS } from '../game/fullTest';
 import { SHORT_FORM_ITEMS, type QuizAnswers } from '../game/quiz';
+import type { CheckIn } from '../game/types';
 import {
   checkInRow,
   pendingCheckIns,

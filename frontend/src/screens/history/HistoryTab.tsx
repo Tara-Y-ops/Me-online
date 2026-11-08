@@ -5,7 +5,7 @@
 import { History } from 'lucide-react';
 import { REACTION_ICONS } from '../../components/reactionIcons';
 import { findQuest } from '../../game/quests';
-import type { CheckIn } from '../../storage/checkIns';
+import type { CheckIn } from '../../game/types';
 import { TEXT } from '../../text';
 
 interface HistoryTabProps {

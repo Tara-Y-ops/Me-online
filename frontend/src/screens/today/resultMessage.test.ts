@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { CheckIn } from '../../storage/checkIns';
+import type { CheckIn } from '../../game/types';
 import { resultMessage } from './resultMessage';
 
 // A check-in on a Social Energy quest; each test changes what it needs.

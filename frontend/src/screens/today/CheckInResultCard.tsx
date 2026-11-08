@@ -4,7 +4,7 @@
 
 import { Check, ChevronLeft, ChevronRight } from 'lucide-react';
 import type { Side } from '../../game/attributeChange';
-import type { CheckIn } from '../../storage/checkIns';
+import type { CheckIn } from '../../game/types';
 import { TEXT } from '../../text';
 import { resultMessage } from './resultMessage';
 

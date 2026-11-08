@@ -6,7 +6,7 @@
 import { useState } from 'react';
 import { PageHeader } from '../../components/PageHeader';
 import { ATTRIBUTE_IDS, type AttributeId } from '../../game/attributes';
-import type { QuestStyle } from '../../storage/playerSetup';
+import type { QuestStyle } from '../../game/types';
 import { TEXT } from '../../text';
 
 const STYLES: QuestStyle[] = ['comfort', 'explore'];

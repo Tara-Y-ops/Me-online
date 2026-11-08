@@ -4,10 +4,10 @@
 
 import { PageHeader } from '../../components/PageHeader';
 import { findQuest } from '../../game/quests';
-import type { CheckIn } from '../../storage/checkIns';
+import type { CheckIn } from '../../game/types';
 import { TEXT } from '../../text';
 import { CheckInFeedback, CheckInMeta } from './HistoryTab';
-import { QuestDetailCard } from './QuestDetail';
+import { QuestDetailCard } from '../today/QuestDetail';
 
 interface HistoryDetailProps {
   checkIn: CheckIn;

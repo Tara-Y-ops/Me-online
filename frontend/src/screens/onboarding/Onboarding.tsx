@@ -3,8 +3,8 @@
 // then go on to Consent. Once the profile is saved, App shows the quiz next.
 
 import { useState } from 'react';
-import type { Profile } from '../../storage/profile';
-import { AuthScreen, type AuthTab } from '../main/AuthScreen';
+import type { Profile } from '../../game/types';
+import { AuthScreen, type AuthTab } from '../account/AuthScreen';
 import { ConsentScreen } from './ConsentScreen';
 import { NameScreen } from './NameScreen';
 import { WelcomeScreen } from './WelcomeScreen';

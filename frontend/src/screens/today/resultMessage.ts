@@ -3,7 +3,7 @@
 
 import { formatPercent } from '../../game/attributes';
 import type { Side } from '../../game/attributeChange';
-import type { CheckIn } from '../../storage/checkIns';
+import type { CheckIn } from '../../game/types';
 import { TEXT } from '../../text';
 
 export interface ResultMessage {

@@ -4,10 +4,10 @@
 
 import { REMAINING_ITEMS } from '../../game/fullTest';
 import { SHORT_FORM_ITEMS } from '../../game/quiz';
-import type { Character } from '../../storage/character';
+import type { Character } from '../../game/types';
 import { finishFullTest, loadFullTestProgress, saveFullTestProgress } from '../../storage/fullTest';
 import { TEXT } from '../../text';
-import { QuizScreen } from './QuizScreen';
+import { QuizScreen } from '../onboarding/QuizScreen';
 
 interface FullTestScreenProps {
   character: Character;

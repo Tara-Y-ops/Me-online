@@ -5,7 +5,7 @@
 import { AttributeBar } from '../../components/AttributeBar';
 import { FullTestCard } from '../../components/FullTestCard';
 import { ATTRIBUTE_IDS } from '../../game/attributes';
-import type { Character } from '../../storage/character';
+import type { Character } from '../../game/types';
 import { TEXT } from '../../text';
 
 interface ResultScreenProps {

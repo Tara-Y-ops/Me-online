@@ -6,9 +6,8 @@
 import { gameDay } from '../game/chinaTime';
 import type { DailyQuest, PickContext } from '../game/questPicker';
 import { markDone, startDay, swapToday, type TodayState } from '../game/today';
-import type { Character } from './character';
+import type { Character, PlayerSetup } from '../game/types';
 import { loadJson, saveJson } from './localStore';
-import type { PlayerSetup } from './playerSetup';
 
 const TODAY_KEY = 'today';
 const SHOWN_KEY = 'shownQuestIds';
