@@ -1,0 +1,99 @@
+/* 14, 15: the Preference Map tab. */
+
+/* ---------- 14, 15 Preference Map ---------- */
+
+.map-lock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 50%;
+  background: #ececec;
+  color: var(--color-muted);
+}
+
+.map-progress {
+  width: 220px;
+  margin-top: 8px;
+}
+
+.map-locked-note {
+  margin-top: 24px;
+}
+
+.map-heading {
+  margin: 24px 0 12px;
+}
+
+.map-empty {
+  margin: 0;
+}
+
+.map-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.map-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1.5px solid var(--color-text);
+  border-radius: 14px;
+}
+
+.map-card-drainer {
+  border-style: dashed;
+  border-color: var(--color-muted);
+}
+
+.map-card p {
+  margin: 0;
+}
+
+.map-card .hint {
+  margin-top: 2px;
+}
+
+.map-card-name {
+  font-weight: 600;
+}
+
+.map-card-count {
+  flex-shrink: 0;
+}
+
+.map-table-title {
+  margin-top: 12px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.map-table-title .hint {
+  margin: 0;
+}
+
+.map-row {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, 44px);
+  align-items: center;
+  padding: 6px 0;
+}
+
+.map-count {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+}
+
+.map-count-zero {
+  color: var(--color-border);
+  font-weight: 400;
+}

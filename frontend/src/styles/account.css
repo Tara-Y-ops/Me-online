@@ -1,0 +1,47 @@
+/* 18, 19: sign in and sign up. */
+
+/* ---------- 18, 19 Sign in and sign up; account link on 13, 22 ---------- */
+
+.auth-intro {
+  margin: 0 0 20px;
+}
+
+.auth-tabs {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.auth-tab {
+  padding: 8px 4px 10px;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: none;
+  color: var(--color-muted);
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-tab-selected {
+  border-bottom-color: var(--color-text);
+  color: var(--color-text);
+}
+
+.field-label {
+  display: block;
+  margin: 20px 0 8px;
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.form-error {
+  margin: 12px 0 0;
+  font-size: 14px;
+  color: #c62828;
+}
+
+.auth-submit {
+  margin-top: 28px;
+}

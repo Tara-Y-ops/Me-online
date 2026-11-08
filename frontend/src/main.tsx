@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client';
 import App from './App';
 import { syncToServer } from './remote/sync';
 import { getAnonymousId } from './storage/localStore';
-import './styles.css';
+import './styles/index.css';
 
 // Give this device its anonymous ID on first open (PRD FR-9.2).
 getAnonymousId();
