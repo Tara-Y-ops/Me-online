@@ -5,8 +5,7 @@ import { useState } from 'react';
 import { leaningLabel } from '../../components/AttributeBar';
 import { PageHeader } from '../../components/PageHeader';
 import { ATTRIBUTE_IDS, type AttributeId } from '../../game/attributes';
-import type { Character } from '../../storage/character';
-import type { SelfCheck } from '../../storage/playerSetup';
+import type { Character, SelfCheck } from '../../game/types';
 import { TEXT } from '../../text';
 
 const OPTIONS: SelfCheck[] = ['yes', 'partly', 'no'];

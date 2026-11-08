@@ -1,0 +1,11 @@
+/* All styles, imported once in main.tsx. Order matters: later files can
+   override earlier ones, so shared styles come before each screen's own. */
+
+@import './base.css';
+@import './components.css';
+@import './onboarding.css';
+@import './today.css';
+@import './character.css';
+@import './map.css';
+@import './history.css';
+@import './account.css';

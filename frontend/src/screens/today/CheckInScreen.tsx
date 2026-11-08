@@ -10,7 +10,7 @@ import type { Reaction } from '../../game/attributeChange';
 import { cleanTags, MAX_NOTE_LENGTH, MAX_TAG_LENGTH, MAX_TAGS } from '../../game/checkIn';
 import type { QuestKind } from '../../game/questPicker';
 import type { Quest } from '../../game/quests';
-import type { CheckInForm } from '../../storage/checkIns';
+import type { CheckInForm } from '../../game/types';
 import { TEXT } from '../../text';
 
 interface CheckInScreenProps {

@@ -6,9 +6,8 @@
 
 import { useState } from 'react';
 import type { AttributeId } from '../../game/attributes';
-import type { Character } from '../../storage/character';
-import type { PlayerSetup, SelfCheck } from '../../storage/playerSetup';
-import { FullTestScreen } from './FullTestScreen';
+import type { Character, PlayerSetup, SelfCheck } from '../../game/types';
+import { FullTestScreen } from '../character/FullTestScreen';
 import { QuestStyleScreen } from './QuestStyleScreen';
 import { ResultScreen } from './ResultScreen';
 import { SelfCheckScreen } from './SelfCheckScreen';

@@ -11,7 +11,7 @@ import {
   UNLOCK_CHECK_INS,
   type PreferenceGroup,
 } from '../../game/preferenceMap';
-import type { CheckIn } from '../../storage/checkIns';
+import type { CheckIn } from '../../game/types';
 import { TEXT } from '../../text';
 
 interface PreferenceMapTabProps {

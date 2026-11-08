@@ -14,7 +14,7 @@
 import type { AttributeId } from './attributes';
 import type { Side } from './attributeChange';
 import { findQuest, QUESTS, type Quest } from './quests';
-import type { QuestStyle } from '../storage/playerSetup';
+import type { QuestStyle } from './types';
 
 export const QUESTS_PER_DAY = 3;
 

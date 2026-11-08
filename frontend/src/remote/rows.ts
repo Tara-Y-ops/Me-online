@@ -10,10 +10,15 @@ import { REMAINING_ITEMS } from '../game/fullTest';
 import type { QuestKind } from '../game/questPicker';
 import { SHORT_FORM_ITEMS, type QuizAnswers } from '../game/quiz';
 import type { TodayState } from '../game/today';
-import type { Character, WeekStart } from '../storage/character';
-import type { CheckIn } from '../storage/checkIns';
-import type { PlayerSetup, QuestStyle, SelfCheck } from '../storage/playerSetup';
-import type { Profile } from '../storage/profile';
+import type {
+  Character,
+  CheckIn,
+  PlayerSetup,
+  Profile,
+  QuestStyle,
+  SelfCheck,
+  WeekStart,
+} from '../game/types';
 import type { QuizProgress } from '../storage/quizProgress';
 
 // Everything the players row is built from. Only the profile is required;

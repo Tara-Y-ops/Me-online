@@ -2,18 +2,19 @@
 // 1. No profile yet: onboarding (Welcome, Consent, Name).
 // 2. Profile but no character: the quiz, resuming where it stopped.
 // 3. Character but no player setup: initial character, self-check, quest style.
-// 4. Setup saved: the main pages (see screens/main/Main.tsx).
+// 4. Setup saved: the main pages (see screens/Main.tsx).
 // Navigation is plain React state (no router library) to keep it simple.
 import { useEffect, useState } from 'react';
 import { scoreQuiz, SHORT_FORM_ITEMS, type QuizAnswers } from './game/quiz';
+import type { Character, PlayerSetup, Profile } from './game/types';
 import { syncToServer } from './remote/sync';
-import { Main } from './screens/main/Main';
+import { Main } from './screens/Main';
 import { CharacterSetup } from './screens/onboarding/CharacterSetup';
 import { Onboarding } from './screens/onboarding/Onboarding';
 import { QuizScreen } from './screens/onboarding/QuizScreen';
-import { createCharacter, loadCharacter, saveCharacter, type Character } from './storage/character';
-import { loadPlayerSetup, savePlayerSetup, type PlayerSetup } from './storage/playerSetup';
-import { loadProfile, saveProfile, type Profile } from './storage/profile';
+import { createCharacter, loadCharacter, saveCharacter } from './storage/character';
+import { loadPlayerSetup, savePlayerSetup } from './storage/playerSetup';
+import { loadProfile, saveProfile } from './storage/profile';
 import { loadQuizProgress, saveQuizProgress } from './storage/quizProgress';
 import { TEXT } from './text';
 

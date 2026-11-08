@@ -1,0 +1,105 @@
+/* 01-05b: welcome, consent, quiz, self-check, and quest style. */
+
+/* ---------- 01 Welcome ---------- */
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.welcome-title {
+  margin: 0 0 16px;
+  font-size: 36px;
+}
+
+.welcome-tagline {
+  margin: 0;
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+
+.welcome-sample-label {
+  margin: 40px 0 8px;
+  font-size: 14px;
+  text-align: left;
+  color: var(--color-muted);
+}
+
+.welcome .quest-card {
+  text-align: left;
+}
+
+/* ---------- 02 Consent ---------- */
+
+.consent-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: #f0f0f0;
+  cursor: pointer;
+}
+
+.consent-box input {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  accent-color: var(--color-primary);
+}
+
+/* ---------- 04 Quiz ---------- */
+
+.quiz-stem {
+  margin: 32px 0 6px;
+  color: var(--color-muted);
+}
+
+.quiz-item {
+  margin: 0 0 28px;
+  font-size: 24px;
+  line-height: 1.4;
+}
+
+/* ---------- 05a Self-check ---------- */
+
+.self-check-row {
+  margin-bottom: 24px;
+}
+
+.self-check-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0;
+  font-size: 18px;
+}
+
+.self-check-heading .hint {
+  margin: 0;
+}
+
+/* ---------- 05b Quest style ---------- */
+
+.focus-heading {
+  margin-top: 36px;
+  margin-bottom: 0;
+}
+
+.quest-style-note {
+  margin: 0 0 20px;
+}
+
+/* ---------- 01 Welcome ---------- */
+
+/* 01 Welcome: sign up, sign in, or continue as a guest. */
+.welcome-sign-in {
+  margin-top: 12px;
+}
+
+.welcome-guest {
+  margin-top: 8px;
+}

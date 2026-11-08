@@ -2,42 +2,16 @@
 // together: the check-in list, the character's scores, and today's done list.
 // The rules are in game/checkIn.ts.
 
-import type { AttributeId, Pole } from '../game/attributes';
-import type { Reaction } from '../game/attributeChange';
 import { gameWeekStart } from '../game/chinaTime';
 import { checkInCharacter, cleanNote, cleanTags } from '../game/checkIn';
-import type { QuestKind } from '../game/questPicker';
 import { findQuest } from '../game/quests';
 import type { TodayState } from '../game/today';
-import { saveCharacter, type Character } from './character';
+import type { Character, CheckIn, CheckInForm } from '../game/types';
+import { saveCharacter } from './character';
 import { loadJson, saveJson } from './localStore';
 import { completeTodayQuest } from './todayQuests';
 
 const CHECK_INS_KEY = 'checkIns';
-
-// One saved check-in. Used by the result card, History, and Preference Map.
-export interface CheckIn {
-  questId: string;
-  kind: QuestKind;
-  day: string; // Game day of the check-in
-  createdAt: string; // ISO time
-  reaction: Reaction;
-  note: string; // May be empty
-  tags: string[]; // Up to three
-  // How the attribute moved, as shown on the result card.
-  attribute: AttributeId;
-  movedToward: Pole | null;
-  amount: number;
-  capped: boolean;
-  flipped: boolean;
-}
-
-// What the player fills in on the check-in screen.
-export interface CheckInForm {
-  reaction: Reaction;
-  note: string;
-  tags: string[];
-}
 
 // Oldest first.
 export function loadCheckIns(): CheckIn[] {

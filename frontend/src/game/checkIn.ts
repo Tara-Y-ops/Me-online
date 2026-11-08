@@ -4,7 +4,7 @@
 
 import { applyCheckIn, type CheckInResult, type Reaction } from './attributeChange';
 import type { Quest } from './quests';
-import type { Character } from '../storage/character';
+import type { Character } from './types';
 
 export const MAX_TAGS = 3;
 export const MAX_TAG_LENGTH = 10;

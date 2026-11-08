@@ -1,25 +1,11 @@
-// The player's character: the five attribute scores and which side each leans.
-// Created when the quiz is finished, then changed by check-ins.
+// Saves the player's character on the device (type in game/types.ts).
 
 import { ATTRIBUTE_IDS, type AttributeId } from '../game/attributes';
 import { initialSide, type Side } from '../game/attributeChange';
+import type { Character } from '../game/types';
 import { loadJson, saveJson } from './localStore';
 
 const CHARACTER_KEY = 'character';
-
-// Scores at the start of a game week, for the weekly cap (PRD FR-4.1).
-export interface WeekStart {
-  week: string; // Monday of the game week, e.g. "2026-10-19" (see chinaTime.ts)
-  scores: Record<AttributeId, number>;
-}
-
-export interface Character {
-  scores: Record<AttributeId, number>; // 0 to 100
-  sides: Record<AttributeId, Side>;
-  createdAt: string; // When the quiz was finished, ISO time
-  weekStart?: WeekStart; // Set by the first check-in of each week
-  fullTestAt?: string; // When the full 60-item test was finished, ISO time (FR-1.6)
-}
 
 // Builds a new character from quiz scores. A score of exactly 50 starts neutral.
 export function createCharacter(scores: Record<AttributeId, number>): Character {

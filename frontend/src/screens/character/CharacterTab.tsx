@@ -9,9 +9,7 @@ import { ChevronRight, CircleCheck, User } from 'lucide-react';
 import { AttributeBar } from '../../components/AttributeBar';
 import { FullTestCard } from '../../components/FullTestCard';
 import { ATTRIBUTE_IDS } from '../../game/attributes';
-import type { Character } from '../../storage/character';
-import type { PlayerSetup } from '../../storage/playerSetup';
-import type { Profile } from '../../storage/profile';
+import type { Character, PlayerSetup, Profile } from '../../game/types';
 import { TEXT } from '../../text';
 
 interface CharacterTabProps {

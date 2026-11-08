@@ -5,7 +5,8 @@
 import { gameWeekStart } from '../game/chinaTime';
 import { applyFullTest } from '../game/fullTest';
 import type { QuizAnswers } from '../game/quiz';
-import { saveCharacter, type Character } from './character';
+import type { Character } from '../game/types';
+import { saveCharacter } from './character';
 import { loadJson, saveJson } from './localStore';
 import { loadQuizProgress, type QuizProgress } from './quizProgress';
 

@@ -5,7 +5,7 @@
 import { ATTRIBUTE_IDS, type AttributeId, type Pole } from './attributes';
 import type { Reaction } from './attributeChange';
 import { findQuest } from './quests';
-import type { CheckIn } from '../storage/checkIns';
+import type { CheckIn } from './types';
 
 // The map unlocks after this many check-ins of any reaction (FR-6.1).
 export const UNLOCK_CHECK_INS = 5;

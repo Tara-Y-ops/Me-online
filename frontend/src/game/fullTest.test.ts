@@ -3,7 +3,8 @@ import { ATTRIBUTE_IDS } from './attributes';
 import { SHORT_FORM_ITEM_IDS, type QuizItem } from './bfi2Items';
 import { applyFullTest, REMAINING_ITEMS } from './fullTest';
 import { FULL_FORM_ITEMS, scoreQuiz, SHORT_FORM_ITEMS, type Answer, type QuizAnswers } from './quiz';
-import { createCharacter, type Character } from '../storage/character';
+import { createCharacter } from '../storage/character';
+import type { Character } from './types';
 
 const WEEK = '2026-11-02';
 const NOW = new Date('2026-11-07T12:00:00Z');
