@@ -8,7 +8,7 @@ The app saves everything on the phone first, in the browser's localStorage. It t
 
 Each phone signs in to Supabase anonymously the first time the app opens. The player does not see this step. Each phone gets its own user in Supabase, and row-level security lets a player read and write only their own rows. The researcher sees all rows in the Supabase dashboard.
 
-The tables are created by the files in [supabase/migrations](../supabase/migrations), run in order in the SQL Editor.
+The tables are created by the files in [backend/supabase/migrations](../backend/supabase/migrations), run in order in the SQL Editor.
 
 ## Tables
 

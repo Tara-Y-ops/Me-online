@@ -9,7 +9,8 @@ Me-online/
 │   ├── public/      Static files
 │   └── src/         Source code
 ├── backend/         Server side
-│   └── supabase/    Database and server functions
+│   └── supabase/
+│       └── migrations/  SQL that creates the tables, run in order
 └── data/            Content data files
 ```
 

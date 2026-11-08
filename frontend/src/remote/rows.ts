@@ -33,7 +33,7 @@ export interface PlayerData {
   today: TodayState | null;
 }
 
-// Column names match the files in supabase/migrations.
+// Column names match the files in backend/supabase/migrations.
 export interface PlayerRow {
   user_id: string;
   anonymous_id: string;
