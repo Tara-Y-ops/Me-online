@@ -15,19 +15,26 @@ The app opens on the Today board. A bottom navigation bar links the four pages, 
 flowchart TD
     A([Open the app for the first time]) --> B[Welcome screen with a sample quest]
     B -->|Sign up| S[Email and password]
-    B -->|Continue as a guest| C[Pick a display name]
-    S --> C
+    B -->|Continue as a guest| K[Agree to join the test]
+    B -->|Sign in| L[Email and password]
+    S --> K
+    L -->|Account has data| T([Today board with the account's progress])
+    L -->|Account has no data yet| K
+    K --> C[Pick a display name]
     C --> D[15-question quiz]
     D --> E[Meet the character]
+    E -.->|Optional| X[Full 60-item test]
     E --> G[Short reflection]
-    G --> F([Today board with the first three quests])
+    X --> G
+    G --> H[Pick Comfort or Explore and focus attributes]
+    H --> F([Today board with the first three quests])
 ```
 
 - The player lands on a welcome screen that explains the idea in two sentences and shows a sample quest.
-- They sign up with an email and password, or continue as a guest. A guest can sign up later from the Character screen. A player who already has an account signs in instead and goes straight to the Today board with their progress.
+- They sign up with an email and password, or continue as a guest. A guest can sign up later from the Character screen. A player who already has an account signs in instead and goes straight to the Today board with their progress. If that account has no data yet, they go through the steps below like a new player.
 - They agree to join the test and pick a display name.
 - They take the 15-question quiz, one question per screen with a progress bar.
-- They meet their new character with five attributes and a short note that these are starting game values, not a personality assessment.
+- They meet their new character with five attributes and a short note that these are starting game values, not a personality assessment. From here they can also take the full 60-item test, which rescores the attributes.
 - They answer a short reflection on whether each attribute feels like them, pick Comfort or Explore, and choose one or two attributes to explore.
 - They land on the Today board with their first three quests.
 
@@ -40,7 +47,9 @@ flowchart TD
     B -->|Yes, once a day| C[Replacement quest appears]
     B -->|No| D[Try a quest in real life]
     C --> D
-    D --> E[Tap I did it]
+    A -.->|Tap a card| Q[Quest detail]
+    Q -.-> D
+    D --> E[Tap I did it, on the card or the detail page]
     E --> F[Pick Liked, Okay, or Disliked]
     F --> G{Add a note or tags?}
     G -->|Yes| H[Write a note, add up to three tags]
@@ -50,8 +59,9 @@ flowchart TD
 ```
 
 - The player opens the Today board and sees three quest cards. Each card shows whether it is a home or stretch quest, the attribute, and an estimated time.
+- Tapping a card opens the quest detail page with the full description and when the quest counts as done. The player can check in or swap from there too.
 - They can swap one card per day.
-- After trying a quest, they tap “I did it.”
+- After trying a quest, they tap “I did it” on the card or the detail page.
 - They pick Liked, Okay, or Disliked and can write a short note about how it went.
 - They can add tags of their own to make the reaction more specific, such as “prefer groups of four or fewer.”
 - A short result card shows how the attribute moved.
@@ -65,10 +75,18 @@ flowchart TD
     A([Bottom navigation bar]) --> B[Character screen with five attribute bars]
     A --> C{5 or more check-ins?}
     A --> D[History of past check-ins]
+    B -.-> B1[Full 60-item test, if not taken yet]
+    B -.-> B2[Change quest style and focus attributes]
+    B -.-> B3[Sign up as a guest, or sign out]
     C -->|Yes| E[Preference Map]
     C -->|No| F[Page shows how many more check-ins are needed]
+    D --> D1[History detail, read only]
 ```
 
 - The player opens the Character screen to see their five attribute bars.
+- From the Character screen they can also:
+  - take the full 60-item test, if they have not taken it yet;
+  - change their quest style and focus attributes, which apply from the next quest refresh while today's quests stay the same;
+  - sign up if they are a guest, or sign out if they have an account. Signing out clears the phone and returns to the welcome screen; the data stays in the account.
 - Once there are enough check-ins, they open the Preference Map to see which kinds of quests they liked or disliked, along with the tags they added.
-- They open history to reread past check-ins, notes, and tags.
+- They open history to reread past check-ins, notes, and tags. Tapping one opens the full quest with that check-in below it, read only.
