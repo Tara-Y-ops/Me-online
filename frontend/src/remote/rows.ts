@@ -13,6 +13,7 @@ import type { TodayState } from '../game/today';
 import type {
   Character,
   CheckIn,
+  Language,
   PlayerSetup,
   Profile,
   QuestStyle,
@@ -31,6 +32,7 @@ export interface PlayerData {
   character: Character | null;
   setup: PlayerSetup | null;
   today: TodayState | null;
+  language: Language;
 }
 
 // Column names match the files in backend/supabase/migrations.
@@ -48,6 +50,7 @@ export interface PlayerRow {
   self_check: Record<AttributeId, SelfCheck> | null;
   quest_style: QuestStyle | null;
   focus_attributes: AttributeId[] | null;
+  language: Language;
   updated_at: string;
 }
 
@@ -83,6 +86,7 @@ export function playerRow(data: PlayerData, now: Date): PlayerRow {
     self_check: setup?.selfCheck ?? null,
     quest_style: setup?.questStyle ?? null,
     focus_attributes: setup?.focusAttributes ?? null,
+    language: data.language,
     updated_at: now.toISOString(),
   };
 }

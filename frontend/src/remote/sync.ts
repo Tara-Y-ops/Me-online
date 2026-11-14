@@ -1,12 +1,13 @@
 // Uploads the device's data to Supabase: the players row and any check-ins
 // not uploaded yet (PRD FR-9.2). Runs when the app opens, after each save
-// (including today's quests changing), and when the phone comes back online. If anything fails, the data stays
-// on the device and the next run tries again (NFR-3). Nothing is shown to
-// the player either way.
+// (including today's quests and the language changing), and when the phone
+// comes back online. If anything fails, the data stays on the device and the
+// next run tries again (NFR-3). Nothing is shown to the player either way.
 
 import { loadCharacter } from '../storage/character';
 import { loadCheckIns } from '../storage/checkIns';
 import { loadFullTestProgress } from '../storage/fullTest';
+import { loadLanguage } from '../storage/language';
 import { getAnonymousId, loadJson, saveJson } from '../storage/localStore';
 import { loadPlayerSetup } from '../storage/playerSetup';
 import { loadProfile } from '../storage/profile';
@@ -65,6 +66,7 @@ async function uploadAll(): Promise<void> {
       character: loadCharacter(),
       setup: loadPlayerSetup(),
       today: loadSavedToday(),
+      language: loadLanguage(),
     },
     new Date(),
   );

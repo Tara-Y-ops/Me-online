@@ -39,6 +39,7 @@ describe('playerRow', () => {
     character: null,
     setup: null,
     today: null,
+    language: 'zh',
   };
 
   it('leaves later parts empty before the player reaches them', () => {
@@ -56,8 +57,13 @@ describe('playerRow', () => {
       self_check: null,
       quest_style: null,
       focus_attributes: null,
+      language: 'zh',
       updated_at: NOW.toISOString(),
     });
+  });
+
+  it("saves the phone's current language", () => {
+    expect(playerRow({ ...base, language: 'en' }, NOW).language).toBe('en');
   });
 
   it('includes the character and setup once saved', () => {
@@ -136,6 +142,7 @@ describe('restoredData', () => {
     scores,
     sides,
     week_start: weekStart,
+    language: 'en',
     today: {
       day: '2026-11-07',
       quests: [

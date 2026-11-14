@@ -4,7 +4,7 @@ This page lists what Me Online stores, where, and who can see it. It covers Spri
 
 ## Where data lives
 
-The app saves everything on the phone first, in the browser's localStorage. It then uploads a copy to Supabase for the research. Uploads run when the app opens, after the player saves something (name, quiz, setup, full test, or a check-in), and when the phone comes back online. If an upload fails, the data stays on the phone and the next upload tries again (PRD NFR-3). The player sees nothing either way.
+The app saves everything on the phone first, in the browser's localStorage. It then uploads a copy to Supabase for the research. Uploads run when the app opens, after the player saves something (name, quiz, setup, full test, a check-in, or a language change), and when the phone comes back online. If an upload fails, the data stays on the phone and the next upload tries again (PRD NFR-3). The player sees nothing either way.
 
 Each phone signs in to Supabase anonymously the first time the app opens. The player does not see this step. Each phone gets its own user in Supabase, and row-level security lets a player read and write only their own rows. The researcher sees all rows in the Supabase dashboard.
 
@@ -31,6 +31,7 @@ One row per player. It is updated whenever the player's data changes.
 | `self_check` | jsonb | Attribute → `yes`, `partly`, or `no` (FR-1.7) |
 | `quest_style` | text | `comfort` or `explore` (FR-1.8) |
 | `focus_attributes` | text[] | One or two attributes the player wants to explore |
+| `language` | text | The interface language the phone is using, `zh` or `en` |
 | `created_at`, `updated_at` | timestamptz | When the row was created and last changed |
 
 ### check_ins
@@ -58,7 +59,7 @@ The primary key is `user_id`, `created_at`, and `quest_id`, so uploading the sam
 
 ## Accounts
 
-Signing up adds an email and password to the phone's anonymous user, so its rows stay the same. Signing in on another phone downloads the `players` row and `check_ins` and writes them to that phone (FR-9.1). If it is still the same game day, the phone keeps that day's quests; otherwise it picks a new set.
+Signing up adds an email and password to the phone's anonymous user, so its rows stay the same. Signing in on another phone downloads the `players` row and `check_ins` and writes them to that phone (FR-9.1). If it is still the same game day, the phone keeps that day's quests; otherwise it picks a new set. The phone keeps its own language, since the player picked it on the welcome screen just before signing in; the account's saved language is only for the research.
 
 ## Who can see what
 
@@ -85,6 +86,7 @@ These localStorage keys all start with `me-online:`.
 | `today` | Today's quests, swap, and finished quests |
 | `shownQuestIds` | Quests shown this week, so none repeat |
 | `checkIns` | Every check-in, oldest first |
+| `language` | `zh` or `en`, the interface language |
 | `syncState` | The Supabase user the uploads belong to, and how many check-ins have been uploaded |
 
 Supabase also keeps the anonymous session in localStorage under its own key.

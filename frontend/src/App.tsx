@@ -58,6 +58,7 @@ function App() {
     saveLanguage(next);
     setLanguage(next);
     setLanguageState(next);
+    syncToServer(); // The language is saved in the players row for the research
   }
 
   function currentScreen() {
