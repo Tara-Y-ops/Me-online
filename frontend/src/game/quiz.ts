@@ -4,16 +4,18 @@
 
 import type { AttributeId } from './attributes';
 import { BFI2_ITEMS, SHORT_FORM_ITEM_IDS, type QuizItem } from './bfi2Items';
+import type { LocalizedText } from './quests';
 
 // Answer scale: 1 = strongly disagree ... 5 = strongly agree.
 export type Answer = 1 | 2 | 3 | 4 | 5;
 
-export const ANSWER_LABELS: Record<Answer, string> = {
-  1: '非常不同意',
-  2: '不太同意',
-  3: '态度中立',
-  4: '比较同意',
-  5: '非常同意',
+// The official labels: Chinese from Zhang et al. (2022), English from the BFI-2.
+export const ANSWER_LABELS: Record<Answer, LocalizedText> = {
+  1: { zh: '非常不同意', en: 'Disagree strongly' },
+  2: { zh: '不太同意', en: 'Disagree a little' },
+  3: { zh: '态度中立', en: 'Neutral; no opinion' },
+  4: { zh: '比较同意', en: 'Agree a little' },
+  5: { zh: '非常同意', en: 'Agree strongly' },
 };
 
 // The player's answers, keyed by BFI-2 item number (1 to 60).

@@ -8,7 +8,7 @@ import { PageHeader } from '../../components/PageHeader';
 import type { QuizItem } from '../../game/bfi2Items';
 import { ANSWER_LABELS, type Answer, type QuizAnswers } from '../../game/quiz';
 import type { QuizProgress } from '../../storage/quizProgress';
-import { TEXT } from '../../text';
+import { localize, TEXT } from '../../text';
 
 const ANSWERS: Answer[] = [1, 2, 3, 4, 5];
 
@@ -71,7 +71,7 @@ export function QuizScreen(props: QuizScreenProps) {
         </div>
 
         <p className="quiz-stem">{TEXT.quiz.stem}</p>
-        <h2 className="quiz-item">{item.text}</h2>
+        <h2 className="quiz-item">{localize(item.text)}</h2>
 
         <div className="options" role="radiogroup">
           {ANSWERS.map((answer) => (
@@ -85,7 +85,7 @@ export function QuizScreen(props: QuizScreenProps) {
                 checked={answer === selected}
                 onChange={() => choose(answer)}
               />
-              {ANSWER_LABELS[answer]}
+              {localize(ANSWER_LABELS[answer])}
             </label>
           ))}
         </div>
