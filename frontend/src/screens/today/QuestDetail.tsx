@@ -7,7 +7,7 @@ import { CircleCheck, Clock, RefreshCw } from 'lucide-react';
 import { PageHeader } from '../../components/PageHeader';
 import type { QuestKind } from '../../game/questPicker';
 import type { Quest } from '../../game/quests';
-import { TEXT } from '../../text';
+import { localize, TEXT } from '../../text';
 
 interface QuestDetailProps {
   quest: Quest;
@@ -65,16 +65,16 @@ export function QuestDetailCard({ quest, kind }: { quest: Quest; kind: QuestKind
           {TEXT.todayTab.minutes(quest.minutes)}
         </span>
       </div>
-      <h2 className="quest-detail-title">{quest.title.zh}</h2>
+      <h2 className="quest-detail-title">{localize(quest.title)}</h2>
       <hr className="divider" />
 
       <p className="detail-label">{TEXT.questDetail.howTo}</p>
-      <p className="detail-text">{quest.description.zh}</p>
+      <p className="detail-text">{localize(quest.description)}</p>
 
       <p className="detail-label">{TEXT.questDetail.doneWhen}</p>
       <p className="detail-text done-when">
         <CircleCheck size={20} aria-hidden="true" />
-        {quest.doneWhen.zh}
+        {localize(quest.doneWhen)}
       </p>
     </div>
   );

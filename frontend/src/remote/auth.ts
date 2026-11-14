@@ -7,6 +7,7 @@ import { gameDay } from '../game/chinaTime';
 import { saveCharacter } from '../storage/character';
 import { saveCheckIns } from '../storage/checkIns';
 import { saveFullTestProgress } from '../storage/fullTest';
+import { loadLanguage, saveLanguage } from '../storage/language';
 import { clearAppData, getAnonymousId } from '../storage/localStore';
 import { savePlayerSetup } from '../storage/playerSetup';
 import { saveProfile } from '../storage/profile';
@@ -93,8 +94,11 @@ export async function signIn(email: string, password: string): Promise<SignInRes
 }
 
 // Replaces everything this app saved on the device with the account's data.
+// The language stays, since it belongs to the device, not the account.
 function writeDeviceData(data: RestoredData, userId: string): void {
+  const language = loadLanguage();
   clearAppData();
+  saveLanguage(language);
   getAnonymousId();
   saveProfile(data.profile);
   saveQuizProgress(data.quizProgress);
@@ -116,13 +120,16 @@ function writeDeviceData(data: RestoredData, userId: string): void {
   markUploaded(userId, data.checkIns.length);
 }
 
-// Signs out and clears every saved value on the device, then reloads so the
-// app starts again at the welcome screen. The data stays in the account.
+// Signs out and clears every saved value on the device except the language,
+// then reloads so the app starts again at the welcome screen. The data stays
+// in the account.
 export async function signOut(): Promise<void> {
+  const language = loadLanguage();
   try {
     await supabase?.auth.signOut({ scope: 'local' });
   } finally {
     localStorage.clear();
+    saveLanguage(language);
     window.location.reload();
   }
 }

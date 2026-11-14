@@ -6,7 +6,7 @@
 import { Check, RefreshCw } from 'lucide-react';
 import type { QuestKind } from '../game/questPicker';
 import type { Quest } from '../game/quests';
-import { TEXT } from '../text';
+import { localize, TEXT } from '../text';
 
 interface QuestCardProps {
   quest: Quest;
@@ -31,7 +31,7 @@ export function QuestCard(props: QuestCardProps) {
           <span className="tag">{TEXT.attributeNames[quest.attribute]}</span>
           <span className="quest-card-time">{TEXT.todayTab.minutes(quest.minutes)}</span>
         </span>
-        <span className="quest-card-title">{quest.title.zh}</span>
+        <span className="quest-card-title">{localize(quest.title)}</span>
       </button>
 
       <div className="quest-card-actions">
