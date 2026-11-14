@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { ATTRIBUTE_IDS, type AttributeId } from './attributes';
 import { BFI2_ITEMS, type QuizItem } from './bfi2Items';
 import {
+  ANSWER_LABELS,
   FULL_FORM_ITEMS,
   SHORT_FORM_ITEMS,
   scoreQuiz,
@@ -117,5 +118,38 @@ describe('scoreQuiz', () => {
     const answers = answerAll(SHORT_FORM_ITEMS, 3);
     delete answers[37];
     expect(() => scoreQuiz(SHORT_FORM_ITEMS, answers)).toThrow('Quiz item 37 is unanswered');
+  });
+});
+
+describe('English wording', () => {
+  it('asks the short form in the order of the official BFI-2-XS form', () => {
+    expect(SHORT_FORM_ITEMS.map((item) => item.text.en)).toEqual([
+      'Tends to be quiet.',
+      'Is compassionate, has a soft heart.',
+      'Tends to be disorganized.',
+      'Worries a lot.',
+      'Is fascinated by art, music, or literature.',
+      'Is dominant, acts as a leader.',
+      'Is sometimes rude to others.',
+      'Has difficulty getting started on tasks.',
+      'Tends to feel depressed, blue.',
+      'Has little interest in abstract ideas.',
+      'Is full of energy.',
+      'Assumes the best about people.',
+      'Is reliable, can always be counted on.',
+      'Is emotionally stable, not easily upset.',
+      'Is original, comes up with new ideas.',
+    ]);
+  });
+
+  it('has English text for every item and answer label', () => {
+    const chinese = /[一-鿿]/;
+    for (const item of BFI2_ITEMS) {
+      expect(item.text.en).not.toMatch(chinese);
+      expect(item.text.en.trim()).not.toBe('');
+    }
+    for (const label of Object.values(ANSWER_LABELS)) {
+      expect(label.en).not.toMatch(chinese);
+    }
   });
 });
