@@ -8,8 +8,8 @@
   {
     "id": "cur-02", "attribute": "curiosity", "pole": "high", "category": "body", "minutes": 15,
     "title": { "zh": "走一条没走过的路", "en": "Take a new route" },
-    "description": { "zh": "白天换一条没走过的路去上课或回宿舍，路上找一个新发现。", "en": "In daylight, take a new route to class or back to your dorm and notice one new thing." },
-    "doneWhen": { "zh": "到达目的地，说得出一个新发现", "en": "You arrive and can name one new thing" }
+    "description": { "zh": "白天换一条没走过的路去上课或回宿舍，路上找一个新发现。", "en": "In daylight, take a route you’ve never used to class or your dorm and spot one new thing." },
+    "doneWhen": { "zh": "到达目的地，说得出一个新发现", "en": "You arrive and can name one new thing you saw" }
   },
   {
     "id": "cur-03", "attribute": "curiosity", "pole": "high", "category": "solo", "minutes": 10,
@@ -75,7 +75,7 @@
     "id": "dis-01", "attribute": "discipline", "pole": "high", "category": "solo", "minutes": 5,
     "title": { "zh": "写下明天的三件事", "en": "Tomorrow’s top three" },
     "description": { "zh": "睡前在备忘录写下明天最重要的三件事，比如交作业、去驿站取快递。", "en": "Before bed, note the three most important things for tomorrow, like handing in homework or picking up a parcel." },
-    "doneWhen": { "zh": "写满三条", "en": "All three are written down" }
+    "doneWhen": { "zh": "写满三条", "en": "All three are written" }
   },
   {
     "id": "dis-02", "attribute": "discipline", "pole": "high", "category": "learning", "minutes": 15,
@@ -140,8 +140,8 @@
   {
     "id": "dis-12", "attribute": "discipline", "pole": "low", "category": "learning", "minutes": 10,
     "title": { "zh": "做到能交就停", "en": "Stop at good enough" },
-    "description": { "zh": "写作业或做 PPT 时，挑一小部分，做到能交就停，不再反复改。", "en": "While doing homework or slides, pick one small part and stop once it’s good enough to hand in, without polishing it again." },
-    "doneWhen": { "zh": "这件事做完并且停手", "en": "That part is done and you’ve stopped" }
+    "description": { "zh": "写作业或做 PPT 时，挑一小部分，做到能交就停，不再反复改。", "en": "While doing homework or slides, pick one small part and stop once it’s good enough to hand in." },
+    "doneWhen": { "zh": "这件事做完并且停手", "en": "The task is done and you’ve stopped" }
   },
   {
     "id": "soc-01", "attribute": "socialEnergy", "pole": "high", "category": "social", "minutes": 5,
@@ -165,7 +165,7 @@
     "id": "soc-04", "attribute": "socialEnergy", "pole": "high", "category": "body", "minutes": 30,
     "title": { "zh": "约人一起运动", "en": "Move with someone" },
     "description": { "zh": "约一个人一起夜跑、打羽毛球或打球。", "en": "Ask someone to join you for an evening run, badminton or a ball game." },
-    "doneWhen": { "zh": "一起运动完", "en": "You’ve finished exercising together" }
+    "doneWhen": { "zh": "一起运动完", "en": "You’ve finished moving together" }
   },
   {
     "id": "soc-09", "attribute": "socialEnergy", "pole": "high", "category": "social", "minutes": 5,
@@ -213,7 +213,7 @@
     "id": "soc-12", "attribute": "socialEnergy", "pole": "low", "category": "campus", "minutes": 20,
     "title": { "zh": "一个人慢慢逛", "en": "Browse alone" },
     "description": { "zh": "一个人去校园超市、书店或学校附近的小街，按自己的节奏逛 20 分钟。", "en": "Go alone to the campus store, a bookshop or a street near campus and browse at your own pace for 20 minutes." },
-    "doneWhen": { "zh": "逛完离开", "en": "You’ve finished browsing and left" }
+    "doneWhen": { "zh": "逛完离开", "en": "You’ve finished and left" }
   },
   {
     "id": "war-01", "attribute": "warmth", "pole": "high", "category": "social", "minutes": 5,
@@ -266,8 +266,8 @@
   {
     "id": "war-07", "attribute": "warmth", "pole": "low", "category": "campus", "minutes": 30,
     "title": { "zh": "自己去做没人陪的事", "en": "Go without company" },
-    "description": { "zh": "有件事你一直等人陪才去，比如看电影、去某家店或某个地方，今天自己去。", "en": "Think of something you’ve been waiting for company to do, like a movie, a shop or a place. Go on your own today." },
-    "doneWhen": { "zh": "去过了", "en": "You’ve gone" }
+    "description": { "zh": "有件事你一直等人陪才去，比如看电影、去某家店或某个地方，今天自己去。", "en": "Something you’ve been waiting for company to do, like a movie, a shop or a place, go and do it on your own today." },
+    "doneWhen": { "zh": "去过了", "en": "You’ve been" }
   },
   {
     "id": "war-08", "attribute": "warmth", "pole": "low", "category": "solo", "minutes": 5,
@@ -284,7 +284,7 @@
   {
     "id": "war-12", "attribute": "warmth", "pole": "low", "category": "solo", "minutes": 5,
     "title": { "zh": "不跟风一次", "en": "Skip one trend" },
-    "description": { "zh": "看到大家都在买或都在打卡的东西，比如新款奶茶或网红店，想想自己是不是真的想要，不想要就不跟。", "en": "When everyone is buying or visiting something, like a new milk tea or a trendy shop, ask yourself if you really want it. If not, skip it." },
+    "description": { "zh": "看到大家都在买或都在打卡的东西，比如新款奶茶或网红店，想想自己是不是真的想要，不想要就不跟。", "en": "When everyone is buying or checking in at something, like a new milk tea or a trendy shop, ask yourself if you really want it. If not, skip it." },
     "doneWhen": { "zh": "做出了自己的选择", "en": "You’ve made your own call" }
   },
   {
@@ -321,7 +321,7 @@
     "id": "cal-10", "attribute": "calm", "pole": "high", "category": "body", "minutes": 5,
     "title": { "zh": "爬三层楼梯", "en": "Three flights of stairs" },
     "description": { "zh": "下午犯困时，在教学楼或宿舍楼不坐电梯，爬三层楼梯。", "en": "When you feel sleepy in the afternoon, skip the elevator in your teaching building or dorm and climb three flights of stairs." },
-    "doneWhen": { "zh": "爬完第三层", "en": "You’ve climbed three flights" }
+    "doneWhen": { "zh": "爬完第三层", "en": "You reach the third floor" }
   },
   {
     "id": "cal-05", "attribute": "calm", "pole": "low", "category": "solo", "minutes": 15,
@@ -349,7 +349,7 @@
   },
   {
     "id": "cal-11", "attribute": "calm", "pole": "low", "category": "solo", "minutes": 5,
-    "title": { "zh": "在意背后的在乎", "en": "What a worry shows you care about" },
+    "title": { "zh": "在意背后的在乎", "en": "What your worry cares about" },
     "description": { "zh": "写下今天让你在意的一件小事，比如群里没人回你、课上被点名，再写一句：它说明你在乎什么？", "en": "Write down one small thing that bothered you today, like no reply in a group chat or being called on in class, then one line on what it shows you care about." },
     "doneWhen": { "zh": "两句都写好", "en": "Both lines are written" }
   },

@@ -1,20 +1,14 @@
-// Chinese interface text, the default language. en.ts has the same keys.
+// All interface text in one place. Sprint 1 is Chinese only; keeping the
+// text here means adding English later only touches this file (PRD FR-8).
 // Wording follows the Sprint 1 wireframes.
 
-import type { AttributeId, Pole } from '../game/attributes';
+import type { AttributeId, Pole } from './game/attributes';
 
-export const ZH = {
+export const TEXT = {
   appName: 'Me Online',
 
   // Shared labels.
   back: '返回',
-
-  // The language button on every screen. It is labeled in the other
-  // language, so a player who cannot read this one can still find it.
-  languageSwitch: {
-    label: 'Translate',
-    ariaLabel: 'Switch to English',
-  },
 
   // Labels in the bottom navigation bar.
   tabs: {
@@ -254,12 +248,9 @@ export const ZH = {
   characterTab: {
     checkInCount: (count: number) => `累计打卡 ${count} 次`,
     questStyle: (styleTitle: string) => `任务方向：${styleTitle}`,
-    focus: (attributeNames: string[]) => `想多了解：${attributeNames.join('、')}`,
+    focus: (attributeNames: string) => `想多了解：${attributeNames}`,
     edit: '修改',
     signIn: '登录保存进度',
     signOut: '退出登录',
   },
-};
-
-// The shape every language must match.
-export type Text = typeof ZH;
+} as const;

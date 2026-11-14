@@ -86,7 +86,7 @@ Me-online/
         │   ├── history/      History and history detail
         │   └── account/      Sign in and sign up
         ├── styles/       One stylesheet per feature, plus shared ones
-        └── text/         All interface text, in Chinese and English
+        └── text.ts       All interface text (Chinese)
 ```
 
 ## Deployment and tech stack

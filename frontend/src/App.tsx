@@ -4,29 +4,24 @@
 // 3. Character but no player setup: initial character, self-check, quest style.
 // 4. Setup saved: the main pages (see screens/Main.tsx).
 // Navigation is plain React state (no router library) to keep it simple.
-// The language button sits above every stage.
 import { useEffect, useState } from 'react';
-import { LanguageButton } from './components/LanguageButton';
 import { scoreQuiz, SHORT_FORM_ITEMS, type QuizAnswers } from './game/quiz';
-import type { Character, Language, PlayerSetup, Profile } from './game/types';
+import type { Character, PlayerSetup, Profile } from './game/types';
 import { syncToServer } from './remote/sync';
 import { Main } from './screens/Main';
 import { CharacterSetup } from './screens/onboarding/CharacterSetup';
 import { Onboarding } from './screens/onboarding/Onboarding';
 import { QuizScreen } from './screens/onboarding/QuizScreen';
 import { createCharacter, loadCharacter, saveCharacter } from './storage/character';
-import { loadLanguage, saveLanguage } from './storage/language';
 import { loadPlayerSetup, savePlayerSetup } from './storage/playerSetup';
 import { loadProfile, saveProfile } from './storage/profile';
 import { loadQuizProgress, saveQuizProgress } from './storage/quizProgress';
-import { setLanguage, TEXT } from './text';
+import { TEXT } from './text';
 
 function App() {
   const [profile, setProfile] = useState<Profile | null>(() => loadProfile());
   const [character, setCharacter] = useState<Character | null>(() => loadCharacter());
   const [setup, setSetup] = useState<PlayerSetup | null>(() => loadPlayerSetup());
-  // main.tsx has already applied the saved language to TEXT.
-  const [language, setLanguageState] = useState<Language>(loadLanguage);
 
   // Uploads the player's data whenever it changes: after Name, the quiz, the
   // setup, the full test, and check-ins that move a score.
@@ -51,21 +46,17 @@ function App() {
     setSetup(newSetup);
   }
 
-  // Switches between Chinese and English. Changing this state re-renders
-  // every screen with the new TEXT, without losing the player's place.
-  function toggleLanguage() {
-    const next = language === 'zh' ? 'en' : 'zh';
-    saveLanguage(next);
-    setLanguage(next);
-    setLanguageState(next);
+  if (!profile) {
+    return (
+      <div className="app">
+        <Onboarding onFinish={finishOnboarding} />
+      </div>
+    );
   }
 
-  function currentScreen() {
-    if (!profile) {
-      return <Onboarding onFinish={finishOnboarding} />;
-    }
-    if (!character) {
-      return (
+  if (!character) {
+    return (
+      <div className="app">
         <QuizScreen
           title={TEXT.quiz.title}
           items={SHORT_FORM_ITEMS}
@@ -73,12 +64,20 @@ function App() {
           saveProgress={saveQuizProgress}
           onFinish={finishQuiz}
         />
-      );
-    }
-    if (!setup) {
-      return <CharacterSetup character={character} onCharacterChange={setCharacter} onFinish={saveSetup} />;
-    }
+      </div>
+    );
+  }
+
+  if (!setup) {
     return (
+      <div className="app">
+        <CharacterSetup character={character} onCharacterChange={setCharacter} onFinish={saveSetup} />
+      </div>
+    );
+  }
+
+  return (
+    <div className="app">
       <Main
         profile={profile}
         character={character}
@@ -86,13 +85,6 @@ function App() {
         onCharacterChange={setCharacter}
         onSetupChange={saveSetup}
       />
-    );
-  }
-
-  return (
-    <div className="app">
-      <LanguageButton onClick={toggleLanguage} />
-      {currentScreen()}
     </div>
   );
 }

@@ -147,30 +147,6 @@
   transform: translate(-50%, -50%);
 }
 
-/* English pole names, such as "Conscientious", are too long for the
-   side columns, so they go under the track at both ends instead. */
-html[lang='en'] .attribute-bar {
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    'track track'
-    'low high';
-  row-gap: 12px;
-}
-
-html[lang='en'] .attribute-track {
-  grid-area: track;
-}
-
-html[lang='en'] .attribute-pole {
-  grid-area: low;
-  text-align: left;
-}
-
-html[lang='en'] .attribute-pole:last-child {
-  grid-area: high;
-  text-align: right;
-}
-
 /* ---------- Chips (05a self-check, 05b focus attributes) ---------- */
 
 .chip-row {
@@ -364,23 +340,5 @@ html[lang='en'] .attribute-pole:last-child {
   background: none;
   color: var(--color-muted);
   font-size: 15px;
-  cursor: pointer;
-}
-
-/* ---------- Language switch (every screen) ---------- */
-
-.language-bar {
-  display: flex;
-  justify-content: flex-end;
-  padding: 8px 16px 0;
-}
-
-.language-button {
-  padding: 4px 12px;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  background: none;
-  font-size: 13px;
-  color: var(--color-muted);
   cursor: pointer;
 }

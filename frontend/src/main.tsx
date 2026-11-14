@@ -3,13 +3,8 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
 import { syncToServer } from './remote/sync';
-import { loadLanguage } from './storage/language';
 import { getAnonymousId } from './storage/localStore';
-import { setLanguage } from './text';
 import './styles/index.css';
-
-// Show the language the player picked last time (Chinese by default).
-setLanguage(loadLanguage());
 
 // Give this device its anonymous ID on first open (PRD FR-9.2).
 getAnonymousId();
