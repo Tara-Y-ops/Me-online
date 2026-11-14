@@ -6,7 +6,7 @@ The player opens the app and sees three quests. They can swap one, pick one to d
 
 ## Navigation
 
-The app opens on the Today board. A bottom navigation bar links the four pages, Today, Character, Preference Map, and History.
+The app opens on the Today board. A bottom navigation bar links the four pages, Today, Character, Preference Map, and History. A button at the top of every screen switches between Chinese and English. It is labeled in the other language, “Translate” on Chinese screens and “翻译” on English ones.
 
 ## Flow 1, first-time player
 
