@@ -4,7 +4,7 @@
 import questData from '../../../data/quests.json';
 import type { AttributeId, Pole } from './attributes';
 
-// Each quest has Chinese and English text, ready for Sprint 2 (FR-8.2).
+// Each quest has Chinese and English text; screens show the current language.
 export interface LocalizedText {
   zh: string;
   en: string;

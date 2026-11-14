@@ -6,7 +6,7 @@ import { History } from 'lucide-react';
 import { REACTION_ICONS } from '../../components/reactionIcons';
 import { findQuest } from '../../game/quests';
 import type { CheckIn } from '../../game/types';
-import { TEXT } from '../../text';
+import { localize, TEXT } from '../../text';
 
 interface HistoryTabProps {
   checkIns: CheckIn[]; // Oldest first, as saved
@@ -39,7 +39,7 @@ export function HistoryTab({ checkIns, onOpen, onGoToday }: HistoryTabProps) {
                 onClick={() => onOpen(index)}
               >
                 <CheckInMeta checkIn={checkIn} />
-                <span className="quest-card-title">{findQuest(checkIn.questId).title.zh}</span>
+                <span className="quest-card-title">{localize(findQuest(checkIn.questId).title)}</span>
                 <CheckInFeedback checkIn={checkIn} />
               </button>
             ))

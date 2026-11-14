@@ -6,6 +6,9 @@ import type { AttributeId, Pole } from './attributes';
 import type { Reaction, Side } from './attributeChange';
 import type { QuestKind } from './questPicker';
 
+// The interface language, Chinese by default.
+export type Language = 'zh' | 'en';
+
 // The display name and consent, saved after Name (FR-1.1, NFR-1).
 export interface Profile {
   name: string; // Display name picked before the quiz

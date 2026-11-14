@@ -11,7 +11,7 @@ import { cleanTags, MAX_NOTE_LENGTH, MAX_TAG_LENGTH, MAX_TAGS } from '../../game
 import type { QuestKind } from '../../game/questPicker';
 import type { Quest } from '../../game/quests';
 import type { CheckInForm } from '../../game/types';
-import { TEXT } from '../../text';
+import { localize, TEXT } from '../../text';
 
 interface CheckInScreenProps {
   quest: Quest;
@@ -49,7 +49,7 @@ export function CheckInScreen({ quest, kind, onBack, onSave }: CheckInScreenProp
       <div className="page-body">
         <div className="check-in-quest">
           <span className={kind === 'stretch' ? 'tag tag-stretch' : 'tag'}>{TEXT.questKind[kind]}</span>
-          <p className="quest-card-title">{quest.title.zh}</p>
+          <p className="quest-card-title">{localize(quest.title)}</p>
         </div>
 
         <h2 className="form-heading">{TEXT.checkIn.feeling}</h2>

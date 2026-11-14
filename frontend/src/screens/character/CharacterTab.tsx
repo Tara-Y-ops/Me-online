@@ -28,9 +28,7 @@ export function CharacterTab(props: CharacterTabProps) {
   const { profile, character, setup, checkInCount, accountEmail, onFullTest, onEditStyle, onSignIn, onSignOut } =
     props;
   const styleTitle = TEXT.questStyle.options[setup.questStyle].title;
-  const focusNames = setup.focusAttributes
-    .map((attribute) => TEXT.attributeNames[attribute])
-    .join('、');
+  const focusNames = setup.focusAttributes.map((attribute) => TEXT.attributeNames[attribute]);
 
   return (
     <>
